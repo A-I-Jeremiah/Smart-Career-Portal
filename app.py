@@ -287,8 +287,8 @@ st.markdown("""
     /* Micro metric chip styles for the uploaded data summary */
     .summary-chip {
         background-color: #f1f5f9;
-        border-radius: 8px;
-        padding: 12px;
+        border-radius: 20px;
+        padding: 24px;
         text-align: center;
         border: 1px solid #e2e8f0;
     }
@@ -298,7 +298,7 @@ st.markdown("""
         border-color: #3b82f6;
     }
     .chip-val {
-        font-size: 1.3rem;
+        font-size: 2.2rem;
         font-weight: 700;
         color: #0f172a;
     }
@@ -312,12 +312,15 @@ st.markdown("""
     .upload-card {
         background: #ffffff;
         border: 1px solid #e2e8f0;
-        border-radius: 20px;
-        padding: 24px;
+        border-radius: 30px;
+        padding: 10px;
         box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
-        margin-bottom: 24px;
+        margin-bottom: 10px;
+        margin-top: 10px;
     }
     .upload-section-title {
+        font-size: 2.2rem;
+        font-weight: 800;
         display: flex;
         justify-content: space-between;
         align-items: baseline;
@@ -330,17 +333,19 @@ st.markdown("""
         color: #0f172a;
         font-weight: 700;
     }
+    .upload-section-title subtitle {
+        font-size: 0.9rem;}
     .upload-section-title span {
         color: #475569;
-        font-size: 0.92rem;
+        font-size: 2.2rem;
     }
     .file-hint {
         background: #f8fafc;
-        border: 1px solid #dbeafe;
+        border: 2px solid #dbeafe;
         border-radius: 14px;
-        padding: 14px 18px;
+        padding: 10px 10px;
         color: #475569;
-        margin-top: 14px;
+        margin-top: 5px;
         line-height: 1.7;
     }
     .ledger-header {
@@ -1426,7 +1431,7 @@ def app():
             else:
                 # Empty structural placeholder callout state element view
                 st.markdown("""
-                    <div style="text-align:center; padding: 40px 20px; border: 2px dashed #cbd5e1; border-radius:12px; margin-top:15px; background-color:#f8fafc;">
+                    <div style="text-align:center; padding: 40px 20px; border: 2px dashed #cbd5e1; border-radius:24px; margin-top:4px; margin-bottom: 15px; background-color:#f8fafc;">
                         <p style="font-size:2.5rem; margin:0;">empty 📑</p>
                         <h4 style="color:#64748b; margin:10px 0 4px 0;">No Grades Recorded Yet</h4>
                         <p style="color:#94a3b8; font-size:0.85rem; max-width:320px; margin:0 auto;">Use the input record entry form panel on the left to add your subjects and build out your performance index.</p>
@@ -1439,7 +1444,7 @@ def app():
 
             st.markdown(
                 '<div class="upload-card"><div class="upload-section-title"><h3>📊 Upload Results via Excel</h3>' +
-                '<span>Drop an Excel or CSV file here to import your subject scores fast.</span></div></div>',
+                '<subtitle>Drop an Excel or CSV file here to import your subject scores fast.</span></div></div>',
                 unsafe_allow_html=True
             )
             uploaded_file = st.file_uploader(
