@@ -1,16 +1,20 @@
+import pandas as pd
 import datetime
 import os
 import json
 import sqlite3
-from collections import defaultdict
 
+from collections import defaultdict
 import bcrypt
 import numpy as np
 import streamlit as st
+try:
+    from streamlit_option_menu import option_menu
+except ImportError:
+    option_menu = None
 from google import genai
 from google.genai import types
 from dotenv import load_dotenv
-import pdfplumber
 import re
 
 
@@ -23,7 +27,7 @@ def keep_alive():
     st.empty()  # Invisible element that keeps the session alive
 
 # ====================== GEMINI CONFIG ======================
-GEMINI_API_KEY = os.getenv("GO--OGLE_API_KEY")
+GEMINI_API_KEY = os.getenv("GOOGLE_API_KEY")
 gemini_client  = genai.Client(api_key=GEMINI_API_KEY)
 GEMINI_MODEL   = "gemini-2.5-flash"
 
@@ -61,22 +65,299 @@ st.set_page_config(page_title="Smart Career Portal", page_icon="🎓", layout="w
 st.markdown("""
 <style>
     body { background-color: #f5f6fa; }
-    .container {
-        max-width: 420px; margin: auto; padding: 15px;
-        background: whhite ; border-radius: 16px;
-        box-shadow: 0px 6px 24px rgba(0,0,0,0.10);
-    }
     .title   { font-size: 30px; font-weight: 800; text-align: center; margin-bottom: 8px; }
     .subtitle{ font-size: 14px; color: gray; text-align: center; margin-bottom: 20px; }
     .caption { font-size: 12px; text-align: center; color: gray; margin-bottom: 30px; }
-    .stTextInput>div>div>input,
-    .stSelectbox>div>div,
-    .stDateInput>div>div { border-radius: 10px; padding: 10px; }
-    button[kind="primary"] {
-        border-radius: 10px; background-color: #2d6cdf;
-        color: white; font-weight: bold;
+
+    /* Remove standard Streamlit form borders and background */
+    div[data-testid="stForm"] {
+        border: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+    }
+
+    /* Beautiful custom container for our login form */
+    .auth-card {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 10px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        margin-top: 5px;
+    }
+
+    /* Centered heading styles */
+    .auth-title {
+        font-size: 1.6rem !important;
+        font-weight: 700 !important;
+        color: #1e293b !important;
+        text-align: center;
+        margin-bottom: 24px !important;
+    }
+
+    /* Style all standard inputs inside the auth area */
+    .stTextInput input {
+        background-color: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #334155 !important;
+        font-size: 14px !important;
+        padding: 10px 14px !important;
+        border-radius: 8px !important;  
+        transition: all 0.2s ease !important;
+    }
+
+    /* Give the login button a broad, premium aesthetic */
+    div[data-testid="stFormSubmitButton"] button {
+        width: 100% !important;
+        background: linear-gradient(135deg, #1e3a8a 0%, #2d6cdf 100%) !important;
+        color: white !important;
+        padding: 12px 24px !important;
+        font-weight: 600 !important;
+        border-radius: 10px !important;
+        border: none !important;
+        box-shadow: 0 4px 12px rgba(45, 108, 223, 0.2) !important;
+        transition: all 0.2s ease !important;
+    }
+
+    div[data-testid="stFormSubmitButton"] button:hover {
+        transform: translateY(-1px) !important;
+        box-shadow: 0 6px 16px rgba(45, 108, 223, 0.3) !important;
     }
     .footer { text-align: center; font-size: 13px; margin-top: 15px; }
+    
+    /* Remove default Streamlit top padding */
+    .block-container { padding-top: 1.5rem !important; padding-bottom: 0rem !important; }
+    
+    /* ENsure the sidebar trigger button remains visible and interactive */
+    div[data-testid="StHeader"] {
+        background-color: transparent;
+        background: transparent;
+    }
+    button[data-testid="stSidebarCollapseButton"] {
+        visibility: visible;
+        z-index: 999999;
+    }
+    
+    /* Modernized Hero Header Banner */
+    .hero-banner {
+        background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+        padding: 24px 20px;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.2);
+        margin-bottom: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-title {
+        color: #ffffff !important;
+        font-size: 2.2rem !important;
+        font-weight: 800 !important;
+        margin-bottom: 6px !important;
+        letter-spacing: -0.02em;
+    }
+    .hero-subtitle {
+        color: #93c5fd !important;
+        font-size: 1rem !important;
+        font-weight: 500 !important;
+        margin: 0 !important;
+        opacity: 0.9;
+    }
+    /* Polished Title Area */
+    .dash-header {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .dash-welcome {
+        font-size: 1.8rem !important;
+        font-weight: 700 !important;
+        color: #1e293b !important;
+        margin-bottom: 4px !important;
+    }
+    .dash-meta {
+        font-size: 0.95rem !important;
+        color: #64748b !important;
+    }
+    /* Main metric cards */
+    .dashboard-card {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 24px;
+        text-align: center;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        transition: transform 0.2s, box-shadow 0.2s;
+        margin-bottom: 15px;
+    }
+    .dashboard-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        border-color: #3b82f6;
+    }
+    .card-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+    .card-value {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #1e293b;
+        line-height: 1.2;
+        margin: 8px 0;
+    }
+    .card-title {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    
+    /* How it works step cards */
+    .step-card {
+        background: #f8fafc;
+        border-left: 4px solid #3b82f6;
+        padding: 15px 20px;
+        border-radius: 0 8px 8px 0;
+        margin-bottom: 12px;
+    }
+    .step-header {
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 4px;
+    }
+    .step-desc {
+        font-size: 0.9rem;
+        color: #64748b;
+    }
+            
+    /* ====================== UPLOAD TAB SPECIFIC STYLES ====================== */
+
+    /* Container for the left input panel */
+    .input-panel-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 24px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        margin-bottom: 20px;
+    }
+
+    .panel-title {
+        font-size: 1.1rem !important;
+        font-weight: 700 !important;
+        color: #1e293b !important;
+        margin-bottom: 16px !important;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Make custom action buttons pop */
+    div.stButton > button:first-child {
+        width: 100% !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        padding: 10px 16px !important;
+        transition: all 0.2s ease !important;
+    }
+
+    /* Accent primary button color (Add Score) */
+    .add-btn button {
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%) !important;
+        color: white !important;
+        border: none !important;
+    }
+    .add-btn button:hover {
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+    }
+
+    /* Secondary danger button color (Clear All) */
+    .clear-btn button {
+        background-color: #fff5f5 !important;
+        color: #e53e3e !important;
+        border: 1px solid #fed7d7 !important;
+    }
+    .clear-btn button:hover {
+        background-color: #fff5f5 !important;
+        border-color: #e53e3e !important;
+        box-shadow: 0 2px 8px rgba(229, 62, 62, 0.1) !important;
+    }
+
+    /* Micro metric chip styles for the uploaded data summary */
+    .summary-chip {
+        background-color: #f1f5f9;
+        border-radius: 8px;
+        padding: 12px;
+        text-align: center;
+        border: 1px solid #e2e8f0;
+    }
+    .summary-chip:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        border-color: #3b82f6;
+    }
+    .chip-val {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #0f172a;
+    }
+    .chip-lbl {
+        font-size: 0.75rem;
+        color: #64748b;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .upload-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+        margin-bottom: 24px;
+    }
+    .upload-section-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+        margin-bottom: 18px;
+    }
+    .upload-section-title h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #0f172a;
+        font-weight: 700;
+    }
+    .upload-section-title span {
+        color: #475569;
+        font-size: 0.92rem;
+    }
+    .file-hint {
+        background: #f8fafc;
+        border: 1px solid #dbeafe;
+        border-radius: 14px;
+        padding: 14px 18px;
+        color: #475569;
+        margin-top: 14px;
+        line-height: 1.7;
+    }
+    .ledger-header {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin: 20px 0 10px;
+    }
+    div[data-testid="stFileUploader"] {
+        background: rgba(59, 130, 246, 0.05);
+        border: 1px dashed #93c5fd;
+        border-radius: 18px;
+        padding: 18px 20px;
+    }
+    div[data-testid="stFileUploader"] > div {
+        color: #0f172a;
+    }
 
     /* ── Test tab ─────────────────────────────────────── */
     .test-progress-bar {
@@ -147,6 +428,7 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
 
 # ====================== CONSTANTS ======================
 DEPARTMENT_SUBJECTS = {
@@ -337,7 +619,7 @@ def init_db():
     c.execute("""CREATE TABLE IF NOT EXISTS academic_results (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         user_id INTEGER, result_type TEXT, subject TEXT,
-        score REAL, exam_date TEXT, uploaded_at TEXT)""")
+        score REAL, exam_date TEXT, uploaded_at TEXT, UNIQUE(user_id, result_type, subject, score, exam_date))""")
     c.execute("""CREATE TABLE IF NOT EXISTS test_responses (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         user_id INTEGER, test_type TEXT, question_id TEXT,
@@ -357,15 +639,29 @@ def init_db():
             pass
     conn.commit()
     conn.close()
+    create_admin_user()
 
-def extract_pdf_text(file):
-    text = ""
-    with pdfplumber.open(file) as pdf:
-        for page in pdf.pages:
-            if page.extract_text():
-                text += page.extract_text() + "\n"
-    return text
+def remove_duplicate_results():
 
+    conn = sqlite3.connect("career_portal.db")
+    c = conn.cursor()
+
+    c.execute("""
+    DELETE FROM academic_results
+    WHERE id NOT IN (
+        SELECT MIN(id)
+        FROM academic_results
+        GROUP BY
+            user_id,
+            result_type,
+            subject,
+            score,
+            exam_date
+    )
+    """)
+
+    conn.commit()
+    conn.close()
 
 def parse_results(text):
     results = []
@@ -382,18 +678,30 @@ def parse_results(text):
 
     return results
 
-def hash_password(p):       return bcrypt.hashpw(p.encode(), bcrypt.gensalt())
-def check_password(p, h):   return bcrypt.checkpw(p.encode(), h)
+def hash_password(p):
+    return bcrypt.hashpw(p.encode(), bcrypt.gensalt()).decode("utf-8")
+
+def check_password(p, h):
+    if isinstance(h, str):
+        h = h.encode("utf-8")
+    return bcrypt.checkpw(p.encode(), h)
 
 def create_admin_user():
     conn = sqlite3.connect("career_portal.db")
     c = conn.cursor()
-    c.execute("SELECT id FROM users WHERE email='Admin'")
-    if not c.fetchone():
+    c.execute("SELECT id, password FROM users WHERE email='Admin'")
+    row = c.fetchone()
+    if not row:
         c.execute("INSERT INTO users (full_name,dob,class_level,department,email,password) VALUES (?,?,?,?,?,?)",
                   ("Administrator","2000-01-01","Admin",None,"Admin",hash_password("Admin")))
         conn.commit()
         st.toast("✅ Admin account created  (email: Admin / password: Admin)", icon="🔑")
+    else:
+        # Migrate old bytes-stored hash to string if needed
+        stored_pw = row[1]
+        if isinstance(stored_pw, bytes) or (isinstance(stored_pw, str) and stored_pw.startswith("b'")):
+            c.execute("UPDATE users SET password=? WHERE email='Admin'", (hash_password("Admin"),))
+            conn.commit()
     conn.close()
 
 def create_user(full_name, dob, class_level, department, email, password):
@@ -416,12 +724,63 @@ def login_user(email, password):
     return user if (user and check_password(password, user[4])) else None
 
 
-def save_academic_result(user_id, result_type, subject, score, exam_date):
+def save_academic_result(
+    user_id,
+    result_type,
+    subject,
+    score,
+    exam_date
+):
     conn = sqlite3.connect("career_portal.db")
     c = conn.cursor()
-    c.execute("INSERT INTO academic_results (user_id,result_type,subject,score,exam_date,uploaded_at) VALUES (?,?,?,?,?,?)",
-              (user_id, result_type, subject, score, str(exam_date), datetime.datetime.now().isoformat()))
-    conn.commit(); conn.close()
+    # Check for duplicate first
+    c.execute(
+        """
+        SELECT id
+        FROM academic_results
+        WHERE user_id = ?
+        AND result_type = ?
+        AND subject = ?
+        AND score = ?
+        AND exam_date = ?
+        """,
+        (
+            user_id,
+            result_type,
+            subject,
+            score,
+            str(exam_date)
+        )
+    )
+    existing = c.fetchone()
+    if existing:
+        conn.close()
+        return False
+    c.execute(
+        """
+        INSERT INTO academic_results
+        (
+            user_id,
+            result_type,
+            subject,
+            score,
+            exam_date,
+            uploaded_at
+        )
+        VALUES (?, ?, ?, ?, ?, ?)
+        """,
+        (
+            user_id,
+            result_type,
+            subject,
+            score,
+            str(exam_date),
+            datetime.datetime.now().isoformat()
+        )
+    )
+    conn.commit()
+    conn.close()
+    return True
 
 def get_user_results(user_id):
     conn = sqlite3.connect("career_portal.db")
@@ -796,9 +1155,6 @@ def translate_role_for_streamlit(user_role):
         return user_role
 
 
-init_db()
-create_admin_user()
-
 # ====================== RENDER SINGLE TEST ======================
 def render_test(meta, completed_tests):
     test_key  = meta["key"]
@@ -890,25 +1246,31 @@ def app():
         keep_alive()
     if st.session_state.get("logged_in", False):
         st.markdown("""
-        <div class="container">
-
-        <div class="title">🎓 Student Career Portal</div>
-
-        </div>
+            <div class="hero-banner">
+                <h1 class="hero-title">🎓 Student Career Portal</h1>
+                <p class="hero-subtitle">Smart Career Path Recommendation for Nigerian Secondary Students</p>
+            </div>
         """, unsafe_allow_html=True)
-        st.markdown('<div class="subtitle">Smart Career Path Recommendation for Nigerian Secondary Students</div>', unsafe_allow_html=True)
 
         # ── LOGGED IN ────────────────────────────────────────────────────────────
-        # Sidebar
+        # Sidebar — user info + logout only
         dept_txt = f" — {st.session_state.department}" if st.session_state.department else ""
-        st.sidebar.success(f"👋 {st.session_state.full_name}\n{st.session_state.class_level}{dept_txt}")
-        # Logout Button
-        if st.sidebar.button("🚪 Logout", type="secondary"):
+        with st.sidebar:
+            st.markdown(f"""
+            <div style="background:linear-gradient(135deg,#1e3a8a,#3b82f6);
+                        border-radius:12px;padding:16px;color:white;margin-bottom:16px;">
+                <div style="font-size:1rem;font-weight:700;">👤 {st.session_state.full_name}</div>
+                <div style="font-size:0.82rem;opacity:0.9;margin-top:4px;">
+                    🎓 {st.session_state.class_level}{dept_txt}
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            if not ML_READY:
+                st.warning("⚠️ ML models not found. Run `train_model.ipynb` first.")
+            if st.button("🚪 Logout", type="secondary", use_container_width=True):
                 clear_user_data()
                 st.success("👋 You have been logged out successfully.")
                 st.rerun()
-        if not ML_READY:
-            st.sidebar.warning("⚠️ ML models not found. Run `train_model.ipynb` first.")
             
         tab_dashboard, tab_upload, tab_test, tab_rec = st.tabs([
             "🏠 Dashboard","📤 Upload Results","🧠 Take 4 Tests","📊 My Recommendations"
@@ -917,185 +1279,316 @@ def app():
         # ----------------------- DASHBOARD ----------------------------
 
         with tab_dashboard:
-            st.header('🎓 Welcome to Your Smart Career Journey', text_alignment='center')
-            #st.markdown('<div class="title">🎓 Welcome to Your Smart Career Journey</div>', unsafe_allow_html=True)
-            st.subheader(f"Hello, {st.session_state.full_name}! 👋")
-            st.caption(f"Class: **{st.session_state.class_level}**" +
-                    (f" | Department: **{st.session_state.department}**" if st.session_state.department else ""))
+            # Sleek Profile Header
+            st.markdown(f"""
+            <div style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 30px; border-radius: 12px; color: white; margin-bottom: 25px;">
+                <h2 style="margin: 0; font-weight: 700; color: white;">Welcome Back, {st.session_state.full_name} to Your Smart Career Journey! 👋</h2>
+                <p style="margin: 5px 0 0 0; opacity: 0.9; font-size: 1rem;">
+                    Class: <span style="background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px; font-weight: 600;">{st.session_state.class_level}</span>
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
 
             n_tests   = len(get_completed_tests(st.session_state.user_id))
             n_results = len(get_user_results(st.session_state.user_id))
             rec_ready = get_recommendation(st.session_state.user_id) is not None
 
             c1,c2,c3 = st.columns(3)
-            c1.metric("📋 Results Uploaded", n_results,       help="Upload First, Second & Third Term scores")
-            c2.metric("🧠 Tests Completed",  f"{n_tests}/4",  help="Complete all 4 assessments")
-            c3.metric("📊 Recommendation",   "✅ Ready" if rec_ready else ("Generate ↗" if n_tests==4 else "Pending"))
+            c1.markdown(
+                f"""
+                <div class="dashboard-card"><div class="card-icon">📋</div><div class="card-title">📋 Results Uploaded</div>
+                    <div class="card-value">{n_results}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+            c2.markdown(
+                f"""
+                <div class="dashboard-card"><div class="card-icon">🧪</div><div class="card-title">🧪 Tests Completed</div>
+                    <div class="card-value">{n_tests} / 4</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+            status_color = "#10b981" if rec_ready else "#f59e0b"
+            status_text = "Ready ✨" if rec_ready else "Pending"
+            c3.markdown(
+                f"""
+                <div class="dashboard-card"><div class="card-icon">📊</div><div class="card-title">📊 Recommendation</div>
+                    <div class="card-value">{"Ready" if rec_ready else "Not Ready"}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+            # System Status Warning Callout Box
+            if not rec_ready:
+                st.info("💡 Complete your academic result upload and all 4 diagnostic assessments to instantly unlock your tailored AI-powered career recommendations report!")
+            else:
+                st.success("🎉 Your personalized recommendations are fully ready! Click on the **My Recommendations** tab to explore matching universities and chat with your AI counsellor.")
+
+            # High-fidelity Stepping Guide Component
+            st.markdown('<div class="guide-container">', unsafe_allow_html=True)
+            st.markdown('<div class="guide-title">🚀 Complete Your Journey Steps</div>', unsafe_allow_html=True)
 
             st.info("Complete all steps to unlock your personalised AI-powered career path!")
 
             st.divider()
-            st.markdown("### 📋 How It Works")
-            for icon, title, desc in [
-                ("1️⃣","Upload Academic Results","Add your First, Second & Third Term scores for all subjects."),
-                ("2️⃣","Take 4 Tests","Complete Cognitive, Aptitude, Psychometric & Sentiment assessments."),
-                ("3️⃣","Get AI Recommendation","Our XGBoost ML model + Gemini AI analyses your full profile."),
-                ("4️⃣","Explore & Chat","View Nigerian university options and chat with your AI career counsellor."),
-            ]:
-                st.markdown(f"""
-                <div style="display:flex;align-items:flex-start;gap:14px;padding:10px 0;border-bottom:1px solid #f0f0f0;">
-                    <div style="font-size:22px;line-height:1.2;">{icon}</div>
-                    <div><strong style="font-size:14px;">{title}</strong>
-                        <div style="font-size:13px;color:gray;margin-top:2px;">{desc}</div></div>
-                </div>""", unsafe_allow_html=True)
+            st.markdown("<br><h3 style='color: #1e293b; font-weight: 700;'>📋 How It Works</h3>", unsafe_allow_html=True)
+
+            # Using a clean vertical step layout
+            st.markdown("""
+                <div class="step-card" style="border-left-color: #3b82f6;">
+                    <div class="step-header">1. Upload Academic Results</div>
+                    <div class="step-desc">Navigate to the <b>Upload Results</b> tab to securely log your recent subject scores and academic performance metrics.</div>
+                </div>
+                <div class="step-card" style="border-left-color: #8b5cf6;">
+                    <div class="step-header">2. Take Career Assessment Tests</div>
+                    <div class="step-desc">Complete the 4 dedicated cognitive and psychological interest parameters designed to understand your core strengths under the <b>Take Tests</b> section.</div>
+                </div>
+                <div class="step-card" style="border-left-color: #10b981;">
+                    <div class="step-header">3. Discover AI Recommendations</div>
+                    <div class="step-desc">Once steps 1 and 2 are unlocked, access your completely personalized, data-driven Nigerian career pathway map in <b>My Recommendations</b>.</div>
+                </div>
+            """, unsafe_allow_html=True)
             pass
 
         # -------------------- UPLOAD RESULTS --------------------
-
         with tab_upload:
             st.markdown('<div class="subtitle">Step 1 of 3</div>', unsafe_allow_html=True)
             st.markdown('<div class="title">📤 Academic Results Upload</div>', unsafe_allow_html=True)
-            st.caption(f"**{st.session_state.class_level}** preference page" +
-                    (f" | Dept: **{st.session_state.department}**" if st.session_state.department else ""))
+            st.caption(f"**{st.session_state.class_level}**" + 
+                       (f" | Dept: **{st.session_state.department}**" if st.session_state.department else ""))
 
+            # Display existing saved results
             results = get_user_results(st.session_state.user_id)
-            if results:
-                st.subheader("📋 Your Uploaded Results")
-                for row in results:
-                    rid, rtype, subj, score, edate, uploaded = row
-                    c1,c2,c3 = st.columns([6,2,1])
-                    with c1: st.write(f"**{rtype}** — {subj} | Score: **{score}** | {edate}")
-                    with c2: st.caption(uploaded[:10] if uploaded else "")
-                    with c3:
-                        if st.button("🗑️", key=f"del_{rid}", help="Delete result"):
-                            delete_academic_result(rid)
-                            st.session_state.rec_cache = None
-                            st.success("Deleted!")
+
+            # Record Summary and Table Display
+            total_records = len(results)
+        
+            if total_records > 0:
+                avg_score = round(sum(row[3] for row in results) / total_records, 1)
+                # Find the highest entry grade score safely
+                max_score = max(row[3] for row in results)
+            else:
+                avg_score = 0.0
+                max_score = 0
+
+            # Render Micro KPI Chips
+            m1, m2, m3 = st.columns(3)
+            m1.markdown(f'<div class="summary-chip"><div class="chip-val">{total_records}</div><div class="chip-lbl">Total Subjects</div></div>', unsafe_allow_html=True)
+            m2.markdown(f'<div class="summary-chip"><div class="chip-val" style="color:#2563eb;">{avg_score}%</div><div class="chip-lbl">Average Mark</div></div>', unsafe_allow_html=True)
+            m3.markdown(f'<div class="summary-chip"><div class="chip-val" style="color:#16a34a;">{max_score}</div><div class="chip-lbl">Top Score</div></div>', unsafe_allow_html=True)
+            st.markdown("<br>", unsafe_allow_html=True)
+
+            # Render Table Interface elegantly
+            if total_records > 0:
+                st.markdown("<div class='ledger-header'>📂 Active Records Ledger</div>", unsafe_allow_html=True)
+                
+                # Format raw tuple list records array into a clean DataFrame layout
+                df = pd.DataFrame(results, columns=["ID", "Term", "Subject", "Score", "Entry Date", "Uploaded At"])
+                
+                # Keep the internal ID so delete actions can map back to the database row
+                df_display = df[["ID", "Term", "Subject", "Score"]].copy()
+                
+                # Sort chronologically by Term sequence loop
+                term_order = {"1st Term": 1, "2nd Term": 2, "3rd Term": 3}
+                df_display["_order"] = df_display["Term"].map(term_order)
+                df_display = df_display.sort_values(by=["_order", "Subject"]).drop(columns=["_order"])
+                
+                # Add descriptive performance indicators dynamically inside the display frame
+                def get_grade(score):
+                    if score >= 75: return "Excellent (A)"
+                    if score >= 60: return "Very Good (B)"
+                    if score >= 50: return "Credit (C)"
+                    return "Pass (P/F)"
+                    
+                df_display["Performance Status"] = df_display["Score"].apply(get_grade)
+
+                # Use a row-based ledger display so delete can appear inline with each record
+                header_cols = st.columns([2, 3, 1, 1, 1])
+                header_cols[0].markdown("**Term**")
+                header_cols[1].markdown("**Subject**")
+                header_cols[2].markdown("**Score**")
+                header_cols[3].markdown("**Status**")
+                header_cols[4].markdown("**Action**")
+
+                for _, row in df_display.iterrows():
+                    c1, c2, c3, c4, c5 = st.columns([2, 3, 1, 1, 1])
+                    c1.markdown(f"{row['Term']}")
+                    c2.markdown(f"{row['Subject']}")
+                    c3.markdown(f"{row['Score']}%")
+                    c4.markdown(f"{row['Performance Status']}")
+                    with c5:
+                        if st.button("Delete", key=f"ledger_delete_{row['ID']}", help="Remove this record from the active ledger"):
+                            delete_academic_result(int(row['ID']))
+                            st.success("Record deleted from the active ledger.")
                             st.rerun()
             else:
-                st.info("No results uploaded yet. Use the form below to add your term scores.")
+                # Empty structural placeholder callout state element view
+                st.markdown("""
+                    <div style="text-align:center; padding: 40px 20px; border: 2px dashed #cbd5e1; border-radius:12px; margin-top:15px; background-color:#f8fafc;">
+                        <p style="font-size:2.5rem; margin:0;">empty 📑</p>
+                        <h4 style="color:#64748b; margin:10px 0 4px 0;">No Grades Recorded Yet</h4>
+                        <p style="color:#94a3b8; font-size:0.85rem; max-width:320px; margin:0 auto;">Use the input record entry form panel on the left to add your subjects and build out your performance index.</p>
+                    </div>
+                """, unsafe_allow_html=True)
 
-            st.subheader("➕ Add New Result")
+            # File Uploader
+            if "processed_files" not in st.session_state:
+                st.session_state.processed_files = set()
 
-            st.subheader("📄 Upload Result PDF")
-            uploaded_file = st.file_uploader(
-                "Upload your result sheet (PDF only)",
-                type=["pdf"]
+            st.markdown(
+                '<div class="upload-card"><div class="upload-section-title"><h3>📊 Upload Results via Excel</h3>' +
+                '<span>Drop an Excel or CSV file here to import your subject scores fast.</span></div></div>',
+                unsafe_allow_html=True
             )
-            if uploaded_file:
-                text = extract_pdf_text(uploaded_file)
-                parsed_results = parse_results(text)
-
-                if parsed_results:
-                    st.success("✅ Results detected from PDF")
-
-                    for subj, score in parsed_results:
-                        st.write(f"📘 {subj} — {score}")
-
-                    if st.button("💾 Save All Results from PDF"):
-                        for subj, score in parsed_results:
-                            save_academic_result(
-                                st.session_state.user_id,
-                                "Third Term",  # you can later make this selectable
-                                subj,
-                                score,
-                                datetime.date.today()
-                            )
-
-                        st.success("🎉 Results saved successfully!")
-                        st.rerun()
-
+            uploaded_file = st.file_uploader(
+                "Upload Excel File (.xlsx or .csv)",
+                type=["xlsx", "csv"],
+                help='Required columns: Result_Type, Subject, Score (Exam_Date is optional)',
+                key="excel_uploader"
+            )
+            if uploaded_file is not None:
+                file_key = f"{uploaded_file.name}_{uploaded_file.size}"
+                if file_key not in st.session_state.processed_files:
+                    if st.button("📤 Process Uploaded File", type="primary"):
+                        try:
+                            # Read file
+                            if uploaded_file.name.endswith(".csv"):
+                                df = pd.read_csv(uploaded_file)
+                            else:
+                                df = pd.read_excel(uploaded_file)
+                            required_columns = ["Result Type", "Subject", "Score"]
+                            missing_columns = [
+                                col for col in required_columns
+                                if col not in df.columns
+                            ]
+                            if missing_columns:
+                                st.error(
+                                    f"Missing columns: {', '.join(missing_columns)}. Required: Result Type, Subject, Score. Optional: Exam Date"
+                                )
+                            else:
+                                records_saved = 0
+                                for _, row in df.iterrows():
+                                    exam_date = str(row["Exam Date"]) if "Exam Date" in df.columns else str(datetime.date.today())
+                                    success = save_academic_result(
+                                        st.session_state.user_id,
+                                        row["Result Type"],
+                                        row["Subject"],
+                                        float(row["Score"]),
+                                        exam_date
+                                    )
+                                    if success:
+                                        records_saved += 1
+                                st.success(
+                                    f"✅ {records_saved} new record(s) imported successfully."
+                                )
+                                st.session_state.processed_files.add(file_key)
+                        except Exception as e:
+                            st.error(f"Upload failed: {e}")
                 else:
-                    st.error("❌ Could not detect results. Try manual input.")
-
+                    st.info("This file has already been processed.")
+            st.markdown('<div class="file-hint">Required columns: <strong>Result Type</strong>, <strong>Subject</strong>, <strong>Score</strong>. Optional: <strong>Exam Date</strong>. Supported formats: <strong>.xlsx</strong>, <strong>.csv</strong>.</div>', unsafe_allow_html=True)
             st.divider()
-            st.subheader("✍️ Or Enter Results Manually")
+
+            # ====================== MANUAL ENTRY FORM ======================
+            st.subheader("➕ Add Result Manually")
 
             with st.form("add_result_form", clear_on_submit=True):
-                c1,c2 = st.columns([3,3])
+                c1, c2 = st.columns(2)
                 with c1:
-                    rtype = st.segmented_control("Select Result Type", options=get_result_types(st.session_state.class_level), default=None)
+                    rtype = st.segmented_control(
+                        "Result Type", 
+                        options=get_result_types(st.session_state.class_level),
+                        default=None
+                    )
                     edate = st.date_input("Exam Date", value=datetime.date.today())
+
                 with c2:
                     slist = get_subjects(st.session_state.class_level, st.session_state.department)
                     subj  = st.segmented_control("Select Subject", options=slist, default=None)
-                    score_str = st.text_input("Score (0–100)", value="", placeholder="Enter score, e.g. 85.5")
-                
+                    score = st.text_input("Score (0–100)", value="", placeholder="Enter score, e.g. 85.5")
 
                 if st.form_submit_button("Add This Result", type="primary"):
-                    if rtype == "Select Result Type" or subj == "Select Subject":
-                        st.error("Please select both Result Type and Subject.")
-                    elif not score_str.strip():
-                        st.error("Please enter a score.")
+                    if not subj:
+                        st.error("Please select a subject.")
+                    elif not rtype:
+                        st.error("Please select a result type.")
                     else:
                         try:
-                            score = float(score_str.strip())
-                            if not (0 <= score <= 100):
+                            score_float = float(score)
+                            if not (0 <= score_float <= 100):
                                 st.error("Score must be between 0 and 100.")
                             else:
-                                save_academic_result(st.session_state.user_id, rtype, subj, score, edate)
+                                save_academic_result(st.session_state.user_id, rtype, subj, score_float, edate)
                                 st.session_state.rec_cache = None
-                                st.success(f"✅ {rtype} — {subj} ({score}) added successfully!")
+                                st.success(f"✅ Added: **{rtype}** — **{subj}** | Score: **{score_float}**")
                                 st.rerun()
                         except ValueError:
-                            st.error("Please enter a valid number for the score.")
+                            st.error("Please enter a valid numeric score (e.g. 85 or 72.5).")
 
-            st.info("✅ Tip: Add all three terms across your main subjects for the most accurate recommendation.")
-            pass  
+            st.info("💡 Tip: Add all three terms across your main subjects for the most accurate AI recommendation.")
+
 
         # -------------------- TEST TAB --------------------
 
         with tab_test:
-            st.markdown('<div class="title">🧠 Take 3 Tests</div>', unsafe_allow_html=True)
-            st.markdown('<div class="subtitle">Step 2 of 3 — Complete all three tests to unlock your personalised career recommendation.</div>', unsafe_allow_html=True)
+            st.markdown('<div class="title">🧠 Take 4 Tests</div>', unsafe_allow_html=True)
+            st.markdown('<div class="subtitle">Step 2 of 4 — Complete all four tests to unlock your personalised career recommendation.</div>', unsafe_allow_html=True)
 
             completed_tests = get_completed_tests(st.session_state.user_id)
             n_done = len(completed_tests)
-            pct    = int(n_done/3*100)
+            pct = int(n_done / 4 * 100)
 
             st.markdown(f"""
-            <div style="margin-bottom:6px;"><b>Overall Progress: {n_done} / 3 tests completed</b></div>
+            <div style="margin-bottom:6px;"><b>Overall Progress: {n_done} / 4 tests completed</b></div>
             <div class="test-progress-bar">
                 <div class="test-progress-fill" style="width:{pct}%;"></div>
             </div>""", unsafe_allow_html=True)
 
             st.markdown("### 🗂️ Select a Test to Begin")
             cols = st.columns(4)
+
             for i, meta in enumerate(TEST_META):
                 with cols[i]:
-                    done   = meta["key"] in completed_tests
-                    badge  = "completed-badge" if done else "active-badge"
-                    status = "✅ Done" if done else "⬇ Click the button below to start"
-                    stxt   = f"Score: {st.session_state.test_scores.get(meta['key'],'—')}%" if done else ""
-                    bclr   = "#10b981" if done else "#2d6cdf"
+
+                    done = meta["key"] in completed_tests
+                    badge = "completed-badge" if done else "active-badge"
+                    status = "✅ Done" if done else "⏳ Not Started"
+                    
+                    stxt = f"Score: {st.session_state.test_scores.get(meta['key'],'—')}%" if done else ""
+
                     st.markdown(f"""
                     <div style="background:white;border-radius:12px;padding:16px;text-align:center;
-                        box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid {bclr};min-height:165px;">
+                            box-shadow:0 2px 10px rgba(0,0,0,0.07);border-top:4px solid #2d6cdf;min-height:165px;">
                         <div style="font-size:28px;">{meta['icon']}</div>
                         <div style="font-weight:700;font-size:14px;margin:6px 0;">{meta['label']}</div>
                         <div style="font-size:12px;color:gray;margin-bottom:8px;">{meta['desc']}</div>
                         <span class="{badge}">{status}</span>
                         <div style="font-size:12px;color:#065f46;margin-top:4px;">{stxt}</div>
                     </div>""", unsafe_allow_html=True)
-                    if st.button("🔄 Retake" if done else "▶ Open",
-                                key=f"open_{meta['key']}", use_container_width=True):
+
+                    # Updated Button Text
+                    btn_text = "🔄 Retake" if done else "▶ Click to Start"
+                    if st.button(btn_text, key=f"open_{meta['key']}", use_container_width=True):
                         st.session_state.active_test = meta["key"]
                         st.rerun()
 
             st.divider()
 
             if st.session_state.active_test:
-                active = next((m for m in TEST_META if m["key"]==st.session_state.active_test), None)
+                active = next((m for m in TEST_META if m["key"] == st.session_state.active_test), None)
                 if active:
                     if st.button("← Back to Test List"):
-                        st.session_state.active_test = None; st.rerun()
+                        st.session_state.active_test = None
+                        st.rerun()
                     render_test(active, completed_tests)
             else:
                 if n_done == 4:
-                    st.success("🎉 **All 4 tests completed!** Go to **📊 My Recommendations** to see your career path.")
+                    st.success("🎉 **All 4 tests completed!** Go to **📊 My Recommendations** tab.")
                     st.session_state.all_tests_done = True
                 elif n_done == 0:
-                    st.info("👆 Click **▶ Open** on any test above to begin. Start with the **Cognitive Test**.")
+                    st.info("👆 Click **▶ Click to Start** on any test above to begin.")
                 else:
                     remaining = [m["label"] for m in TEST_META if m["key"] not in completed_tests]
                     st.info(f"👍 Good progress! Still needed: **{', '.join(remaining)}**")
@@ -1288,10 +1781,6 @@ def app():
                 st.session_state.chat_cache = get_chat_history(st.session_state.user_id)
             chat_history = st.session_state.chat_cache
 
-            if st.session_state.chat_cache is None:
-                st.session_state.chat_cache = get_chat_history(st.session_state.user_id)
-            chat_history = st.session_state.chat_cache
-
             if not chat_history:
                 st.markdown(f"""
                 <div class="chat-ai">
@@ -1324,101 +1813,111 @@ def app():
 
     # ====================== AUTHENTICATION PAGE (Not Logged In) ======================
     st.markdown("""
-        <div class="container">
-
-        <div class="title">🎓 Student Career Portal</div>
-
+        <div class="hero-banner">
+            <h1 class="hero-title">🎓 Student Career Portal</h1>
+            <p class="hero-subtitle">Smart Career Path Recommendation for Nigerian Secondary Students</p>
         </div>
-        """, unsafe_allow_html=True)
-    st.markdown('<div class="subtitle">Smart Career Path Recommendation for Nigerian Secondary Students</div>', unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
-
-    auth_tab = st.tabs(["Login", "Sign Up"])
-
-    # ====================== LOGIN TAB ======================
-    with auth_tab[0]:
-        st.subheader("Login to your account")
-        with st.form("login_form", clear_on_submit=True):
-            email = st.text_input("Email Address", placeholder="student@example.com")
-            password = st.text_input("Password", type="password")
-            
-            if st.form_submit_button("Login", type="primary"):
-                if not email or not password:
-                    st.error("Please enter both email and password.")
-                else:
-                    user = login_user(email, password)
-                    if user:
-                        st.session_state.update({
-                            "logged_in": True,
-                            "user_id": user[0],
-                            "full_name": user[1],
-                            "class_level": user[2],
-                            "department": user[3],
-                            "active_test": None,
-                            "test_answers": {},
-                            "test_scores": {},
-                            "all_tests_done": False,
-                            "rec_cache": None,
-                            "chat_cache": None
-                        })
-                        st.success(f"Welcome back, {user[1]}! 🎓")
-                        st.rerun()
-                    else:
-                        st.error("Invalid email or password. Please try again.")
-
-    # ====================== SIGN UP TAB ======================
-    with auth_tab[1]:
-        st.subheader("Create New Account")
-        with st.form("signup_form", clear_on_submit=True):
-            full_name = st.text_input("Full Name *")
-            dob = st.date_input("Date of Birth", 
-                                max_value=datetime.date.today(), 
-                                min_value=datetime.date(1990, 1, 1))
-            
-            class_level = st.segmented_control(
-                "Class Level *", 
-                options=["JSS 2", "JSS 3", "SSS 1", "SSS 2"],
-                default=None
-            )
-            st.caption('Select Department if you are in SSS 1 or SSS 2')
-
-            department = st.segmented_control(
-                "Department *", 
-                options=["Science", "Arts", "Commercial"],
-                default=None
-            )
-
-            email = st.text_input("Email Address *")
-            password = st.text_input("Password *", type="password")
-            confirm = st.text_input("Confirm Password *", type="password")
-            agree = st.checkbox("I agree to the Terms of Service and Privacy Policy")
-
-            if st.form_submit_button("Create Account", type="primary"):
-                if not agree:
-                    st.warning("You must agree to the terms.")
-                elif password != confirm:
-                    st.error("Passwords do not match.")
-                elif len(password) < 6:
-                    st.warning("Password must be at least 6 characters long.")
-                elif not full_name or not email:
-                    st.warning("Please fill all required fields.")
-                elif class_level in ["SSS 1", "SSS 2"] and not department:
-                    st.warning("Please select your department.")
-                else:
-                    dept_to_save = department if class_level in ["SSS 1", "SSS 2"] else None
-                    
-                    if create_user(full_name, dob, class_level, dept_to_save, email, password):
-                        st.success("🎉 Account created successfully!")
-                        st.balloons()
-                        st.info("Please go to the **Login** tab and sign in.")
-                    else:
-                        st.error("An account with this email already exists.")
-
+    left_spacer, center_content, right_spacer = st.columns([1.1, 1.8, 1.1])
     
+    with center_content:
+        
+        auth_tab = st.tabs(["🔒 Login", "📝 Create Account"])
+    
+        # ====================== LOGIN TAB ======================
+        with auth_tab[0]:
+            st.markdown('<div class="auth-title"><div class="auth-card">Login to Your Account</div>', unsafe_allow_html=True)
+            
+            with st.form("login_form", clear_on_submit=True): 
+                email = st.text_input("Email Address", placeholder="student@example.com")
+                password = st.text_input("Password", type="password")
+                
+                # Full width submission block handled via our CSS rules automatically
+                submit_login = st.form_submit_button("Sign In")
+                
+                if submit_login:
+                    if not email or not password:
+                        st.error("Please enter both email and password.")
+                    else:
+                        user = login_user(email, password)
+                        if user:
+                            st.session_state.update({
+                                "logged_in": True,
+                                "user_id": user[0],
+                                "full_name": user[1],
+                                "class_level": user[2],
+                                "department": user[3],
+                                "active_test": None,
+                                "test_answers": {},
+                                "test_scores": {},
+                                "all_tests_done": False,
+                                "rec_cache": None,
+                                "chat_cache": None
+                            })
+                            st.success(f"Welcome back, {user[1]}! 🎓")
+                            st.rerun()
+                        else:
+                            st.error("Invalid email or password. Please try again.")
 
-    st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
+                            
+        # ====================== SIGN UP TAB ======================
+        with auth_tab[1]:
+            st.markdown('<div class="auth-title"><div class="auth-card">Create New Account</div>', unsafe_allow_html=True)
+            
+            with st.form("signup_form", clear_on_submit=True):
+                full_name = st.text_input("Full Name *")
+                dob = st.date_input("Date of Birth", 
+                                    max_value=datetime.date.today(), 
+                                    min_value=datetime.date(1990, 1, 1))
+                
+                class_level = st.segmented_control(
+                    "Class Level *", 
+                    options=["JSS 2", "JSS 3", "SSS 1", "SSS 2"],
+                    default=None
+                )
+                st.caption('Select Department if you are in SSS 1 or SSS 2')
+    
+                department = st.segmented_control(
+                    "Department *", 
+                    options=["Science", "Arts", "Commercial"],
+                    default=None
+                )
+    
+                email = st.text_input("Email Address *")
+                password = st.text_input("Password *", type="password")
+                confirm = st.text_input("Confirm Password *", type="password")
+                agree = st.checkbox("I agree to the Terms of Service")
+    
+                submit_signup = st.form_submit_button("Register Account")
+                
+                if submit_signup:
+                    if not agree:
+                        st.warning("You must agree to the terms.")
+                    elif password != confirm:
+                        st.error("Passwords do not match.")
+                    elif len(password) < 6:
+                        st.warning("Password must be at least 6 characters long.")
+                    elif not full_name or not email:
+                        st.warning("Please fill all required fields.")
+                    elif class_level in ["SSS 1", "SSS 2"] and not department:
+                        st.warning("Please select your department.")
+                    else:
+                        dept_to_save = department if class_level in ["SSS 1", "SSS 2"] else None
+                        
+                        if create_user(full_name, dob, class_level, dept_to_save, email, password):
+                            st.success("🎉 Account created successfully!")
+                            st.balloons()
+                            st.info("Please go to the Login tab and sign in.")
+                        else:
+                            st.error("An account with this email already exists.")
+                            
+            st.markdown('</div>', unsafe_allow_html=True) 
 
 
 # Call the app
 if __name__ == "__main__":
+    init_db()
+    remove_duplicate_results()
     app()
