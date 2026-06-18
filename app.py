@@ -1192,10 +1192,11 @@ def render_test(meta, completed_tests):
             <div class="q-num">Question {idx+1} of {len(questions)}</div>
             <div class="q-text">{q['text']}</div>
         </div>""", unsafe_allow_html=True)
-        cur = st.session_state.test_answers[test_key].get(q["id"], 0)
+        cur = st.session_state.test_answers[test_key].get(q["id"])
         chosen = st.radio(f"q_{q['id']}", q["options"], index=cur,
                           key=f"radio_{test_key}_{q['id']}", label_visibility="collapsed")
-        st.session_state.test_answers[test_key][q["id"]] = q["options"].index(chosen)
+        if chosen is not None:
+            st.session_state.test_answers[test_key][q["id"]] = q["options"].index(chosen)
 
     st.divider()
     _, col2 = st.columns([3,1])
