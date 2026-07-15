@@ -25,11 +25,11 @@ COPY backend/ backend/
 COPY models/ models/
 
 # Expose port
-EXPOSE 3000
+EXPOSE 9000
 
 # Health check using python urllib.request
 HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
-    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:3000/')" || exit 1
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:9000/')" || exit 1
 
 # Run FastAPI with Uvicorn bound to all interfaces on port 3000
-CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "3000", "--workers", "2"]
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "9000", "--workers", "2"]
