@@ -1,0 +1,42 @@
+# render.yaml - One-click deployment on Render
+services:
+  - type: web
+    name: career-fastapi
+    env: python
+    plan: free
+    buildCommand: cd backend && pip install -r requirements.txt
+    startCommand: uvicorn backend.main:app --host 127.0.0.1 --port $PORT --workers 2
+    repo: A-I-Jeremiah/Smart-Career-Portal   # ← Change this
+    branch: main
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+
+  - type: web
+    name: career-streamlit
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port $PORT --server.address 127.0.0.1
+    repo: A-I-Jeremiah/Smart-Career-Portal
+    branch: main
+    envVars:
+      - key: FASTAPI_BASE_URL
+        fromService:
+          name: career-fastapi
+          type: web
+          property: url
+      - key: GOOGLE_API_KEY
+        sync: false
+
+  - type: static
+    name: career-react
+    buildCommand: cd frontend && npm install && npm run build
+    publishPath: frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          name: career-fastapi
+          type: web
+          property: url
