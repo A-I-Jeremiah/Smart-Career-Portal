@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+const DEFAULT_API_BASE_URL = 'https://smart-career-app-4702.onrender.com';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || DEFAULT_API_BASE_URL).replace(/\/$/, '');
+
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
@@ -69,6 +71,3 @@ export const getStoredUser = () => {
 };
 
 export default api;
-
-
-

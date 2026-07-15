@@ -44,8 +44,7 @@ const Auth = () => {
       setError('Please fill in all fields.');
       return;
     }
-    
-    const isSSS = ['SS1', 'SS2', 'SS3'].includes(classLevel);
+    const isSSS = ['SSS 1', 'SSS 2', 'SSS 3', 'SS1', 'SS2', 'SS3'].includes(classLevel);
     const userData = {
       full_name: fullName,
       dob,
@@ -74,7 +73,7 @@ const Auth = () => {
     }
   };
 
-  const isSSSClass = ['SS1', 'SS2', 'SS3'].includes(classLevel);
+  const isSSSClass = ['SSS 1', 'SSS 2', 'SSS 3', 'SS1', 'SS2', 'SS3'].includes(classLevel);
 
   return (
     <div className="auth-container animate-fade-in">
@@ -201,9 +200,9 @@ const Auth = () => {
                     value={classLevel}
                     onChange={(e) => setClassLevel(e.target.value)}
                   >
-                    <option value="SSS1">SSS1</option>
-                    <option value="SSS2">SSS2</option>
-                    <option value="SSS3">SSS3</option>
+                    <option value="SSS 1">SSS 1</option>
+                    <option value="SSS 2">SSS 2</option>
+                    <option value="SSS 3">SSS 3</option>
                   </select>
                 </div>
               </div>

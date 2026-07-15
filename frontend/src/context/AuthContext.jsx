@@ -27,7 +27,8 @@ export const AuthProvider = ({ children }) => {
       return { success: true };
     } catch (error) {
       console.error('Login error:', error);
-      const message = error.response?.data?.detail || 'Invalid email or password.';
+      const detail = error.response?.data?.detail;
+      const message = detail || error.message || 'Invalid email or password.';
       return { success: false, error: message };
     }
   };
@@ -38,7 +39,8 @@ export const AuthProvider = ({ children }) => {
       return { success: true };
     } catch (error) {
       console.error('Registration error:', error);
-      const message = error.response?.data?.detail || 'Registration failed. Try again.';
+      const detail = error.response?.data?.detail;
+      const message = detail || error.message || 'Registration failed. Try again.';
       return { success: false, error: message };
     }
   };
