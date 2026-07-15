@@ -1,0 +1,4052 @@
+[
+  {
+    "id": "aptitude-1",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "If 3 workers can build 3 desks in 3 days, how long will 6 workers take to build 6 desks?",
+    "options": [
+      "3 days",
+      "6 days",
+      "9 days",
+      "12 days"
+    ],
+    "answer": "3 days",
+    "source": "International aptitude-style reasoning samples"
+  },
+  {
+    "id": "aptitude-2",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "A rectangle has length 8 cm and width 5 cm. What is its area?",
+    "options": [
+      "13 cm²",
+      "26 cm²",
+      "40 cm²",
+      "80 cm²"
+    ],
+    "answer": "40 cm²",
+    "source": "International aptitude-style reasoning samples"
+  },
+  {
+    "id": "aptitude-3",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Find the next number: 2, 4, 8, 16, __",
+    "options": [
+      "24",
+      "32",
+      "48",
+      "64"
+    ],
+    "answer": "32",
+    "source": "International aptitude-style reasoning samples"
+  },
+  {
+    "id": "aptitude-4",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "A train travels 240 km in 3 hours. What is its speed?",
+    "options": [
+      "60 km/h",
+      "70 km/h",
+      "80 km/h",
+      "90 km/h"
+    ],
+    "answer": "80 km/h",
+    "source": "International aptitude-style reasoning samples"
+  },
+  {
+    "id": "aptitude-5",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Which number is missing: 5, 10, 20, 40, __",
+    "options": [
+      "50",
+      "60",
+      "80",
+      "100"
+    ],
+    "answer": "80",
+    "source": "International aptitude-style reasoning samples"
+  },
+  {
+    "id": "aptitude-6",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Solve for x: 3x - 7 = 5x + 9",
+    "options": [
+      "x = 8",
+      "x = -8",
+      "x = 1",
+      "x = -1"
+    ],
+    "answer": "x = -8",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-7",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "If a piece of string is 40 cm long and is cut in a ratio of 2:3, how long is the longer piece?",
+    "options": [
+      "16 cm",
+      "20 cm",
+      "24 cm",
+      "30 cm"
+    ],
+    "answer": "24 cm",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-8",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "A container contains 80% acid and 20% water. If we have 10 liters of mixture, how much acid is in it?",
+    "options": [
+      "2 liters",
+      "4 liters",
+      "6 liters",
+      "8 liters"
+    ],
+    "answer": "8 liters",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-9",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Three numbers are in the ratio 1:2:3. Their sum is 180. What is the largest number?",
+    "options": [
+      "60",
+      "90",
+      "120",
+      "150"
+    ],
+    "answer": "90",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-10",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "What is the square root of 0.04?",
+    "options": [
+      "0.2",
+      "0.02",
+      "0.4",
+      "0.002"
+    ],
+    "answer": "0.2",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-11",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q11: If a force of 55 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "11 m/s²",
+      "22 m/s²",
+      "5 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "11 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-12",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q12: If a force of 60 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "12 m/s²",
+      "24 m/s²",
+      "6 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "12 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-13",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q13: If a force of 65 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "13 m/s²",
+      "26 m/s²",
+      "6 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "13 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-14",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q14: If a force of 70 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "14 m/s²",
+      "28 m/s²",
+      "7 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "14 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-15",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q15: If a force of 75 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "15 m/s²",
+      "30 m/s²",
+      "7 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "15 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-16",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q16: If a force of 80 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "16 m/s²",
+      "32 m/s²",
+      "8 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "16 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-17",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q17: If a force of 85 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "17 m/s²",
+      "34 m/s²",
+      "8 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "17 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-18",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q18: If a force of 90 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "18 m/s²",
+      "36 m/s²",
+      "9 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "18 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-19",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q19: If a force of 95 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "19 m/s²",
+      "38 m/s²",
+      "9 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "19 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-20",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q20: If a force of 100 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "20 m/s²",
+      "40 m/s²",
+      "10 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "20 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-21",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q21: If a force of 105 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "21 m/s²",
+      "42 m/s²",
+      "10 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "21 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-22",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q22: If a force of 110 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "22 m/s²",
+      "44 m/s²",
+      "11 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "22 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-23",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q23: If a force of 115 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "23 m/s²",
+      "46 m/s²",
+      "11 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "23 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-24",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q24: If a force of 120 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "24 m/s²",
+      "48 m/s²",
+      "12 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "24 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-25",
+    "category": "aptitude",
+    "subject_category": "Science",
+    "prompt": "Science Aptitude Q25: If a force of 125 N acts on a mass of 5 kg, what is the acceleration?",
+    "options": [
+      "25 m/s²",
+      "50 m/s²",
+      "12 m/s²",
+      "10 m/s²"
+    ],
+    "answer": "25 m/s²",
+    "source": "Science Aptitude Bank"
+  },
+  {
+    "id": "aptitude-26",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "If a product costs N5,000 and is sold at a 20% profit, what is the selling price?",
+    "options": [
+      "N5,500",
+      "N6,000",
+      "N6,500",
+      "N7,000"
+    ],
+    "answer": "N6,000",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-27",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "A company has asset value N50,000 and liability N20,000. What is the owner's equity?",
+    "options": [
+      "N30,000",
+      "N40,000",
+      "N70,000",
+      "N10,000"
+    ],
+    "answer": "N30,000",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-28",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "If the simple interest on N10,000 for 2 years at 5% per annum is calculated, what is it?",
+    "options": [
+      "N500",
+      "N1,000",
+      "N1,500",
+      "N2,000"
+    ],
+    "answer": "N1,000",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-29",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "What is the cost of 12 items if 3 items cost N150?",
+    "options": [
+      "N450",
+      "N500",
+      "N600",
+      "N800"
+    ],
+    "answer": "N600",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-30",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "If demand for a product is inelastic, an increase in price leads to:",
+    "options": [
+      "Total revenue increases",
+      "Total revenue decreases",
+      "Total revenue remains unchanged",
+      "Demand drops to zero"
+    ],
+    "answer": "Total revenue increases",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-31",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "A trader bought a carton of fish for N12,000 and sold it for N15,000. What is the profit percentage?",
+    "options": [
+      "15%",
+      "20%",
+      "25%",
+      "30%"
+    ],
+    "answer": "25%",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-32",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "If inflation rate increases, the purchasing power of money:",
+    "options": [
+      "Increases",
+      "Decreases",
+      "Stays constant",
+      "Fluctuates wildly"
+    ],
+    "answer": "Decreases",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-33",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "A bank charges 15% interest per year on a loan of N100,000. What is the total interest for 1 year?",
+    "options": [
+      "N1,500",
+      "N7,500",
+      "N15,000",
+      "N20,000"
+    ],
+    "answer": "N15,000",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-34",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "The price of a bag of rice rose from N30,000 to N36,000. What was the percentage increase?",
+    "options": [
+      "15%",
+      "20%",
+      "25%",
+      "30%"
+    ],
+    "answer": "20%",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-35",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "A project requires N500,000 capital and returns N75,000 annually. What is the return on investment (ROI)?",
+    "options": [
+      "10%",
+      "12.5%",
+      "15%",
+      "20%"
+    ],
+    "answer": "15%",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-36",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q36: A retailer sells an item for N3600 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N2880",
+      "N2700",
+      "N3240",
+      "N3060"
+    ],
+    "answer": "N2880",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-37",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q37: A retailer sells an item for N3700 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N2960",
+      "N2775",
+      "N3330",
+      "N3145"
+    ],
+    "answer": "N2960",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-38",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q38: A retailer sells an item for N3800 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N3040",
+      "N2850",
+      "N3420",
+      "N3230"
+    ],
+    "answer": "N3040",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-39",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q39: A retailer sells an item for N3900 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N3120",
+      "N2925",
+      "N3510",
+      "N3315"
+    ],
+    "answer": "N3120",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-40",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q40: A retailer sells an item for N4000 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N3200",
+      "N3000",
+      "N3600",
+      "N3400"
+    ],
+    "answer": "N3200",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-41",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q41: A retailer sells an item for N4100 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N3280",
+      "N3075",
+      "N3690",
+      "N3485"
+    ],
+    "answer": "N3280",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-42",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q42: A retailer sells an item for N4200 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N3360",
+      "N3150",
+      "N3780",
+      "N3570"
+    ],
+    "answer": "N3360",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-43",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q43: A retailer sells an item for N4300 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N3440",
+      "N3225",
+      "N3870",
+      "N3655"
+    ],
+    "answer": "N3440",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-44",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q44: A retailer sells an item for N4400 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N3520",
+      "N3300",
+      "N3960",
+      "N3740"
+    ],
+    "answer": "N3520",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-45",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q45: A retailer sells an item for N4500 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N3600",
+      "N3375",
+      "N4050",
+      "N3825"
+    ],
+    "answer": "N3600",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-46",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q46: A retailer sells an item for N4600 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N3680",
+      "N3450",
+      "N4140",
+      "N3910"
+    ],
+    "answer": "N3680",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-47",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q47: A retailer sells an item for N4700 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N3760",
+      "N3525",
+      "N4230",
+      "N3995"
+    ],
+    "answer": "N3760",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-48",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q48: A retailer sells an item for N4800 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N3840",
+      "N3600",
+      "N4320",
+      "N4080"
+    ],
+    "answer": "N3840",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-49",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q49: A retailer sells an item for N4900 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N3920",
+      "N3675",
+      "N4410",
+      "N4165"
+    ],
+    "answer": "N3920",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-50",
+    "category": "aptitude",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Aptitude Q50: A retailer sells an item for N5000 which includes a 25% markup on cost. What is the cost price?",
+    "options": [
+      "N4000",
+      "N3750",
+      "N4500",
+      "N4250"
+    ],
+    "answer": "N4000",
+    "source": "Commercial Aptitude Bank"
+  },
+  {
+    "id": "aptitude-51",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Choose the word that is most nearly opposite in meaning to 'Arrogant':",
+    "options": [
+      "Humble",
+      "Proud",
+      "Gentle",
+      "Polite"
+    ],
+    "answer": "Humble",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-52",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Complete the analogy: Doctor is to Stethoscope as Writer is to __",
+    "options": [
+      "Pen",
+      "Paper",
+      "Book",
+      "Ink"
+    ],
+    "answer": "Pen",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-53",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Which word is misspelled?",
+    "options": [
+      "Receive",
+      "Believe",
+      "Calendar",
+      "Accomodate"
+    ],
+    "answer": "Accomodate",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-54",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "If all roses are flowers and some flowers fade quickly, which statement is logically valid?",
+    "options": [
+      "All roses fade quickly",
+      "Some roses fade quickly",
+      "Some flowers are roses",
+      "All flowers are roses"
+    ],
+    "answer": "Some flowers are roses",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-55",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Choose the word that means the same as 'Vibrant':",
+    "options": [
+      "Energetic",
+      "Dull",
+      "Quiet",
+      "Soft"
+    ],
+    "answer": "Energetic",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-56",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Select the sentence with the correct grammatical structure:",
+    "options": [
+      "He did not went there yesterday.",
+      "He did not go there yesterday.",
+      "He had not went there yesterday.",
+      "He does not went there yesterday."
+    ],
+    "answer": "He did not go there yesterday.",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-57",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "The literary device used to attribute human characteristics to non-human things is:",
+    "options": [
+      "Metaphor",
+      "Simile",
+      "Personification",
+      "Alliteration"
+    ],
+    "answer": "Personification",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-58",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Identify the odd word out: Novel, Poetry, Play, Calculator",
+    "options": [
+      "Novel",
+      "Poetry",
+      "Play",
+      "Calculator"
+    ],
+    "answer": "Calculator",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-59",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Complete the proverb: 'A bird in the hand is worth ___ in the bush.'",
+    "options": [
+      "one",
+      "two",
+      "three",
+      "many"
+    ],
+    "answer": "two",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-60",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Choose the correct synonym for 'Obdurate':",
+    "options": [
+      "Stubborn",
+      "Flexible",
+      "Kind",
+      "Soft"
+    ],
+    "answer": "Stubborn",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-61",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q61: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-62",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q62: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-63",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q63: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-64",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q64: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-65",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q65: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-66",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q66: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-67",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q67: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-68",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q68: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-69",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q69: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-70",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q70: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-71",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q71: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-72",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q72: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-73",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q73: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-74",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q74: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "aptitude-75",
+    "category": "aptitude",
+    "subject_category": "Arts",
+    "prompt": "Arts Aptitude Q75: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "options": [
+      "moving",
+      "boring",
+      "long",
+      "funny"
+    ],
+    "answer": "moving",
+    "source": "Arts Aptitude Bank"
+  },
+  {
+    "id": "cognitive-2",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "What comes next: 1, 3, 6, 10, __",
+    "options": [
+      "12",
+      "14",
+      "15",
+      "16"
+    ],
+    "answer": "15",
+    "source": "International cognitive assessment patterns"
+  },
+  {
+    "id": "cognitive-3",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "If CAT is coded as 3120, what is DOG coded as?",
+    "options": [
+      "4157",
+      "4137",
+      "4217",
+      "4317"
+    ],
+    "answer": "4157",
+    "source": "International cognitive assessment patterns"
+  },
+  {
+    "id": "cognitive-4",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "What is the missing letter in the sequence: B, D, F, __",
+    "options": [
+      "G",
+      "H",
+      "I",
+      "J"
+    ],
+    "answer": "H",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-5",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Which shape has the most vertices?",
+    "options": [
+      "Triangle",
+      "Pentagon",
+      "Hexagon",
+      "Octagon"
+    ],
+    "answer": "Octagon",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-1",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "If a circle has a radius of r, what shape is formed by wrapping it around a cylinder?",
+    "options": [
+      "Circle",
+      "Helix",
+      "Line",
+      "Ellipse"
+    ],
+    "answer": "Helix",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-6",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q6: What number completes the pattern: 6, 12, 24, ___?",
+    "options": [
+      "48",
+      "36",
+      "60",
+      "72"
+    ],
+    "answer": "48",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-7",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q7: What number completes the pattern: 7, 14, 28, ___?",
+    "options": [
+      "56",
+      "42",
+      "70",
+      "84"
+    ],
+    "answer": "56",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-8",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q8: What number completes the pattern: 8, 16, 32, ___?",
+    "options": [
+      "64",
+      "48",
+      "80",
+      "96"
+    ],
+    "answer": "64",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-9",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q9: What number completes the pattern: 9, 18, 36, ___?",
+    "options": [
+      "72",
+      "54",
+      "90",
+      "108"
+    ],
+    "answer": "72",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-10",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q10: What number completes the pattern: 10, 20, 40, ___?",
+    "options": [
+      "80",
+      "60",
+      "100",
+      "120"
+    ],
+    "answer": "80",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-11",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q11: What number completes the pattern: 11, 22, 44, ___?",
+    "options": [
+      "88",
+      "66",
+      "110",
+      "132"
+    ],
+    "answer": "88",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-12",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q12: What number completes the pattern: 12, 24, 48, ___?",
+    "options": [
+      "96",
+      "72",
+      "120",
+      "144"
+    ],
+    "answer": "96",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-13",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q13: What number completes the pattern: 13, 26, 52, ___?",
+    "options": [
+      "104",
+      "78",
+      "130",
+      "156"
+    ],
+    "answer": "104",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-14",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q14: What number completes the pattern: 14, 28, 56, ___?",
+    "options": [
+      "112",
+      "84",
+      "140",
+      "168"
+    ],
+    "answer": "112",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-15",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q15: What number completes the pattern: 15, 30, 60, ___?",
+    "options": [
+      "120",
+      "90",
+      "150",
+      "180"
+    ],
+    "answer": "120",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-16",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q16: What number completes the pattern: 16, 32, 64, ___?",
+    "options": [
+      "128",
+      "96",
+      "160",
+      "192"
+    ],
+    "answer": "128",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-17",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q17: What number completes the pattern: 17, 34, 68, ___?",
+    "options": [
+      "136",
+      "102",
+      "170",
+      "204"
+    ],
+    "answer": "136",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-18",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q18: What number completes the pattern: 18, 36, 72, ___?",
+    "options": [
+      "144",
+      "108",
+      "180",
+      "216"
+    ],
+    "answer": "144",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-19",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q19: What number completes the pattern: 19, 38, 76, ___?",
+    "options": [
+      "152",
+      "114",
+      "190",
+      "228"
+    ],
+    "answer": "152",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-20",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q20: What number completes the pattern: 20, 40, 80, ___?",
+    "options": [
+      "160",
+      "120",
+      "200",
+      "240"
+    ],
+    "answer": "160",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-21",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q21: What number completes the pattern: 21, 42, 84, ___?",
+    "options": [
+      "168",
+      "126",
+      "210",
+      "252"
+    ],
+    "answer": "168",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-22",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q22: What number completes the pattern: 22, 44, 88, ___?",
+    "options": [
+      "176",
+      "132",
+      "220",
+      "264"
+    ],
+    "answer": "176",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-23",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q23: What number completes the pattern: 23, 46, 92, ___?",
+    "options": [
+      "184",
+      "138",
+      "230",
+      "276"
+    ],
+    "answer": "184",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-24",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q24: What number completes the pattern: 24, 48, 96, ___?",
+    "options": [
+      "192",
+      "144",
+      "240",
+      "288"
+    ],
+    "answer": "192",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-25",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "Science Cognitive Q25: What number completes the pattern: 25, 50, 100, ___?",
+    "options": [
+      "200",
+      "150",
+      "250",
+      "300"
+    ],
+    "answer": "200",
+    "source": "Science Cognitive Bank"
+  },
+  {
+    "id": "cognitive-26",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Look at the series: N100, N200, N400, N800, ___. What is next?",
+    "options": [
+      "N1,000",
+      "N1,200",
+      "N1,600",
+      "N2,000"
+    ],
+    "answer": "N1,600",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-27",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "A shop's sales double every day. If sales on Monday were N5,000, what are they on Thursday?",
+    "options": [
+      "N10,000",
+      "N20,000",
+      "N40,000",
+      "N80,000"
+    ],
+    "answer": "N40,000",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-28",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "If profit is represented as P = S - C, which of the following is equivalent?",
+    "options": [
+      "S = P - C",
+      "C = S - P",
+      "S = C - P",
+      "C = P - S"
+    ],
+    "answer": "C = S - P",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-29",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "If Product A sells more than B, and B sells more than C, then:",
+    "options": [
+      "Product C sells more than A",
+      "Product A sells more than C",
+      "Product B sells the most",
+      "All sell equally"
+    ],
+    "answer": "Product A sells more than C",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-30",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "An item priced N1,000 is discounted by 10%, then the new price is discounted by 10%. What is the final price?",
+    "options": [
+      "N800",
+      "N810",
+      "N900",
+      "N990"
+    ],
+    "answer": "N810",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-31",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q31: If index price rises by 31% and inflation is 15%, what is the real price change?",
+    "options": [
+      "16%",
+      "46%",
+      "31%",
+      "0%"
+    ],
+    "answer": "16%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-32",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q32: If index price rises by 32% and inflation is 16%, what is the real price change?",
+    "options": [
+      "16%",
+      "48%",
+      "32%",
+      "0%"
+    ],
+    "answer": "16%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-33",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q33: If index price rises by 33% and inflation is 16%, what is the real price change?",
+    "options": [
+      "17%",
+      "49%",
+      "33%",
+      "0%"
+    ],
+    "answer": "17%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-34",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q34: If index price rises by 34% and inflation is 17%, what is the real price change?",
+    "options": [
+      "17%",
+      "51%",
+      "34%",
+      "0%"
+    ],
+    "answer": "17%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-35",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q35: If index price rises by 35% and inflation is 17%, what is the real price change?",
+    "options": [
+      "18%",
+      "52%",
+      "35%",
+      "0%"
+    ],
+    "answer": "18%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-36",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q36: If index price rises by 36% and inflation is 18%, what is the real price change?",
+    "options": [
+      "18%",
+      "54%",
+      "36%",
+      "0%"
+    ],
+    "answer": "18%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-37",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q37: If index price rises by 37% and inflation is 18%, what is the real price change?",
+    "options": [
+      "19%",
+      "55%",
+      "37%",
+      "0%"
+    ],
+    "answer": "19%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-38",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q38: If index price rises by 38% and inflation is 19%, what is the real price change?",
+    "options": [
+      "19%",
+      "57%",
+      "38%",
+      "0%"
+    ],
+    "answer": "19%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-39",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q39: If index price rises by 39% and inflation is 19%, what is the real price change?",
+    "options": [
+      "20%",
+      "58%",
+      "39%",
+      "0%"
+    ],
+    "answer": "20%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-40",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q40: If index price rises by 40% and inflation is 20%, what is the real price change?",
+    "options": [
+      "20%",
+      "60%",
+      "40%",
+      "0%"
+    ],
+    "answer": "20%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-41",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q41: If index price rises by 41% and inflation is 20%, what is the real price change?",
+    "options": [
+      "21%",
+      "61%",
+      "41%",
+      "0%"
+    ],
+    "answer": "21%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-42",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q42: If index price rises by 42% and inflation is 21%, what is the real price change?",
+    "options": [
+      "21%",
+      "63%",
+      "42%",
+      "0%"
+    ],
+    "answer": "21%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-43",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q43: If index price rises by 43% and inflation is 21%, what is the real price change?",
+    "options": [
+      "22%",
+      "64%",
+      "43%",
+      "0%"
+    ],
+    "answer": "22%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-44",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q44: If index price rises by 44% and inflation is 22%, what is the real price change?",
+    "options": [
+      "22%",
+      "66%",
+      "44%",
+      "0%"
+    ],
+    "answer": "22%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-45",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q45: If index price rises by 45% and inflation is 22%, what is the real price change?",
+    "options": [
+      "23%",
+      "67%",
+      "45%",
+      "0%"
+    ],
+    "answer": "23%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-46",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q46: If index price rises by 46% and inflation is 23%, what is the real price change?",
+    "options": [
+      "23%",
+      "69%",
+      "46%",
+      "0%"
+    ],
+    "answer": "23%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-47",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q47: If index price rises by 47% and inflation is 23%, what is the real price change?",
+    "options": [
+      "24%",
+      "70%",
+      "47%",
+      "0%"
+    ],
+    "answer": "24%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-48",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q48: If index price rises by 48% and inflation is 24%, what is the real price change?",
+    "options": [
+      "24%",
+      "72%",
+      "48%",
+      "0%"
+    ],
+    "answer": "24%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-49",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q49: If index price rises by 49% and inflation is 24%, what is the real price change?",
+    "options": [
+      "25%",
+      "73%",
+      "49%",
+      "0%"
+    ],
+    "answer": "25%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-50",
+    "category": "cognitive",
+    "subject_category": "Commercial",
+    "prompt": "Commercial Cognitive Q50: If index price rises by 50% and inflation is 25%, what is the real price change?",
+    "options": [
+      "25%",
+      "75%",
+      "50%",
+      "0%"
+    ],
+    "answer": "25%",
+    "source": "Commercial Cognitive Bank"
+  },
+  {
+    "id": "cognitive-1",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Which word does not belong: teacher, doctor, school, nurse?",
+    "options": [
+      "Teacher",
+      "Doctor",
+      "School",
+      "Nurse"
+    ],
+    "answer": "School",
+    "source": "International cognitive assessment patterns"
+  },
+  {
+    "id": "cognitive-51",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Find the odd one out in this literary list:",
+    "options": [
+      "Novel",
+      "Biography",
+      "Poem",
+      "Blueprint"
+    ],
+    "answer": "Blueprint",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-52",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Rearrange the letters 'R-A-T' to make a word that means art. What is it?",
+    "options": [
+      "TAR",
+      "ART",
+      "RAT",
+      "TRA"
+    ],
+    "answer": "ART",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-53",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Which word completes the pattern: Read is to Book as Listen is to ___?",
+    "options": [
+      "Radio",
+      "Music",
+      "Speaker",
+      "Ear"
+    ],
+    "answer": "Music",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-54",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "If primary colors are Red, Yellow, Blue, which of these is a secondary color?",
+    "options": [
+      "Green",
+      "Black",
+      "White",
+      "Pink"
+    ],
+    "answer": "Green",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-55",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "What is the next term in the word sequence: Page, Chapter, Book, ___?",
+    "options": [
+      "Library",
+      "Author",
+      "Cover",
+      "Page"
+    ],
+    "answer": "Library",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-56",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Odd word out:",
+    "options": [
+      "Sculpture",
+      "Painting",
+      "Drawing",
+      "Hammer"
+    ],
+    "answer": "Hammer",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-57",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Unscramble 'L-I-S-T-E-N' to find a word meaning quiet:",
+    "options": [
+      "LISTEN",
+      "SILENT",
+      "INLETS",
+      "TINSEL"
+    ],
+    "answer": "SILENT",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-58",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Which word represents the collection of actors in a play?",
+    "options": [
+      "Crew",
+      "Cast",
+      "Band",
+      "Team"
+    ],
+    "answer": "Cast",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-59",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "What word is formed by adding one letter to 'HEAR' to mean a vital organ?",
+    "options": [
+      "HEART",
+      "HEARD",
+      "SHEAR",
+      "WHEAT"
+    ],
+    "answer": "HEART",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-60",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Complete the pattern: Paint is to Brush as Sculpt is to ___?",
+    "options": [
+      "Chisel",
+      "Stone",
+      "Clay",
+      "Model"
+    ],
+    "answer": "Chisel",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-61",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Arts Cognitive Q61: Which word is a synonym for 'ephemeral'?",
+    "options": [
+      "Temporary",
+      "Permanent",
+      "Beautiful",
+      "Heavy"
+    ],
+    "answer": "Temporary",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-62",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Arts Cognitive Q62: Which word is a synonym for 'ephemeral'?",
+    "options": [
+      "Temporary",
+      "Permanent",
+      "Beautiful",
+      "Heavy"
+    ],
+    "answer": "Temporary",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-63",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Arts Cognitive Q63: Which word is a synonym for 'ephemeral'?",
+    "options": [
+      "Temporary",
+      "Permanent",
+      "Beautiful",
+      "Heavy"
+    ],
+    "answer": "Temporary",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-64",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Arts Cognitive Q64: Which word is a synonym for 'ephemeral'?",
+    "options": [
+      "Temporary",
+      "Permanent",
+      "Beautiful",
+      "Heavy"
+    ],
+    "answer": "Temporary",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-65",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Arts Cognitive Q65: Which word is a synonym for 'ephemeral'?",
+    "options": [
+      "Temporary",
+      "Permanent",
+      "Beautiful",
+      "Heavy"
+    ],
+    "answer": "Temporary",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-66",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Arts Cognitive Q66: Which word is a synonym for 'ephemeral'?",
+    "options": [
+      "Temporary",
+      "Permanent",
+      "Beautiful",
+      "Heavy"
+    ],
+    "answer": "Temporary",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-67",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Arts Cognitive Q67: Which word is a synonym for 'ephemeral'?",
+    "options": [
+      "Temporary",
+      "Permanent",
+      "Beautiful",
+      "Heavy"
+    ],
+    "answer": "Temporary",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-68",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Arts Cognitive Q68: Which word is a synonym for 'ephemeral'?",
+    "options": [
+      "Temporary",
+      "Permanent",
+      "Beautiful",
+      "Heavy"
+    ],
+    "answer": "Temporary",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-69",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Arts Cognitive Q69: Which word is a synonym for 'ephemeral'?",
+    "options": [
+      "Temporary",
+      "Permanent",
+      "Beautiful",
+      "Heavy"
+    ],
+    "answer": "Temporary",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-70",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Arts Cognitive Q70: Which word is a synonym for 'ephemeral'?",
+    "options": [
+      "Temporary",
+      "Permanent",
+      "Beautiful",
+      "Heavy"
+    ],
+    "answer": "Temporary",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-71",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Arts Cognitive Q71: Which word is a synonym for 'ephemeral'?",
+    "options": [
+      "Temporary",
+      "Permanent",
+      "Beautiful",
+      "Heavy"
+    ],
+    "answer": "Temporary",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-72",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Arts Cognitive Q72: Which word is a synonym for 'ephemeral'?",
+    "options": [
+      "Temporary",
+      "Permanent",
+      "Beautiful",
+      "Heavy"
+    ],
+    "answer": "Temporary",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-73",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Arts Cognitive Q73: Which word is a synonym for 'ephemeral'?",
+    "options": [
+      "Temporary",
+      "Permanent",
+      "Beautiful",
+      "Heavy"
+    ],
+    "answer": "Temporary",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "cognitive-74",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Arts Cognitive Q74: Which word is a synonym for 'ephemeral'?",
+    "options": [
+      "Temporary",
+      "Permanent",
+      "Beautiful",
+      "Heavy"
+    ],
+    "answer": "Temporary",
+    "source": "Arts Cognitive Bank"
+  },
+  {
+    "id": "psychometric-1",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I enjoy solving complex mathematical puzzles.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Psychometric RIASEC Inventory"
+  },
+  {
+    "id": "psychometric-3",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am curious to learn how computer software and applications are built.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Psychometric RIASEC Inventory"
+  },
+  {
+    "id": "psychometric-4",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I would like to conduct experiments in a chemistry or physics laboratory.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Psychometric RIASEC Inventory"
+  },
+  {
+    "id": "psychometric-5",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I like studying human anatomy, plant biology, or veterinary sciences.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Psychometric RIASEC Inventory"
+  },
+  {
+    "id": "psychometric-6",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 6.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-7",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 7.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-8",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 8.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-9",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 9.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-10",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 10.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-11",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 11.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-12",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 12.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-13",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 13.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-14",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 14.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-15",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 15.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-16",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 16.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-17",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 17.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-18",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 18.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-19",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 19.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-20",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 20.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-21",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 21.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-22",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 22.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-23",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 23.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-24",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 24.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-25",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 25.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-26",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I am interested in scientific research regarding renewable energy source 26.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Science Psychometric Bank"
+  },
+  {
+    "id": "psychometric-2",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I prefer working in teams rather than alone.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Psychometric RIASEC Inventory"
+  },
+  {
+    "id": "psychometric-26",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I am interested in managing budgets and financial spreadsheets.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-27",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I enjoy selling products or pitching business ideas to others.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-28",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would like to run my own company or startup.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-29",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I find analyzing stock market trends or retail pricing interesting.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-30",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I like organizing logistics, schedules, and administrative resources.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-31",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would enjoy working as an accountant or investment banker.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-32",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I enjoy coordinating marketing campaigns on social media.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-33",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I like reading business columns or stock market news.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-35",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 35.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-36",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 36.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-37",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 37.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-38",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 38.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-39",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 39.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-40",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 40.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-41",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 41.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-42",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 42.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-43",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 43.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-44",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 44.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-45",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 45.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-46",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 46.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-47",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 47.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-48",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 48.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-49",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 49.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-50",
+    "category": "psychometric",
+    "subject_category": "Commercial",
+    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 50.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Commercial Psychometric Bank"
+  },
+  {
+    "id": "psychometric-51",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I enjoy creative writing, such as essays, short stories, or poetry.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-52",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I find painting, drawing, or graphic designing highly satisfying.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-53",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to participate in debates or public speaking forums.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-54",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I am interested in teaching, counseling, or mentoring younger students.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-55",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I enjoy learning foreign languages and exploring different cultures.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-56",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would enjoy working on a movie set or theater production.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-57",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I like studying legal files and advocating for civil rights.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-58",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would enjoy conducting interviews and reporting news stories.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-59",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I find writing scripts and storytelling projects engaging.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-60",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would love to compose music, sing, or play musical instruments.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-61",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 61.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-62",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 62.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-63",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 63.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-64",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 64.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-65",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 65.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-66",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 66.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-67",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 67.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-68",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 68.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-69",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 69.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-70",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 70.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-71",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 71.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-72",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 72.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-73",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 73.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-74",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 74.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "psychometric-75",
+    "category": "psychometric",
+    "subject_category": "Arts",
+    "prompt": "I would like to work as an advisor on cultural heritage preservation project 75.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "source": "Arts Psychometric Bank"
+  },
+  {
+    "id": "personality-3",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I prefer to work in a quiet, organized space.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Big Five Personality Scale"
+  },
+  {
+    "id": "personality-26",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I approach hard problems logically rather than emotionally.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-27",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I pay close attention to minute details in lab or code setups.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-28",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I am curious about the scientific mechanism behind how things work.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-29",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I prefer to analyze facts before drawing any major conclusions.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-30",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I can focus on code debugging or data analysis for several hours.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-31",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I enjoy building physical or digital models to test my hypotheses.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-32",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I double-check calculations and lab procedures for safety.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-9",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 9.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-10",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 10.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-11",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 11.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-12",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 12.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-13",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 13.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-14",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 14.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-15",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 15.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-16",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 16.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-17",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 17.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-18",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 18.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-19",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 19.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-20",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 20.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-21",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 21.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-22",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 22.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-23",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 23.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-24",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 24.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-25",
+    "category": "personality",
+    "subject_category": "Science",
+    "prompt": "I systematically structure my studies in math and science course 25.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Science Personality Bank"
+  },
+  {
+    "id": "personality-1",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel comfortable leading group projects.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Big Five Personality Scale"
+  },
+  {
+    "id": "personality-27",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I set clear goals and targets for my academic studies.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-28",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel comfortable taking calculated risks when exploring projects.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-29",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I try to negotiate and build consensus during group conflicts.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-30",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I am comfortable speaking in public to sell an idea.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-31",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I stay calm and focused under financial or deadline pressures.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-32",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I enjoy leading teams and organizing school club activities.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-33",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I keep detailed logs of my personal spending and budget.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-35",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 35.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-36",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 36.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-37",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 37.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-38",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 38.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-39",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 39.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-40",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 40.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-41",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 41.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-42",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 42.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-43",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 43.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-44",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 44.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-45",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 45.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-46",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 46.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-47",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 47.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-48",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 48.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-49",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 49.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-50",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 50.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-51",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I feel highly driven to lead business presentation 51.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-2",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I try to understand other people's feelings.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Big Five Personality Scale"
+  },
+  {
+    "id": "personality-52",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I look for creative, out-of-the-box answers to problems.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-53",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I express my thoughts easily using writing or spoken words.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-54",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I appreciate artistic exhibitions, literature, and good music.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-55",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I am highly open-minded and welcome diverse perspectives.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-56",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy storytelling and sharing cultural experiences.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-57",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I am empathetic and volunteer to support students in need.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-58",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I find creative styling and aesthetic designs inspiring.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-60",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 60.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-61",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 61.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-62",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 62.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-63",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 63.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-64",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 64.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-65",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 65.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-66",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 66.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-67",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 67.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-68",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 68.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-69",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 69.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-70",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 70.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-71",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 71.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-72",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 72.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-73",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 73.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-74",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 74.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-75",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 75.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-76",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy expressing my worldview in literature assignment 76.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "source": "Arts Personality Bank"
+  }
+]
