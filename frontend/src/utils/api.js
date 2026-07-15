@@ -31,10 +31,8 @@ api.interceptors.response.use(
     if (error.response && error.response.status === 401) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      // If we are not already on the auth page, redirect or reload
-      if (!window.location.pathname.startsWith('/auth')) {
-        window.location.href = '/auth';
-      }
+      // Avoid automatic navigation for login/register failures in the SPA.
+      // The auth layer will show the proper error message instead.
     }
     return Promise.reject(error);
   }
