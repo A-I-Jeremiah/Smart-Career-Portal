@@ -5,14 +5,14 @@ services:
       dockerfile: backend/Dockerfile
     container_name: career-fastapi
     ports:
-      - "3000:3000"          # Maps host 3000 → container 3000
+      - "9000:9000"          # Maps host 3000 → container 3000
     env_file:
       - .env
     volumes:
       - ./career_portal.db:/app/career_portal.db
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:3000/')"]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:9000/')"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -25,7 +25,7 @@ services:
     env_file:
       - .env
     environment:
-      - FASTAPI_BASE_URL=http://fastapi:3000   # Internal Docker network
+      - FASTAPI_BASE_URL=http://fastapi:9000   # Internal Docker network
     depends_on:
       fastapi:
         condition: service_healthy
