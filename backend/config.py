@@ -8,8 +8,8 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT_DIR / ".env")
 
 # ── Paths ────────────────────────────────────────────────────────────────────
-MODEL_PATH         = ROOT_DIR / "models" / "xgb_best_model.pkl"
-LABEL_ENCODER_PATH = ROOT_DIR / "models" / "label_encoder.pkl"
+MODEL_PATH         = ROOT_DIR / "backend" / "models" / "xgb_best_model.pkl"
+LABEL_ENCODER_PATH = ROOT_DIR / "backend" / "models" / "label_encoder.pkl"
 DATABASE_PATH      = str(ROOT_DIR / "career_portal.db")
 
 # ── Gemini ───────────────────────────────────────────────────────────────────

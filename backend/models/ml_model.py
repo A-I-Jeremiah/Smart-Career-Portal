@@ -7,15 +7,38 @@ so all preprocessing happens inside model.predict().
 import numpy as np
 import pandas as pd
 import joblib
-from pathlib import Path
 from backend.config import MODEL_PATH, LABEL_ENCODER_PATH
 
-# ── Load once at import time ──────────────────────────────────────────────────
-BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR / "xgb_best_model.pkl"
-LABEL_ENCODER_PATH = BASE_DIR / "label_encoder.pkl"
-model = joblib.load(MODEL_PATH)
-label_encoder = joblib.load(LABEL_ENCODER_PATH)
+# ── Lazy model loading ───────────────────────────────────────────────────────
+_model = None
+_label_encoder = None
+_model_load_error = None
+
+
+def _load_model_artifacts():
+    global _model, _label_encoder, _model_load_error
+    if _model is not None and _label_encoder is not None:
+        return
+
+    try:
+        _model = joblib.load(MODEL_PATH)
+        _label_encoder = joblib.load(LABEL_ENCODER_PATH)
+        _model_load_error = None
+    except FileNotFoundError:
+        _model = None
+        _label_encoder = None
+        _model_load_error = (
+            f"ML artifacts missing. Expected files at {MODEL_PATH.parent}. "
+            "Ensure models/xgb_best_model.pkl and models/label_encoder.pkl are present."
+        )
+    except Exception as exc:
+        _model = None
+        _label_encoder = None
+        _model_load_error = (
+            f"Failed to load ML artifacts: {exc}. "
+            "Check that model files are valid and readable."
+        )
+
 
 # ── Department subject filtering (mirrors notebook & predict.py) ──────────────
 DEPARTMENT_SUBJECTS = {
@@ -142,11 +165,19 @@ def run_xgboost(input_data: dict) -> dict:
             "warning": "Student has F in Mathematics or English.",
         }
 
-    # --- Ensemble to reduce potential demographic bias: average probs with and without demo
+    # --- Load model artifacts lazily and reduce potential demographic bias via ensemble
+    _load_model_artifacts()
+    if _model is None or _label_encoder is None:
+        return {
+            "predicted_career": "Unknown",
+            "confidence_percent": 0.0,
+            "top_3": [],
+            "warning": _model_load_error or "ML artifacts unavailable.",
+        }
+
     try:
-        proba_full = model.predict_proba(df)[0]
+        proba_full = _model.predict_proba(df)[0]
     except Exception:
-        # If model fails, return a neutral response
         return {"predicted_career": "Unknown", "confidence_percent": 0.0, "top_3": []}
 
     df_no_demo = df.copy()
