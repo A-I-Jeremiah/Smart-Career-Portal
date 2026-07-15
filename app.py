@@ -33,7 +33,7 @@ def keep_alive():
 GEMINI_API_KEY = os.getenv("GOOGLE_API_KEY")
 gemini_client  = genai.Client(api_key=GEMINI_API_KEY)
 GEMINI_MODEL   = "gemini-2.5-flash"
-FASTAPI_BASE_URL = os.getenv("FASTAPI_BASE_URL", "http://127.0.0.1:9000/").rstrip("/")
+FASTAPI_BASE_URL = os.getenv("FASTAPI_BASE_URL", "http://127.0.0.1:3000/").rstrip("/")
 QUESTIONS_PATH = Path(__file__).resolve().parent / "backend" / "questions_engine" / "assessment_questions.json"
 
 # ====================== ML CONFIG ======================
