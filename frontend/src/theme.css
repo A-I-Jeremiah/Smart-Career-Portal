@@ -1,0 +1,344 @@
+/* theme.css - iOS 27 Glass Morphism Design System */
+
+:root {
+  /* iOS 27 Glass UI Color Palette */
+  --color-space-cadet: #262842;
+  --color-delft-blue: #293961;
+  --color-yinmn-blue: #2C497F;
+  --color-cool-gray: #8897BD;
+  --color-lavender: #E3E4FA;
+
+  /* Semantic Colors */
+  --primary: #2C497F;
+  --primary-500: #2C497F;
+  --primary-600: #223B6B;
+  --primary-700: #1C315C;
+  --primary-800: #192A50;
+  --secondary: #8897BD;
+  --background: #262842;
+  --surface: #1D2844;
+  --surface-strong: #1A223C;
+  --card-bg: rgba(41, 57, 97, 0.45);
+  --glass-bg: rgba(41, 57, 97, 0.45);
+  --input-bg: rgba(38, 40, 66, 0.6);
+  --border-color: rgba(232, 228, 250, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-strong-border: rgba(255, 255, 255, 0.18);
+
+  /* Text Colors - High Contrast */
+  --text-dark: #1B203B;
+  --text-light: #E3E4FA;
+  --text-muted: #8897BD;
+  --text-muted-light: rgba(227, 228, 250, 0.78);
+  --text-inverse: #0A1229;
+
+  /* Slate palette for legacy styles */
+  --slate-50: #EDF2FF;
+  --slate-100: #E0E7FF;
+  --slate-200: #C7D2FE;
+  --slate-300: #A5B4FC;
+  --slate-400: #818CF8;
+  --slate-500: #6366F1;
+  --slate-600: #4F46E5;
+  --slate-700: #4338CA;
+  --slate-800: #3730A3;
+  --slate-900: #312E81;
+  --slate-950: #262A5C;
+
+  /* Feedback colors */
+  --emerald-500: #10B981;
+  --emerald-600: #059669;
+  --amber-500: #F59E0B;
+  --rose-500: #F43F5E;
+  --rose-600: #E11D48;
+  --white: #FFFFFF;
+
+  /* Shadows & Effects */
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.16);
+  --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 24px 68px rgba(0, 0, 0, 0.24);
+  --glass-blur: 24px;
+  --glass-opacity: 0.5;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
+/* Glass Morphism Base */
+.glass-panel,
+.card,
+.metric-card,
+.test-card,
+.uni-card,
+.rec-card,
+.auth-card {
+  background: rgba(41, 57, 97, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+.page-title,
+.dash-welcome {
+  color: var(--text-light);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.page-subtitle,
+.dash-meta {
+  color: var(--text-muted-light);
+  font-weight: 500;
+}
+
+.page-title::after,
+.dash-header::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin-top: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2C497F, #8897BD);
+}
+
+/* Sidebar */
+.sidebar {
+  background: rgba(38, 40, 66, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 28px;
+}
+
+.sidebar-logo-text {
+  color: var(--text-light);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.sidebar-profile {
+  background: rgba(44, 73, 127, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px;
+  border-radius: var(--radius-md);
+  color: var(--text-light);
+}
+
+/* Navigation */
+.nav-item {
+  color: var(--text-muted-light);
+  transition: all 200ms ease;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+}
+
+.nav-item:hover {
+  background: rgba(44, 73, 127, 0.3);
+  color: var(--text-light);
+  transform: translateX(4px);
+}
+
+.nav-item.active {
+  background: rgba(44, 73, 127, 0.6);
+  color: var(--text-light);
+  border-left: 3px solid #2C497F;
+  font-weight: 600;
+}
+
+/* Buttons */
+.btn-primary,
+div[data-testid="stFormSubmitButton"] button {
+  background: linear-gradient(135deg, #2C497F, #3D5A95) !important;
+  color: #E3E4FA !important;
+  border: none !important;
+  border-radius: var(--radius-md) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 8px 24px rgba(44, 73, 127, 0.25) !important;
+  transition: all 200ms ease !important;
+  padding: 12px 24px !important;
+}
+
+.btn-primary:hover:not(:disabled),
+div[data-testid="stFormSubmitButton"] button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 32px rgba(44, 73, 127, 0.35) !important;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: var(--text-light) !important;
+  transition: all 200ms ease !important;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Input Fields */
+.form-input,
+.form-select,
+.stTextInput input,
+.stNumberInput input,
+.stSelectbox select {
+  background: rgba(38, 40, 66, 0.6) !important;
+  color: var(--text-light) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 12px 16px !important;
+  font-size: 14px !important;
+  transition: all 200ms ease !important;
+}
+
+.form-input::placeholder,
+.stTextInput input::placeholder {
+  color: var(--text-muted) !important;
+}
+
+.form-input:focus,
+.form-select:focus,
+.stTextInput input:focus,
+.stNumberInput input:focus {
+  background: rgba(44, 73, 127, 0.4) !important;
+  border-color: #2C497F !important;
+  box-shadow: 0 0 0 3px rgba(44, 73, 127, 0.1) !important;
+  outline: none !important;
+}
+
+/* Form Labels */
+.form-label,
+label {
+  color: var(--text-light) !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+}
+
+/* Chat Bubbles */
+.chat-bubble {
+  border-radius: var(--radius-lg);
+  padding: 12px 16px;
+  margin: 8px 0;
+  word-wrap: break-word;
+}
+
+.chat-bubble-user {
+  background: rgba(44, 73, 127, 0.6);
+  color: var(--text-light);
+  border-bottom-right-radius: 4px;
+  margin-left: auto;
+  max-width: 80%;
+}
+
+.chat-bubble-ai {
+  background: rgba(41, 57, 97, 0.4);
+  color: var(--text-light);
+  border-bottom-left-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-right: auto;
+  max-width: 80%;
+}
+
+/* Badges & Tags */
+.badge,
+.tag {
+  background: rgba(44, 73, 127, 0.4);
+  color: var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge.active,
+.tag.active {
+  background: rgba(44, 73, 127, 0.7);
+  border-color: #2C497F;
+}
+
+/* Tables */
+table {
+  color: var(--text-light) !important;
+}
+
+thead {
+  background: rgba(44, 73, 127, 0.3) !important;
+}
+
+tbody tr {
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+tbody tr:hover {
+  background: rgba(44, 73, 127, 0.2) !important;
+}
+
+td, th {
+  color: var(--text-light) !important;
+  padding: 12px !important;
+}
+
+/* Links */
+a,
+.link {
+  color: #2C497F;
+  text-decoration: none;
+  transition: color 200ms ease;
+  font-weight: 600;
+}
+
+a:hover {
+  color: #3D5A95;
+  text-decoration: underline;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(44, 73, 127, 0.4);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(44, 73, 127, 0.6);
+}
+
+/* Success, Warning, Error States */
+.success {
+  color: #10b981 !important;
+}
+
+.warning {
+  color: #f59e0b !important;
+}
+
+.error {
+  color: #ef4444 !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sidebar { width: 240px; }
+  .chat-bubble-user,
+  .chat-bubble-ai { max-width: 95%; }
+}
+
