@@ -5,7 +5,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /app
 
 # Install system dependencies required to build Python packages
-RUN apt-get update && \
+RUN for i in 1 2 3; do \
+      apt-get update && break || (test $i -lt 3 && sleep 5); \
+    done && \
     apt-get install -y --no-install-recommends \
         build-essential \
         git \
