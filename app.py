@@ -1,12 +1,15 @@
-import pandas as pd
+﻿import pandas as pd
 import datetime
 import os
 import json
 import sqlite3
+from pathlib import Path
+from random import Random
 
 from collections import defaultdict
 import bcrypt
 import numpy as np
+import requests
 import streamlit as st
 try:
     from streamlit_option_menu import option_menu
@@ -30,6 +33,8 @@ def keep_alive():
 GEMINI_API_KEY = os.getenv("GOOGLE_API_KEY")
 gemini_client  = genai.Client(api_key=GEMINI_API_KEY)
 GEMINI_MODEL   = "gemini-2.5-flash"
+FASTAPI_BASE_URL = os.getenv("FASTAPI_BASE_URL", "http://127.0.0.1:9000/").rstrip("/")
+QUESTIONS_PATH = Path(__file__).resolve().parent / "backend" / "questions_engine" / "assessment_questions.json"
 
 # ====================== ML CONFIG ======================
 MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ml", "models")
@@ -230,6 +235,36 @@ st.markdown("""
         color: #64748b;
     }
             
+    /* ====================== SEGMENTED CONTROL STYLING ====================== */
+        div[data-testid="stSegmentedControl"] {
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 4px;
+        border: 1px solid #e0e0e0;
+    }
+
+    /* Individual segments */
+    div[data-testid="stSegmentedControl"] button {
+        border-radius: 8px !important;
+        padding: 6px 14px;
+        font-weight: 500;
+        color: #555;
+        transition: all 0.2s ease-in-out;
+    }
+
+    /* Hover effect */
+    div[data-testid="stSegmentedControl"] button:hover {
+        background-color: #f0f0f0;
+        color: #222;
+    }
+
+    /* Active segment */
+    div[data-testid="stSegmentedControl"] button[aria-pressed="true"] {
+        background-color: #4CAF50 !important;
+        color: white !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+            
     /* ====================== UPLOAD TAB SPECIFIC STYLES ====================== */
 
     /* Container for the left input panel */
@@ -313,7 +348,7 @@ st.markdown("""
         background: #ffffff;
         border: 1px solid #e2e8f0;
         border-radius: 30px;
-        padding: 10px;
+        padding: 5px;
         box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
         margin-bottom: 10px;
         margin-top: 10px;
@@ -331,13 +366,13 @@ st.markdown("""
         margin: 0;
         font-size: 1.1rem;
         color: #0f172a;
-        font-weight: 700;
+        font-weight: 800;
     }
     .upload-section-title subtitle {
-        font-size: 0.9rem;}
+        font-size: 0.5rem;}
     .upload-section-title span {
         color: #475569;
-        font-size: 2.2rem;
+        font-size: 2.0rem;
     }
     .file-hint {
         background: #f8fafc;
@@ -358,7 +393,7 @@ st.markdown("""
         background: rgba(59, 130, 246, 0.05);
         border: 1px dashed #93c5fd;
         border-radius: 18px;
-        padding: 18px 20px;
+        padding: 8px 10px;
     }
     div[data-testid="stFileUploader"] > div {
         color: #0f172a;
@@ -437,11 +472,11 @@ st.markdown("""
 
 # ====================== CONSTANTS ======================
 DEPARTMENT_SUBJECTS = {
-    "Science":    ["English","Mathematics","Physics","Chemistry","Biology",
+    "Science":    ["English","Mathematics", "Civic Education","Physics","Chemistry","Biology",
                    "Further Mathematics","Agricultural Science","Computer Science","Geography"],
     "Arts":       ["English","Mathematics","Literature in English","Government",
                    "CRS/IRK","History","Economics","Yoruba/Hausa/Igbo","Civic Education"],
-    "Commercial": ["English","Mathematics","Economics","Accounting","Commerce",
+    "Commercial": ["English","Mathematics","Civic Education","Economics","Accounting","Commerce",
                    "Business Studies","Government","Office Practice","Insurance"],
 }
 
@@ -613,6 +648,87 @@ TEST_META = [
      "desc":"Attitudes, motivation & mindset",     "questions":SENTIMENT_QUESTIONS},
 ]
 
+QUESTION_CATEGORY_MAP = {
+    "cognitive": "cognitive",
+    "aptitude": "aptitude",
+    "psychometric": "psychometric",
+    "sentiment": "personality",
+}
+
+
+@st.cache_data(show_spinner=False)
+def load_question_bank():
+    if not QUESTIONS_PATH.exists():
+        return []
+    with QUESTIONS_PATH.open("r", encoding="utf-8") as fh:
+        data = json.load(fh)
+    return data if isinstance(data, list) else []
+
+
+def get_question_session(test_key, user_id, department):
+    if "question_sessions" not in st.session_state:
+        st.session_state.question_sessions = {}
+    if "question_attempts" not in st.session_state:
+        st.session_state.question_attempts = {}
+
+    cache_key = f"{user_id}:{department}:{test_key}:{st.session_state.question_attempts.get(test_key, 0)}"
+    if cache_key in st.session_state.question_sessions:
+        return st.session_state.question_sessions[cache_key]
+
+    category = QUESTION_CATEGORY_MAP.get(test_key, test_key)
+    subject_category = "Arts" if department == "Arts" else "Commercial" if department == "Commercial" else "Science"
+    bank = load_question_bank()
+    questions = [
+        q for q in bank
+        if q.get("category") == category
+        and q.get("options")
+        and (q.get("subject_category") in (subject_category, "General", None))
+    ]
+    if len(questions) < 10:
+        questions = [q for q in bank if q.get("category") == category and q.get("options")]
+
+    rng = Random(f"{user_id}-{department}-{test_key}-{st.session_state.question_attempts.get(test_key, 0)}")
+    questions = list(questions)
+    rng.shuffle(questions)
+    selected = []
+    for q in questions[:10]:
+        options = list(q.get("options", []))
+        rng.shuffle(options)
+        prompt = q.get("prompt", q.get("text", ""))
+        clean_prompt = re.sub(r'\s*Q\d+:\s*', ': ', prompt)
+        selected.append({
+            "id": q.get("id"),
+            "text": clean_prompt,
+            "options": options,
+            "answer": q.get("answer"),
+            "category": q.get("category"),
+        })
+
+    st.session_state.question_sessions[cache_key] = selected
+    return selected
+
+
+def get_dynamic_test_meta():
+    base = [
+        {"key":"cognitive", "label":"Cognitive Test", "icon":"🧩", "desc":"Logic, reasoning & problem-solving"},
+        {"key":"aptitude", "label":"Aptitude Test", "icon":"🎯", "desc":"Natural talents & subject strengths"},
+        {"key":"psychometric", "label":"Psychometric Test", "icon":"🧠", "desc":"Personality traits & working style"},
+        {"key":"sentiment", "label":"Sentiment Test", "icon":"💬", "desc":"Attitudes, motivation & mindset"},
+    ]
+    if not st.session_state.get("user_id"):
+        return TEST_META
+    return [
+        {
+            **meta,
+            "questions": get_question_session(
+                meta["key"],
+                st.session_state.user_id,
+                st.session_state.department or "Science",
+            ),
+        }
+        for meta in base
+    ]
+
 # ====================== DATABASE ======================
 def init_db():
     conn = sqlite3.connect("career_portal.db")
@@ -702,9 +818,14 @@ def create_admin_user():
         conn.commit()
         st.toast("✅ Admin account created  (email: Admin / password: Admin)", icon="🔑")
     else:
-        # Migrate old bytes-stored hash to string if needed
+        # Migrate old bytes-stored hash or incorrect admin password if needed.
         stored_pw = row[1]
-        if isinstance(stored_pw, bytes) or (isinstance(stored_pw, str) and stored_pw.startswith("b'")):
+        needs_reset = isinstance(stored_pw, bytes) or (isinstance(stored_pw, str) and stored_pw.startswith("b'"))
+        try:
+            needs_reset = needs_reset or not check_password("Admin", stored_pw)
+        except Exception:
+            needs_reset = True
+        if needs_reset:
             c.execute("UPDATE users SET password=? WHERE email='Admin'", (hash_password("Admin"),))
             conn.commit()
     conn.close()
@@ -860,28 +981,36 @@ def get_chat_history(user_id, limit=40):
     return list(reversed(rows))
 
 # ====================== HELPERS ======================
-def get_result_types(class_level):  return ["First Term","Second Term","Third Term"]
+def get_result_types(class_level):  return ["Current Grade"]
 
 def get_subjects(class_level, department=None):
-    if class_level in ["JSS 2","JSS 3"]:
-        return ["Mathematics","English Language","Basic Science",
-                "Social Studies","Civic Education","Physical Education"]
     return DEPARTMENT_SUBJECTS.get(department, ["English","Mathematics"])
 
 def score_cognitive(answers, questions):
-    return round(sum(1 for q in questions
-                     if answers.get(q["id"])==q["correct"] and q["correct"] is not None
-                     ) / len(questions) * 100, 1)
+    total = 0
+    correct = 0
+    for q in questions:
+        ans_idx = answers.get(q["id"])
+        if ans_idx is None:
+            continue
+        total += 1
+        selected = q["options"][ans_idx] if ans_idx < len(q["options"]) else ""
+        if str(selected).strip().lower() == str(q.get("answer", "")).strip().lower():
+            correct += 1
+    return round(correct / max(total, 1) * 100, 1)
 
 def score_aptitude(answers, questions, department):
-    dept = department if department in ("Science","Arts","Commercial") else "Science"
-    total, maxp = 0, 0
+    total = 0
+    correct = 0
     for q in questions:
-        w = q.get("weights",{}).get(dept,[0,0,0,0])
-        maxp += max(w) if w else 3
-        ans = answers.get(q["id"])
-        if ans is not None: total += w[ans] if ans < len(w) else 0
-    return round(total / max(maxp,1) * 100, 1)
+        ans_idx = answers.get(q["id"])
+        if ans_idx is None:
+            continue
+        total += 1
+        selected = q["options"][ans_idx] if ans_idx < len(q["options"]) else ""
+        if str(selected).strip().lower() == str(q.get("answer", "")).strip().lower():
+            correct += 1
+    return round(correct / max(total, 1) * 100, 1)
 
 def score_likert(answers, questions):
     scores = [answers[q["id"]]+1 for q in questions if answers.get(q["id"]) is not None]
@@ -971,6 +1100,122 @@ def ml_predict(results, profile):
               for i in t3i]
     return {"career_path":career,"confidence":conf,"top3":top3,"meta":meta}
 
+SUBJECT_TO_API_KEY = {
+    "mathematics": "mathematics",
+    "english": "english",
+    "english language": "english",
+    "civic education": "civic_education",
+    "physics": "physics",
+    "chemistry": "chemistry",
+    "biology": "biology",
+    "further mathematics": "further_mathematics",
+    "agricultural science": "agricultural_science",
+    "agriculture": "agricultural_science",
+    "geography": "geography",
+    "technical drawing": "technical_drawing",
+    "computer studies": "computer_studies",
+    "computer science": "computer_studies",
+    "yoruba/hausa/igbo": "igbo_hausa",
+    "yoruba": "yoruba",
+    "hausa": "igbo_hausa",
+    "igbo": "igbo_hausa",
+    "data processing": "data_processing",
+    "literature in english": "literature_in_english",
+    "crs/irk": "christian_religious_studies_islamic_studies",
+    "crs": "christian_religious_studies_islamic_studies",
+    "irk": "christian_religious_studies_islamic_studies",
+    "creative arts": "creative_arts",
+    "cultural and creative arts": "creative_arts",
+    "economics": "economics",
+    "accounting": "financial_accounting",
+    "financial accounting": "financial_accounting",
+    "commerce": "commerce",
+    "government": "government",
+    "marketing": "marketing",
+}
+
+
+def score_to_grade(score):
+    score = float(score or 0)
+    if score >= 75:
+        return "A"
+    if score >= 65:
+        return "B"
+    if score >= 50:
+        return "C"
+    if score >= 45:
+        return "D"
+    if score >= 40:
+        return "E"
+    return "F"
+
+
+def build_fastapi_payload(results, profile, test_scores):
+    payload = {
+        "gender": "Unknown",
+        "age": 17,
+        "school_type": "Unknown",
+        "department": profile.get("department") or "Science",
+        "academic_strength": "Unknown",
+        "best_subject_category": "Unknown",
+        "confidence_level": "Unknown",
+        "career_influence": "Unknown",
+        "aptitude_score_10": round(float(test_scores.get("aptitude", 50.0)) / 10, 2),
+        "cognitive_score_10": round(float(test_scores.get("cognitive", 50.0)) / 10, 2),
+        "psychometric_avg_5": round(float(test_scores.get("psychometric", 60.0)) / 20, 2),
+        "sentiment_avg_5": round(float(test_scores.get("sentiment", 60.0)) / 20, 2),
+        "waec_credits": 5,
+        "cgpa": 0.0,
+        "course_alignment": 0,
+        "waec_year": datetime.date.today().year,
+    }
+    for key in set(SUBJECT_TO_API_KEY.values()):
+        payload[key] = "UNKNOWN"
+    for row in results:
+        subject = str(row[2]).strip().lower()
+        api_key = SUBJECT_TO_API_KEY.get(subject)
+        if api_key:
+            payload[api_key] = score_to_grade(row[3])
+    return payload
+
+
+def fastapi_ml_predict(results, profile, test_scores):
+    payload = build_fastapi_payload(results, profile, test_scores)
+    response = requests.post(f"{FASTAPI_BASE_URL}/predict/ml", json=payload, timeout=45)
+    response.raise_for_status()
+    data = response.json()
+    top3 = [(item["career"], item["confidence_percent"]) for item in data.get("top_3", [])]
+
+    # Compute grade counts from actual result scores
+    gc = {"A": 0, "B": 0, "C": 0, "D": 0, "E": 0, "F": 0}
+    scores = [float(r[3]) for r in results] if results else []
+    for s in scores:
+        gc[score_to_grade(s)] += 1
+    avg = round(sum(scores) / max(len(scores), 1), 1)
+
+    return {
+        "career_path": data["predicted_career"],
+        "confidence": data["confidence_percent"],
+        "top3": top3,
+        "meta": {
+            "session_avg": avg,
+            "best_subject": max(results, key=lambda r: float(r[3]))[2] if results else "your strongest subject",
+            "best_score": max(scores) if scores else 0,
+            "weak_subject": min(results, key=lambda r: float(r[3]))[2] if results else "a subject to strengthen",
+            "weak_score": min(scores) if scores else 0,
+            "trend": "Stable",
+            "strength": "high" if avg >= 65 else ("average" if avg >= 50 else "low"),
+            "t1_avg": avg,
+            "t2_avg": avg,
+            "t3_avg": avg,
+            "consistency": 100,
+            "sci_apt": 0,
+            "arts_apt": 0,
+            "com_apt": 0,
+            "grade_counts": gc,
+        },
+    }
+
 # ====================== GEMINI: RECOMMENDATION NARRATIVE ======================
 def _fallback_narrative(name, career, confidence, top3, meta):
     t2name = top3[1][0] if len(top3)>1 else "an alternative"
@@ -992,7 +1237,7 @@ This is one of the most in-demand and impactful career fields in Nigeria today. 
 
 #### 📈 Your Competitive Strengths
 - Strong academic performance — **{meta['best_subject']}** is your top subject at **{meta['best_score']}%**
-- {'Improving trend across terms — shows commitment and growth capacity.' if meta['trend']=='Improving' else 'Consistent performance across all three terms — shows reliability and focus.'}
+- Consistent performance across subjects — shows reliability and focus.
 - Assessment scores confirm real aptitude for this career path
 
 #### ⚠️ Areas to Strengthen
@@ -1023,11 +1268,11 @@ Write a personalised career recommendation report for a student.
 STUDENT PROFILE:
 - Name: {name}
 - Class: {class_level}{dept_txt}
-- Session Average: {meta['session_avg']}% (T1={meta['t1_avg']}%, T2={meta['t2_avg']}%, T3={meta['t3_avg']}%)
+- Session Average: {meta['session_avg']}%
 - Trend: {meta['trend']} | Academic standing: {meta['strength'].upper()}
 - Best Subject: {meta['best_subject']} ({meta['best_score']}%)
 - Weakest Subject: {meta['weak_subject']} ({meta['weak_score']}%)
-- Grade-A count: {meta['grade_counts']['A']} | Grade-F count: {meta['grade_counts']['F']}
+- Grade-A count: {meta.get('grade_counts', {}).get('A', 0)} | Grade-F count: {meta.get('grade_counts', {}).get('F', 0)}
 - Science aptitude: {meta['sci_apt']}% | Arts: {meta['arts_apt']}% | Commercial: {meta['com_apt']}%
 - Subject summary: {summary}
 
@@ -1178,6 +1423,7 @@ def render_test(meta, completed_tests):
             save_test_responses(st.session_state.user_id, test_key, {}, 0)
             st.session_state.test_answers.pop(test_key, None)
             st.session_state.test_scores.pop(test_key, None)
+            st.session_state.question_attempts[test_key] = st.session_state.question_attempts.get(test_key, 0) + 1
             st.session_state.all_tests_done = False
             st.session_state.rec_cache = None
             st.rerun()
@@ -1186,15 +1432,25 @@ def render_test(meta, completed_tests):
     if test_key not in st.session_state.test_answers:
         st.session_state.test_answers[test_key] = {}
 
+    # Clean display: Department + Test Type (no Q number)
+    dept = (st.session_state.department or "General")
+    test_name = meta['label'].replace(" Test", "").strip()
+
     for idx, q in enumerate(questions):
         st.markdown(f"""
         <div class="q-card">
-            <div class="q-num">Question {idx+1} of {len(questions)}</div>
+            <div class="q-num">{dept} {test_name}</div>
             <div class="q-text">{q['text']}</div>
         </div>""", unsafe_allow_html=True)
+        
         cur = st.session_state.test_answers[test_key].get(q["id"])
-        chosen = st.radio(f"q_{q['id']}", q["options"], index=cur,
-                          key=f"radio_{test_key}_{q['id']}", label_visibility="collapsed")
+        chosen = st.radio(
+            label=f"Answer for question {idx+1}", 
+            options=q["options"], 
+            index=cur,
+            key=f"radio_{test_key}_{q['id']}", 
+            label_visibility="collapsed"
+        )
         if chosen is not None:
             st.session_state.test_answers[test_key][q["id"]] = q["options"].index(chosen)
 
@@ -1241,7 +1497,8 @@ def clear_user_data():
 for k, v in [("logged_in",False),("user_id",None),("full_name",None),
               ("class_level",None),("department",None),("active_test",None),
               ("test_answers",{}),("test_scores",{}),("all_tests_done",False),
-              ("rec_cache",None),("chat_cache",None)]:
+              ("rec_cache",None),("chat_cache",None),("question_sessions",{}),
+              ("question_attempts",{}),("processed_files", set())]:
     if k not in st.session_state:
         st.session_state[k] = v
 
@@ -1271,15 +1528,14 @@ def app():
                 </div>
             </div>
             """, unsafe_allow_html=True)
-            if not ML_READY:
-                st.warning("⚠️ ML models not found. Run `train_model.ipynb` first.")
+            st.caption(f"FastAPI model URL: `{FASTAPI_BASE_URL}`")
             if st.button("🚪 Logout", type="secondary", use_container_width=True):
                 clear_user_data()
                 st.success("👋 You have been logged out successfully.")
                 st.rerun()
             
         tab_dashboard, tab_upload, tab_test, tab_rec = st.tabs([
-            "🏠 Dashboard","📤 Upload Results","🧠 Take 4 Tests","📊 My Recommendations"
+            "🏠 Dashboard","📤 Subject Grades","🧠 Take 4 Tests","📊 My Recommendations"
         ])
 
         # ----------------------- DASHBOARD ----------------------------
@@ -1296,13 +1552,13 @@ def app():
             """, unsafe_allow_html=True)
 
             n_tests   = len(get_completed_tests(st.session_state.user_id))
-            n_results = len(get_user_results(st.session_state.user_id))
+            n_results = len([row for row in get_user_results(st.session_state.user_id) if row[1] == "Current Grade"])
             rec_ready = get_recommendation(st.session_state.user_id) is not None
 
             c1,c2,c3 = st.columns(3)
             c1.markdown(
                 f"""
-                <div class="dashboard-card"><div class="card-icon">📋</div><div class="card-title">📋 Results Uploaded</div>
+                <div class="dashboard-card"><div class="card-icon">📋</div><div class="card-title">📋 Subject Grades</div>
                     <div class="card-value">{n_results}</div>
                 </div>
                 """,
@@ -1328,7 +1584,7 @@ def app():
             )
             # System Status Warning Callout Box
             if not rec_ready:
-                st.info("💡 Complete your academic result upload and all 4 diagnostic assessments to instantly unlock your tailored AI-powered career recommendations report!")
+                st.info("💡 Enter your current department subject grades and complete all 4 diagnostic assessments to unlock your tailored AI-powered career recommendations report!")
             else:
                 st.success("🎉 Your personalized recommendations are fully ready! Click on the **My Recommendations** tab to explore matching universities and chat with your AI counsellor.")
 
@@ -1344,8 +1600,8 @@ def app():
             # Using a clean vertical step layout
             st.markdown("""
                 <div class="step-card" style="border-left-color: #3b82f6;">
-                    <div class="step-header">1. Upload Academic Results</div>
-                    <div class="step-desc">Navigate to the <b>Upload Results</b> tab to securely log your recent subject scores and academic performance metrics.</div>
+                    <div class="step-header">1. Enter Current Subject Grades</div>
+                    <div class="step-desc">Navigate to the <b>Subject Grades</b> tab to log the department subjects required by the current FastAPI model.</div>
                 </div>
                 <div class="step-card" style="border-left-color: #8b5cf6;">
                     <div class="step-header">2. Take Career Assessment Tests</div>
@@ -1358,90 +1614,51 @@ def app():
             """, unsafe_allow_html=True)
             pass
 
-        # -------------------- UPLOAD RESULTS --------------------
+        # -------------------- SUBJECT GRADES --------------------
         with tab_upload:
             st.markdown('<div class="subtitle">Step 1 of 3</div>', unsafe_allow_html=True)
-            st.markdown('<div class="title">📤 Academic Results Upload</div>', unsafe_allow_html=True)
-            st.caption(f"**{st.session_state.class_level}**" + 
+            st.markdown('<div class="title">📤 Current Subject Grades</div>', unsafe_allow_html=True)
+            st.caption(f"**{st.session_state.class_level}**" +
                        (f" | Dept: **{st.session_state.department}**" if st.session_state.department else ""))
 
-            # Display existing saved results
             results = get_user_results(st.session_state.user_id)
+            current_results = [row for row in results if row[1] == "Current Grade"]
+            total_records = len(current_results)
+            avg_score = round(sum(row[3] for row in current_results) / total_records, 1) if total_records else 0.0
+            max_score = max((row[3] for row in current_results), default=0)
 
-            # Record Summary and Table Display
-            total_records = len(results)
-        
-            if total_records > 0:
-                avg_score = round(sum(row[3] for row in results) / total_records, 1)
-                # Find the highest entry grade score safely
-                max_score = max(row[3] for row in results)
-            else:
-                avg_score = 0.0
-                max_score = 0
-
-            # Render Micro KPI Chips
             m1, m2, m3 = st.columns(3)
-            m1.markdown(f'<div class="summary-chip"><div class="chip-val">{total_records}</div><div class="chip-lbl">Total Subjects</div></div>', unsafe_allow_html=True)
-            m2.markdown(f'<div class="summary-chip"><div class="chip-val" style="color:#2563eb;">{avg_score}%</div><div class="chip-lbl">Average Mark</div></div>', unsafe_allow_html=True)
+            m1.markdown(f'<div class="summary-chip"><div class="chip-val">{total_records}</div><div class="chip-lbl">Subjects Entered</div></div>', unsafe_allow_html=True)
+            m2.markdown(f'<div class="summary-chip"><div class="chip-val" style="color:#2563eb;">{avg_score}%</div><div class="chip-lbl">Average Score</div></div>', unsafe_allow_html=True)
             m3.markdown(f'<div class="summary-chip"><div class="chip-val" style="color:#16a34a;">{max_score}</div><div class="chip-lbl">Top Score</div></div>', unsafe_allow_html=True)
             st.markdown("<br>", unsafe_allow_html=True)
 
-            # Render Table Interface elegantly
-            if total_records > 0:
-                st.markdown("<div class='ledger-header'>📂 Active Records Ledger</div>", unsafe_allow_html=True)
-                
-                # Format raw tuple list records array into a clean DataFrame layout
-                df = pd.DataFrame(results, columns=["ID", "Term", "Subject", "Score", "Entry Date", "Uploaded At"])
-                
-                # Keep the internal ID so delete actions can map back to the database row
-                df_display = df[["ID", "Term", "Subject", "Score"]].copy()
-                
-                # Sort chronologically by Term sequence loop
-                term_order = {"1st Term": 1, "2nd Term": 2, "3rd Term": 3}
-                df_display["_order"] = df_display["Term"].map(term_order)
-                df_display = df_display.sort_values(by=["_order", "Subject"]).drop(columns=["_order"])
-                
-                # Add descriptive performance indicators dynamically inside the display frame
-                def get_grade(score):
-                    if score >= 75: return "Excellent (A)"
-                    if score >= 60: return "Very Good (B)"
-                    if score >= 50: return "Credit (C)"
-                    return "Pass (P/F)"
-                    
-                df_display["Performance Status"] = df_display["Score"].apply(get_grade)
-
-                # Use a row-based ledger display so delete can appear inline with each record
-                header_cols = st.columns([2, 3, 1, 1, 1])
-                header_cols[0].markdown("**Term**")
-                header_cols[1].markdown("**Subject**")
-                header_cols[2].markdown("**Score**")
-                header_cols[3].markdown("**Status**")
-                header_cols[4].markdown("**Action**")
-
-                for _, row in df_display.iterrows():
-                    c1, c2, c3, c4, c5 = st.columns([2, 3, 1, 1, 1])
-                    c1.markdown(f"{row['Term']}")
-                    c2.markdown(f"{row['Subject']}")
-                    c3.markdown(f"{row['Score']}%")
-                    c4.markdown(f"{row['Performance Status']}")
-                    with c5:
-                        if st.button("Delete", key=f"ledger_delete_{row['ID']}", help="Remove this record from the active ledger"):
-                            delete_academic_result(int(row['ID']))
-                            st.success("Record deleted from the active ledger.")
+            if current_results:
+                st.markdown("<div class='ledger-header'>📂 Current Grade Ledger</div>", unsafe_allow_html=True)
+                header_cols = st.columns([3, 1, 1, 1])
+                header_cols[0].markdown("**Subject**")
+                header_cols[1].markdown("**Score**")
+                header_cols[2].markdown("**Grade**")
+                header_cols[3].markdown("**Action**")
+                for row in current_results:
+                    c1, c2, c3, c4 = st.columns([3, 1, 1, 1])
+                    c1.markdown(row[2])
+                    c2.markdown(f"{row[3]}%")
+                    c3.markdown(score_to_grade(row[3]))
+                    with c4:
+                        if st.button("Delete", key=f"ledger_delete_{row[0]}", help="Remove this subject grade"):
+                            delete_academic_result(int(row[0]))
+                            st.session_state.rec_cache = None
+                            st.success("Subject grade deleted.")
                             st.rerun()
             else:
-                # Empty structural placeholder callout state element view
                 st.markdown("""
                     <div style="text-align:center; padding: 40px 20px; border: 2px dashed #cbd5e1; border-radius:24px; margin-top:4px; margin-bottom: 15px; background-color:#f8fafc;">
                         <p style="font-size:2.5rem; margin:0;">empty 📑</p>
-                        <h4 style="color:#64748b; margin:10px 0 4px 0;">No Grades Recorded Yet</h4>
-                        <p style="color:#94a3b8; font-size:0.85rem; max-width:320px; margin:0 auto;">Use the input record entry form panel on the left to add your subjects and build out your performance index.</p>
+                        <h4 style="color:#64748b; margin:10px 0 4px 0;">No Subject Grades Recorded Yet</h4>
+                        <p style="color:#94a3b8; font-size:0.85rem; max-width:360px; margin:0 auto;">Add your current department subject scores below. These are converted to A-F grades for the FastAPI model.</p>
                     </div>
                 """, unsafe_allow_html=True)
-
-            # File Uploader
-            if "processed_files" not in st.session_state:
-                st.session_state.processed_files = set()
 
             st.markdown(
                 '<div class="upload-card"><div class="upload-section-title"><h3>📊 Upload Results via Excel</h3>' +
@@ -1451,7 +1668,7 @@ def app():
             uploaded_file = st.file_uploader(
                 "Upload Excel File (.xlsx or .csv)",
                 type=["xlsx", "csv"],
-                help='Required columns: Result_Type, Subject, Score (Exam_Date is optional)',
+                help='Required columns: Subject, Score (Exam_Date is optional)',
                 key="excel_uploader"
             )
             if uploaded_file is not None:
@@ -1464,14 +1681,18 @@ def app():
                                 df = pd.read_csv(uploaded_file)
                             else:
                                 df = pd.read_excel(uploaded_file)
-                            required_columns = ["Result Type", "Subject", "Score"]
+                            
+                            # Standardize column casing/spacing
+                            df.columns = df.columns.str.strip().str.title()
+                            
+                            required_columns = ["Subject", "Score"]
                             missing_columns = [
                                 col for col in required_columns
                                 if col not in df.columns
                             ]
                             if missing_columns:
                                 st.error(
-                                    f"Missing columns: {', '.join(missing_columns)}. Required: Result Type, Subject, Score. Optional: Exam Date"
+                                    f"Missing columns: {', '.join(missing_columns)}. Required: Subject, Score. Optional: Exam Date"
                                 )
                             else:
                                 records_saved = 0
@@ -1479,7 +1700,7 @@ def app():
                                     exam_date = str(row["Exam Date"]) if "Exam Date" in df.columns else str(datetime.date.today())
                                     success = save_academic_result(
                                         st.session_state.user_id,
-                                        row["Result Type"],
+                                        "Current Grade",
                                         row["Subject"],
                                         float(row["Score"]),
                                         exam_date
@@ -1494,46 +1715,39 @@ def app():
                             st.error(f"Upload failed: {e}")
                 else:
                     st.info("This file has already been processed.")
-            st.markdown('<div class="file-hint">Required columns: <strong>Result Type</strong>, <strong>Subject</strong>, <strong>Score</strong>. Optional: <strong>Exam Date</strong>. Supported formats: <strong>.xlsx</strong>, <strong>.csv</strong>.</div>', unsafe_allow_html=True)
             st.divider()
-
-            # ====================== MANUAL ENTRY FORM ======================
-            st.subheader("➕ Add Result Manually")
 
             with st.form("add_result_form", clear_on_submit=True):
                 c1, c2 = st.columns(2)
                 with c1:
-                    rtype = st.segmented_control(
-                        "Result Type", 
-                        options=get_result_types(st.session_state.class_level),
-                        default=None
-                    )
-                    edate = st.date_input("Exam Date", value=datetime.date.today())
-
-                with c2:
                     slist = get_subjects(st.session_state.class_level, st.session_state.department)
-                    subj  = st.segmented_control("Select Subject", options=slist, default=None)
-                    score = st.text_input("Score (0–100)", value="", placeholder="Enter score, e.g. 85.5")
+                    subj = st.segmented_control("Select Subject *", options=slist, default=None)
+                with c2:
+                    score = st.text_input("Score (0-100)", value="", placeholder="Enter score, e.g. 85.5")
 
-                if st.form_submit_button("Add This Result", type="primary"):
+                if st.form_submit_button("Save Subject Grade", type="primary"):
                     if not subj:
                         st.error("Please select a subject.")
-                    elif not rtype:
-                        st.error("Please select a result type.")
                     else:
                         try:
                             score_float = float(score)
                             if not (0 <= score_float <= 100):
                                 st.error("Score must be between 0 and 100.")
                             else:
-                                save_academic_result(st.session_state.user_id, rtype, subj, score_float, edate)
+                                save_academic_result(
+                                    st.session_state.user_id,
+                                    "Current Grade",
+                                    subj,
+                                    score_float,
+                                    datetime.date.today(),
+                                )
                                 st.session_state.rec_cache = None
-                                st.success(f"✅ Added: **{rtype}** — **{subj}** | Score: **{score_float}**")
+                                st.success(f"✅ Saved: **{subj}** | Score: **{score_float}** | Grade: **{score_to_grade(score_float)}**")
                                 st.rerun()
                         except ValueError:
                             st.error("Please enter a valid numeric score (e.g. 85 or 72.5).")
 
-            st.info("💡 Tip: Add all three terms across your main subjects for the most accurate AI recommendation.")
+            st.info("💡 Tip: Add all core department subjects before generating your recommendation.")
 
 
         # -------------------- TEST TAB --------------------
@@ -1543,6 +1757,7 @@ def app():
             st.markdown('<div class="subtitle">Step 2 of 4 — Complete all four tests to unlock your personalised career recommendation.</div>', unsafe_allow_html=True)
 
             completed_tests = get_completed_tests(st.session_state.user_id)
+            test_meta = get_dynamic_test_meta()
             n_done = len(completed_tests)
             pct = int(n_done / 4 * 100)
 
@@ -1555,7 +1770,7 @@ def app():
             st.markdown("### 🗂️ Select a Test to Begin")
             cols = st.columns(4)
 
-            for i, meta in enumerate(TEST_META):
+            for i, meta in enumerate(test_meta):
                 with cols[i]:
 
                     done = meta["key"] in completed_tests
@@ -1583,7 +1798,7 @@ def app():
             st.divider()
 
             if st.session_state.active_test:
-                active = next((m for m in TEST_META if m["key"] == st.session_state.active_test), None)
+                active = next((m for m in test_meta if m["key"] == st.session_state.active_test), None)
                 if active:
                     if st.button("← Back to Test List"):
                         st.session_state.active_test = None
@@ -1596,7 +1811,7 @@ def app():
                 elif n_done == 0:
                     st.info("👆 Click **▶ Click to Start** on any test above to begin.")
                 else:
-                    remaining = [m["label"] for m in TEST_META if m["key"] not in completed_tests]
+                    remaining = [m["label"] for m in test_meta if m["key"] not in completed_tests]
                     st.info(f"👍 Good progress! Still needed: **{', '.join(remaining)}**")
             pass
         
@@ -1606,23 +1821,19 @@ def app():
             st.markdown('<div class="title">📊 My Personalised Career Recommendations</div>', unsafe_allow_html=True)
 
             completed_tests = get_completed_tests(st.session_state.user_id)
-            results         = get_user_results(st.session_state.user_id)
+            test_meta = get_dynamic_test_meta()
+            results         = [row for row in get_user_results(st.session_state.user_id) if row[1] == "Current Grade"]
 
             # Guards
             if len(completed_tests) < 4:
-                missing = [m["label"] for m in TEST_META if m["key"] not in completed_tests]
+                missing = [m["label"] for m in test_meta if m["key"] not in completed_tests]
                 st.warning(f"⚠️ Complete all 4 tests first. Pending: **{', '.join(missing)}**")
                 st.info("👉 Go to the **🧠 Take 4 Tests** tab.")
                 return
 
             if not results:
-                st.warning("⚠️ Please upload at least one academic result first.")
-                st.info("👉 Go to the **📤 Upload Results** tab.")
-                return
-
-            if not ML_READY:
-                st.error("⚠️ ML models not found. Place `ml/models/` folder next to `app.py` and restart.")
-                st.info("Run `train_model.ipynb` to generate the model files.")
+                st.warning("⚠️ Please enter at least one current subject grade first.")
+                st.info("👉 Go to the **📤 Subject Grades** tab.")
                 return
 
             existing = st.session_state.rec_cache or get_recommendation(st.session_state.user_id)
@@ -1636,7 +1847,11 @@ def app():
                     test_scores = {k: st.session_state.test_scores.get(k, 50.0)
                                     for k in ["cognitive","aptitude","psychometric","sentiment"]}
 
-                    ml_result = ml_predict(results, profile)
+                    try:
+                        ml_result = fastapi_ml_predict(results, profile, test_scores)
+                    except Exception as exc:
+                        st.error(f"Could not reach FastAPI prediction endpoint `{FASTAPI_BASE_URL}/predict/ml`: {exc}")
+                        return
 
                     narrative = generate_recommendation_gemini(
                         st.session_state.full_name, st.session_state.class_level,
@@ -1880,10 +2095,10 @@ def app():
                 
                 class_level = st.segmented_control(
                     "Class Level *", 
-                    options=["JSS 2", "JSS 3", "SSS 1", "SSS 2"],
+                    options=["SSS 1", "SSS 2", "SSS 3"],
                     default=None
                 )
-                st.caption('Select Department if you are in SSS 1 or SSS 2')
+                st.caption('Select Department')
     
                 department = st.segmented_control(
                     "Department *", 
@@ -1907,10 +2122,10 @@ def app():
                         st.warning("Password must be at least 6 characters long.")
                     elif not full_name or not email:
                         st.warning("Please fill all required fields.")
-                    elif class_level in ["SSS 1", "SSS 2"] and not department:
+                    elif class_level in ["SSS 1", "SSS 2", "SSS 3"] and not department:
                         st.warning("Please select your department.")
                     else:
-                        dept_to_save = department if class_level in ["SSS 1", "SSS 2"] else None
+                        dept_to_save = department if class_level in ["SSS 1", "SSS 2", "SSS 3"] else None
                         
                         if create_user(full_name, dob, class_level, dept_to_save, email, password):
                             st.success("🎉 Account created successfully!")
