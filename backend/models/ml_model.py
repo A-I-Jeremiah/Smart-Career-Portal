@@ -11,6 +11,9 @@ from pathlib import Path
 from backend.config import MODEL_PATH, LABEL_ENCODER_PATH
 
 # ── Load once at import time ──────────────────────────────────────────────────
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / "xgb_best_model.pkl"
+LABEL_ENCODER_PATH = BASE_DIR / "label_encoder.pkl"
 model = joblib.load(MODEL_PATH)
 label_encoder = joblib.load(LABEL_ENCODER_PATH)
 
