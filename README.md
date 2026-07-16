@@ -17,21 +17,15 @@ The platform is built as a service-oriented architecture with separate user-faci
 ```mermaid
 graph LR
     React[React/Vite Web App]
-    Streamlit[Streamlit Dashboard]
     FastAPI[FastAPI API Server]
     SQLite[SQLite Database]
-    XGBoostModel[ML Artifacts (xgb_best_model.pkl, label_encoder.pkl)]
+    XGBoostModel[ML Artifacts<br/>xgb_best_model.pkl, label_encoder.pkl]
     Gemini[Google Gemini API]
-    MLLocal[Local Streamlit ML Models]
 
     React -->|REST API calls| FastAPI
-    Streamlit -->|Optional /predict/ml| FastAPI
     FastAPI -->|reads/writes| SQLite
     FastAPI -->|loads| XGBoostModel
     FastAPI -->|calls| Gemini
-    Streamlit -->|local DB| SQLite
-    Streamlit -->|local ML inference| MLLocal
-    Streamlit -->|Gemini API| Gemini
 ```
 ## Core Components
 
@@ -104,7 +98,7 @@ graph TB
 
 ```mermaid
 flowchart TD
-    User[Student] -->|submits grades/tests| Frontend[React or Streamlit UI]
+    User[Student] -->|submits grades/tests| Frontend[React UI]
     Frontend -->|POST /predict/| FastAPI
     FastAPI -->|validate JWT| Auth[Auth Middleware]
     FastAPI -->|load payload| ML[run_xgboost prediction]
@@ -194,13 +188,11 @@ flowchart TD
 graph LR
     subgraph Render
         FastAPI[FastAPI Service]
-        StreamlitApp[Streamlit Service]
     end
     subgraph Vercel
         Frontend[Vite/React Frontend]
     end
     Docker[Docker Image] --> FastAPI
-    Docker --> StreamlitApp
     Frontend --> FastAPI
 ```
 
