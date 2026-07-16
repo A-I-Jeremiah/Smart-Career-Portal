@@ -15,17 +15,36 @@ The system is powered by:
 The platform is built as a service-oriented architecture with separate user-facing UI layers and a shared backend.
 
 ```mermaid
-graph LR
-    React[React/Vite Web App]
-    FastAPI[FastAPI API Server]
-    SQLite[SQLite Database]
-    XGBoostModel[ML Artifacts<br/>xgb_best_model.pkl, label_encoder.pkl]
-    Gemini[Google Gemini API]
+graph TB
+    subgraph "Frontend Layer"
+        React[React / Vite Web App<br/>Main Production Frontend]
+        Streamlit[Streamlit Dashboard<br/>Mock / Testing App]
+    end
 
-    React -->|REST API calls| FastAPI
-    FastAPI -->|reads/writes| SQLite
-    FastAPI -->|loads| XGBoostModel
-    FastAPI -->|calls| Gemini
+    subgraph "Backend Layer"
+        FastAPI[FastAPI REST API Server<br/>Core Business Logic]
+        SQLite[SQLite Database<br/>Users, Results, Tests, Recommendations, Chat]
+        ML[XGBoost ML Models<br/>Career Prediction]
+        Gemini[Google Gemini API<br/>Narrative & AI Chat]
+    end
+
+    subgraph "External Services"
+        Render[Render.com<br/>Hosting FastAPI]
+        StreamlitCloud[Streamlit Cloud<br/>Hosting Mock App]
+    end
+
+    React -->|JWT Auth + REST API Calls| FastAPI
+    Streamlit -->|REST API Calls / Local ML| FastAPI
+    Streamlit -.->|Testing Only| FastAPI
+
+    FastAPI -->|Persistence| SQLite
+    FastAPI -->|ML Inference| ML
+    FastAPI -->|Narrative Generation & Chat| Gemini
+
+    style React fill:#e3f2fd,stroke:#1565c0,stroke-width:3px
+    style Streamlit fill:#f1f8e9,stroke:#689f38,stroke-width:2px,stroke-dasharray: 5 5
+    style FastAPI fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    style SQLite fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
 ```
 ## Core Components
 
