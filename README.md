@@ -99,79 +99,145 @@ graph TB
 ## Entity-Relationship Diagram
 
 ```mermaid
-graph TB
-    Users[Users]
-    AcademicResults[Academic Results]
-    TestResponses[Test Responses]
-    Recommendations[Recommendations]
-    ChatHistory[Chat History]
+erDiagram
+    USER {
+        int id PK
+        string full_name
+        date dob
+        string class_level
+        string department
+        string email UK
+        string password
+    }
 
-    Users -->|owns| AcademicResults
-    Users -->|submits| TestResponses
-    Users -->|receives| Recommendations
-    Users -->|records| ChatHistory
+    ACADEMIC_RESULT {
+        int id PK
+        int user_id FK
+        string result_type
+        string subject
+        float score
+        date exam_date
+        datetime uploaded_at
+    }
+
+    TEST_RESPONSE {
+        int id PK
+        int user_id FK
+        string test_type
+        string question_id
+        string answer
+        float score
+        datetime submitted_at
+    }
+
+    RECOMMENDATION {
+        int id PK
+        int user_id FK
+        string career_path
+        float confidence
+        json universities
+        json linkedin_mentors
+        text narrative
+        json top3
+        datetime generated_at
+    }
+
+    CHAT_HISTORY {
+        int id PK
+        int user_id FK
+        string role
+        text message
+        datetime created_at
+    }
+
+    USER ||--o{ ACADEMIC_RESULT : "has"
+    USER ||--o{ TEST_RESPONSE : "submits"
+    USER ||--o{ RECOMMENDATION : "receives"
+    USER ||--o{ CHAT_HISTORY : "participates in"
 ```
-## Data Flow Diagrams
-
-### Recommendation Generation Flow
+## Data Flow Diagram - Recommendation Generation & Conversation Chat Flow
 
 ```mermaid
 flowchart TD
-    User[Student] -->|submits grades/tests| Frontend[React UI]
-    Frontend -->|POST /predict/| FastAPI
-    FastAPI -->|validate JWT| Auth[Auth Middleware]
-    FastAPI -->|load payload| ML[run_xgboost prediction]
-    ML -->|predict career & top-3| FastAPI
-    FastAPI -->|build Gemini prompt| Gemini[Google Gemini]
-    Gemini -->|narrative text| FastAPI
-    FastAPI -->|save recommendation| SQLite[SQLite DB]
-    FastAPI -->|return recommendation| Frontend
-    Frontend -->|render| User
+    subgraph User Interaction
+        Student[Student User]
+    end
+
+    subgraph Frontend
+        React[React Web App]
+        Streamlit[Streamlit Mock App]
+    end
+
+    subgraph Backend
+        FastAPI[FastAPI REST API]
+        Auth[Authentication Service]
+        DB[(SQLite Database)]
+        ML[XGBoost ML Model]
+        Gemini[Google Gemini API]
+    end
+
+    %% Recommendation Generation Flow
+    Student -->|1. Submit Grades + Tests| React
+    React -->|2. POST /predict/ml| FastAPI
+    FastAPI -->|3. Validate JWT| Auth
+    FastAPI -->|4. Load Academic + Test Data| DB
+    FastAPI -->|5. Run Career Prediction| ML
+    ML -->|6. Return Top Careers| FastAPI
+    FastAPI -->|7. Build Prompt| Gemini
+    Gemini -->|8. Generate Narrative| FastAPI
+    FastAPI -->|9. Save Recommendation| DB
+    FastAPI -->|10. Return Full Report| React
+    React -->|11. Display Report| Student
+
+    %% Conversation Chat Flow
+    Student -->|A. Send Question| React
+    React -->|B. POST /chat| FastAPI
+    FastAPI -->|C. Load Context| DB
+    FastAPI -->|D. Build Context Prompt| Gemini
+    Gemini -->|E. Generate Reply| FastAPI
+    FastAPI -->|F. Save Chat History| DB
+    FastAPI -->|G. Return Reply| React
+    React -->|H. Display Response| Student
+
+    style React fill:#e3f2fd,stroke:#1565c0
+    style FastAPI fill:#f3e5f5,stroke:#7b1fa2
+    style ML fill:#e8f5e9,stroke:#388e3c
+    style Gemini fill:#fff3e0,stroke:#f57c00
+    style DB fill:#fce4ec,stroke:#c2185b
 ```
 
-### Conversation Chat Flow
-
-```mermaid
-flowchart LR
-    User -->|sends message| ChatUI[Frontend Chat Component]
-    ChatUI -->|POST /history/chat| FastAPI
-    FastAPI -->|load latest recommendation| SQLite
-    FastAPI -->|load recent chat history| SQLite
-    FastAPI -->|construct system prompt| Gemini
-    Gemini -->|assistant reply| FastAPI
-    FastAPI -->|store user & reply| SQLite
-    FastAPI -->|return assistant message| ChatUI
-    ChatUI -->|display| User
-```
-
-## Workflow Diagrams
-
-### Student Recommendation Workflow
-
-```mermaid
-flowchart LR
-    A[Start] --> B[Register / Login]
-    B --> C[Enter Current Grades]
-    C --> D[Complete All 4 Diagnostic Tests]
-    D --> E[Generate Career Recommendation]
-    E --> F[View Career Report, Universities & Mentors]
-    F --> G[Ask Follow-up Career Questions via Chat]
-    G --> H[End]
-```
-
-### Backend Request Lifecycle
+## Workflow Diagrams - Student Recommendation Workflow & Backend Request lIfecycle
 
 ```mermaid
 flowchart TD
-    Request[/predict/, /history/recommendation, /tests/, /results/] --> Auth[JWT & User Lookup]
-    Auth -->|valid| Router[Router Handler]
-    Router -->|predict| MLInference[ML model or fallback]
-    Router -->|history|getRecommendation[DB lookup]
-    Router -->|chat| Gemini[External AI service]
-    Router --> DB[SQLite persistence]
-    DB --> Router
-    Router --> Response[HTTP Response]
-    Response --> Request
+    subgraph "Student Recommendation Workflow"
+        A[Start] --> B[Register / Login]
+        B --> C[Enter Current Subject Grades]
+        C --> D[Complete All 4 Diagnostic Tests]
+        D --> E[Click Generate Recommendation]
+        E --> F[View Personalized Career Report]
+        F --> G[Explore Universities & Mentors]
+        G --> H[Chat with AI Counsellor]
+        H --> I[End Session]
+    end
+
+    subgraph "Backend Request Lifecycle"
+        direction TB
+        Request[Incoming Request] --> Auth[JWT Authentication]
+        Auth -->|Valid| Router[Router Handler]
+        Router -->|Grades / Tests| DB[SQLite Database]
+        Router -->|Prediction| ML[XGBoost ML Model]
+        Router -->|Narrative| Gemini[Google Gemini API]
+        ML --> FastAPI[FastAPI Response Builder]
+        Gemini --> FastAPI
+        DB --> FastAPI
+        FastAPI --> Response[Return JSON Response]
+    end
+
+    style A fill:#e3f2fd,stroke:#1565c0
+    style E fill:#f3e5f5,stroke:#7b1fa2
+    style ML fill:#e8f5e9,stroke:#388e3c
+    style Gemini fill:#fff3e0,stroke:#f57c00
 ```
 
 ## Deployment Notes
