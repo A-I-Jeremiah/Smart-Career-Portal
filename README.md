@@ -188,3 +188,51 @@ flowchart TD
 - React UI: `frontend/src/App.jsx`
 - Frontend API client: `frontend/src/utils/api.js`
 - Prediction payload builder: `frontend/src/utils/subjectMapper.js`
+## Deployment Architecture
+
+```mermaid
+graph LR
+    subgraph Render
+        FastAPI[FastAPI Service]
+        StreamlitApp[Streamlit Service]
+    end
+    subgraph Vercel
+        Frontend[Vite/React Frontend]
+    end
+    Docker[Docker Image] --> FastAPI
+    Docker --> StreamlitApp
+    Frontend --> FastAPI
+```
+
+### Backend (Render)
+
+- Deployed on Render using `render.yaml` which defines three services:
+  - `career-fastapi`: Python FastAPI app container.
+  - `career-streamlit`: Streamlit app container.
+  - `career-react`: static frontend build on Vite.
+
+### Frontend (Vercel)
+
+- The React/Vite app is built and deployed to Vercel.
+- Vercel handles CI/CD on push to `main`, runs `npm install && npm run build` and serves the static files.
+
+### Docker Imaging
+
+- `Dockerfile` builds an image for the Streamlit app.
+- Multi‑stage build could be used for FastAPI as well (optional).
+
+## Methodology & Implementation
+
+- **Backend**: FastAPI with JWT authentication, SQLite database, XGBoost ML models, and Google Gemini API integration for narrative generation.
+- **Frontend**: React with Vite, Axios for API calls, JWT stored in `localStorage`.
+- **Streamlit**: Alternative UI that can load models locally or call the FastAPI backend.
+- **Data**: SQLite schema stores users, academic results, test responses, recommendations, and chat history.
+- **Machine Learning**: XGBoost model trained on historical student data, using a label encoder for categorical features.
+- **AI**: Google Gemini used for narrative generation and conversational counselling.
+- **Testing**: Unit tests for routers, model inference, and API endpoints (if present).
+
+## Future Work
+
+- Migrate SQLite to PostgreSQL for better scalability and concurrency handling.
+- Add CI pipelines with GitHub Actions for linting, testing, and Docker image publishing.
+- Expand AI capabilities with function calling for structured recommendations and richer chat interactions.
