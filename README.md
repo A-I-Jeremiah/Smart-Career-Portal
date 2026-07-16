@@ -15,18 +15,14 @@ The system is powered by:
 The platform is built as a service-oriented architecture with separate user-facing UI layers and a shared backend.
 
 ```mermaid
-flowchart LR
-    subgraph UI
-      React[React/Vite Web App]
-      Streamlit[Streamlit Dashboard]
-    end
-
-    subgraph Backend
-      FastAPI[FastAPI API Server]
-      SQLite[SQLite Database]
-      XGBoostModel[ML Artifacts<br/>(xgb_best_model.pkl, label_encoder.pkl)]
-      Gemini[Google Gemini API]
-    end
+graph LR
+    React[React/Vite Web App]
+    Streamlit[Streamlit Dashboard]
+    FastAPI[FastAPI API Server]
+    SQLite[SQLite Database]
+    XGBoostModel[ML Artifacts (xgb_best_model.pkl, label_encoder.pkl)]
+    Gemini[Google Gemini API]
+    MLLocal[Local Streamlit ML Models]
 
     React -->|REST API calls| FastAPI
     Streamlit -->|Optional /predict/ml| FastAPI
@@ -34,14 +30,9 @@ flowchart LR
     FastAPI -->|loads| XGBoostModel
     FastAPI -->|calls| Gemini
     Streamlit -->|local DB| SQLite
-    Streamlit -->|local ML inference| MLLocal[Local Streamlit ML Models]
+    Streamlit -->|local ML inference| MLLocal
     Streamlit -->|Gemini API| Gemini
-
-    classDef ui fill:#f0f8ff,stroke:#2b6cb0,stroke-width:1px;
-    classDef backend fill:#e9f7ef,stroke:#2f855a,stroke-width:1px;
-    class UI,Backend ui,backend;
 ```
-
 ## Core Components
 
 ### Backend (`backend/`)
@@ -71,84 +62,42 @@ flowchart LR
 ## Use Case Diagram
 
 ```mermaid
-usecaseDiagram
-  actor Student
-  actor System
+graph TB
+  Student([Student])
+  System([System])
 
-  Student --> (Register Account)
-  Student --> (Login)
-  Student --> (Upload Academic Grades)
-  Student --> (Complete Diagnostic Tests)
-  Student --> (Generate Career Recommendation)
-  Student --> (View Recommendation Report)
-  Student --> (Chat with AI Career Counsellor)
-  Student --> (Manage Profile)
+  Student --> Register[Register Account]
+  Student --> Login[Login]
+  Student --> UploadGrades[Upload Academic Grades]
+  Student --> CompleteTests[Complete Diagnostic Tests]
+  Student --> GenerateRecommendation[Generate Career Recommendation]
+  Student --> ViewReport[View Recommendation Report]
+  Student --> Chat[Chat with AI Career Counsellor]
+  Student --> ManageProfile[Manage Profile]
 
-  System --> (Validate Credentials)
-  System --> (Persist Academic Records)
-  System --> (Score Tests)
-  System --> (Run ML Inference)
-  System --> (Generate Narrative)
-  System --> (Save Recommendation)
-  System --> (Return Chat Response)
+  System --> Validate[Validate Credentials]
+  System --> Persist[Persist Academic Records]
+  System --> Score[Score Tests]
+  System --> Infer[Run ML Inference]
+  System --> Narrative[Generate Narrative]
+  System --> Save[Save Recommendation]
+  System --> Respond[Return Chat Response]
 ```
-
 ## Entity-Relationship Diagram
 
 ```mermaid
-erDiagram
-    USERS ||--o{ ACADEMIC_RESULTS : owns
-    USERS ||--o{ TEST_RESPONSES : submits
-    USERS ||--o{ RECOMMENDATIONS : receives
-    USERS ||--o{ CHAT_HISTORY : records
+graph TB
+    Users[Users]
+    AcademicResults[Academic Results]
+    TestResponses[Test Responses]
+    Recommendations[Recommendations]
+    ChatHistory[Chat History]
 
-    USERS {
-        INTEGER id PK
-        TEXT full_name
-        TEXT dob
-        TEXT class_level
-        TEXT department
-        TEXT email UNIQUE
-        TEXT password
-    }
-    ACADEMIC_RESULTS {
-        INTEGER id PK
-        INTEGER user_id FK
-        TEXT result_type
-        TEXT subject
-        REAL score
-        TEXT exam_date
-        TEXT uploaded_at
-    }
-    TEST_RESPONSES {
-        INTEGER id PK
-        INTEGER user_id FK
-        TEXT test_type
-        TEXT question_id
-        TEXT answer
-        REAL score
-        TEXT submitted_at
-    }
-    RECOMMENDATIONS {
-        INTEGER id PK
-        INTEGER user_id FK
-        TEXT career_path
-        REAL confidence
-        TEXT universities
-        TEXT linkedin_mentors
-        TEXT narrative
-        TEXT top3
-        TEXT generated_at
-    }
-    CHAT_HISTORY {
-        INTEGER id PK
-        INTEGER user_id FK
-        TEXT role
-        TEXT message
-        TEXT created_at
-    }
+    Users -->|owns| AcademicResults
+    Users -->|submits| TestResponses
+    Users -->|receives| Recommendations
+    Users -->|records| ChatHistory
 ```
-
 ## Data Flow Diagrams
 
 ### Recommendation Generation Flow
