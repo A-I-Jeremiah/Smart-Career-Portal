@@ -228,3 +228,8 @@ graph LR
 - Migrate SQLite to PostgreSQL for better scalability and concurrency handling.
 - Add CI pipelines with GitHub Actions for linting, testing, and Docker image publishing.
 - Expand AI capabilities with function calling for structured recommendations and richer chat interactions.
+
+## Links To Frontend And Backend Deploments
+- [Streamlit](https://smart-career-app.streamlit.app/)
+- [Backend-FastAPI](https://smart-career-app-4702.onrender.com)
+- [Frontend-UI](https://smart-career-portal.vercel.app/)
