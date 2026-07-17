@@ -177,8 +177,13 @@ def run_xgboost(input_data: dict) -> dict:
 
     try:
         proba_full = _model.predict_proba(df)[0]
-    except Exception:
-        return {"predicted_career": "Unknown", "confidence_percent": 0.0, "top_3": []}
+    except Exception as e:
+        return {
+            "predicted_career": "Unknown",
+            "confidence_percent": 0.0,
+            "top_3": [],
+            "warning": str(e),
+        }
 
     df_no_demo = df.copy()
     for dcol in ("gender", "school_type"):
@@ -186,7 +191,7 @@ def run_xgboost(input_data: dict) -> dict:
             df_no_demo[dcol] = "Unknown"
 
     try:
-        proba_no_demo = model.predict_proba(df_no_demo)[0]
+        proba_no_demo = _model.predict_proba(df_no_demo)[0]
     except Exception:
         proba_no_demo = proba_full
 
@@ -197,12 +202,12 @@ def run_xgboost(input_data: dict) -> dict:
     top_idx = int(np.argmax(avg_proba))
     # label_encoder.classes_ holds class labels in index order — use it to avoid
     # assumptions about the encoder implementation (safer than inverse_transform here).
-    career = label_encoder.classes_[top_idx]
+    career = _label_encoder.classes_[top_idx]
     confidence = float(np.max(avg_proba))
 
     # Build top-3 list
     top_indices = np.argsort(avg_proba)[::-1][:3]
-    top_three = [(label_encoder.classes_[i], float(avg_proba[i])) for i in top_indices]
+    top_three = [(_label_encoder.classes_[i], float(avg_proba[i])) for i in top_indices]
 
     # Heuristic fallback: simple subject-score based matching when confidence low
     heuristic_warning = None
@@ -236,7 +241,7 @@ def run_xgboost(input_data: dict) -> dict:
 
         # Recompute top_three to include heuristic candidates
         # Take top 3 from avg_proba but also include heuristic_choice if missing
-        top_three = [(label_encoder.classes_[i], float(avg_proba[i])) for i in top_indices]
+        top_three = [(_label_encoder.classes_[i], float(avg_proba[i])) for i in top_indices]
         if heuristic_choice not in [t[0] for t in top_three]:
             top_three[-1] = (heuristic_choice, confidence)
 
