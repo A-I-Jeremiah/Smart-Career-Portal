@@ -1,4 +1,4 @@
-﻿import pandas as pd
+import pandas as pd
 import datetime
 import os
 import json
@@ -656,7 +656,6 @@ QUESTION_CATEGORY_MAP = {
 }
 
 
-@st.cache_data(show_spinner=False)
 def load_question_bank():
     if not QUESTIONS_PATH.exists():
         return []
