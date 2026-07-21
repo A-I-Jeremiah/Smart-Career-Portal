@@ -14,7 +14,8 @@ app = FastAPI(
 # ── CORS ──────────────────────────────────────────────────────────────────────
 origins = [
     "http://localhost:5173",
-    "https://smart-career-portal.vercel.app",
+    "https://smart-career-portal.vercel.app"
+    # "http://127.0.0.1:9000/"
 ]
 
 app.add_middleware(
