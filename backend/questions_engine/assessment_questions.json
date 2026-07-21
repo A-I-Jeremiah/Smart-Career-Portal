@@ -59,12 +59,12 @@
     "id": "aptitude-5",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Which number is missing: 5, 10, 20, 40, __",
+    "prompt": "If a computer's storage capacity is 4 Gigabytes (GB), how many Megabytes (MB) is this equivalent to, using standard binary computational metrics (1 GB = 1024 MB)?",
     "options": [
-      "50",
-      "60",
-      "80",
-      "100"
+      "4000 MB",
+      "4096 MB",
+      "2048 MB",
+      "4124 MB"
     ],
     "answer": "80",
     "source": "International aptitude-style reasoning samples"
@@ -143,211 +143,211 @@
     "id": "aptitude-11",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q11: If a force of 55 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "A car accelerates uniformly from rest to 20 m/s in 5 seconds. What is its acceleration?",
     "options": [
-      "11 m/s²",
-      "22 m/s²",
+      "4 m/s²",
       "5 m/s²",
-      "10 m/s²"
+      "20 m/s²",
+      "2 m/s²"
     ],
-    "answer": "11 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "4 m/s²",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-12",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q12: If a force of 60 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "If the volume of a cube is 27 cm³, what is the length of one side?",
     "options": [
-      "12 m/s²",
-      "24 m/s²",
-      "6 m/s²",
-      "10 m/s²"
+      "3 cm",
+      "9 cm",
+      "6 cm",
+      "27 cm"
     ],
-    "answer": "12 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "3 cm",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-13",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q13: If a force of 65 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "A solution contains 40 g of salt dissolved in 200 g of water. What is the percentage concentration of salt?",
     "options": [
-      "13 m/s²",
-      "26 m/s²",
-      "6 m/s²",
-      "10 m/s²"
+      "20%",
+      "40%",
+      "16%",
+      "25%"
     ],
-    "answer": "13 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "20%",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-14",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q14: If a force of 70 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "An electrical circuit breaker drops the current if power exceeds 2200 Watts. If the voltage supply in Nigeria is 220V, what is the maximum current (in Amperes) the circuit can handle before tripping?",
     "options": [
-      "14 m/s²",
-      "28 m/s²",
-      "7 m/s²",
-      "10 m/s²"
+      "0.1 A  ",
+      "10 A",
+      "5 A",
+      "20 A"
     ],
-    "answer": "14 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "10 A",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-15",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q15: If a force of 75 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "If the boiling point of water at sea level is 100°C, what is this temperature in Kelvin?",
     "options": [
-      "15 m/s²",
-      "30 m/s²",
-      "7 m/s²",
-      "10 m/s²"
+      "373 K",
+      "273 K",
+      "100 K",
+      "473 K"
     ],
-    "answer": "15 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "373 K",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-16",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q16: If a force of 80 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "A pendulum completes 10 full swings in 20 seconds. What is its period?",
     "options": [
-      "16 m/s²",
-      "32 m/s²",
-      "8 m/s²",
-      "10 m/s²"
+      "2 seconds",
+      "10 seconds",
+      "0.5 seconds",
+      "20 seconds"
     ],
-    "answer": "16 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "2 seconds",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-17",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q17: If a force of 85 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "If 5 taps can fill a tank in 8 hours, how long will 10 taps take to fill the same tank?",
     "options": [
-      "17 m/s²",
-      "34 m/s²",
-      "8 m/s²",
-      "10 m/s²"
+      "4 hours",
+      "16 hours",
+      "8 hours",
+      "2 hours"
     ],
-    "answer": "17 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "4 hours",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-18",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q18: If a force of 90 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "What is the value of x in the equation 2x² = 32?",
     "options": [
-      "18 m/s²",
-      "36 m/s²",
-      "9 m/s²",
-      "10 m/s²"
+      "4",
+      "8",
+      "16",
+      "2"
     ],
-    "answer": "18 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "4",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-19",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q19: If a force of 95 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "A ladder leans against a wall forming a right triangle. If the base is 6 m and the height is 8 m, what is the length of the ladder?",
     "options": [
-      "19 m/s²",
-      "38 m/s²",
-      "9 m/s²",
-      "10 m/s²"
+      "10 m",
+      "14 m",
+      "12 m",
+      "9 m"
     ],
-    "answer": "19 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "10 m",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-20",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q20: If a force of 100 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "A student wants to measure the rate of photosynthesis in an aquatic weed plant. Which of the following data metrics is the most logical parameter to measure directly?",
     "options": [
-      "20 m/s²",
-      "40 m/s²",
-      "10 m/s²",
-      "10 m/s²"
+      "The change in the mass of water",
+      "The number of oxygen gas bubbles released per minute",
+      "The drop in room temperature",
+      "The rate of plant root elongation"
     ],
-    "answer": "20 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "The number of oxygen gas bubbles released per minute",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-21",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q21: If a force of 105 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "If an object has a density of 8 g/cm³ and a volume of 5 cm³, what is its mass?",
     "options": [
-      "21 m/s²",
-      "42 m/s²",
-      "10 m/s²",
-      "10 m/s²"
+      "40 g",
+      "13 g",
+      "1.6 g",
+      "35 g"
     ],
-    "answer": "21 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "40 g",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-22",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q22: If a force of 110 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "A recipe requires ingredients in the ratio 2:3:5 for flour, sugar, and water. If there are 300 g of water, how much flour is needed?",
     "options": [
-      "22 m/s²",
-      "44 m/s²",
-      "11 m/s²",
-      "10 m/s²"
+      "120 g",
+      "150 g",
+      "100 g",
+      "180 g"
     ],
-    "answer": "22 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "120 g",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-23",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q23: If a force of 115 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "Simplify: (2³ × 2⁴) ÷ 2²",
     "options": [
-      "23 m/s²",
-      "46 m/s²",
-      "11 m/s²",
-      "10 m/s²"
+      "32",
+      "16",
+      "64",
+      "8"
     ],
-    "answer": "23 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "32",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-24",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q24: If a force of 120 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "A cyclist travels 60 km at an average speed of 15 km/h. How long does the journey take?",
     "options": [
-      "24 m/s²",
-      "48 m/s²",
-      "12 m/s²",
-      "10 m/s²"
+      "4 hours",
+      "5 hours",
+      "3 hours",
+      "6 hours"
     ],
-    "answer": "24 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "4 hours",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-25",
     "category": "aptitude",
     "subject_category": "Science",
-    "prompt": "Science Aptitude Q25: If a force of 125 N acts on a mass of 5 kg, what is the acceleration?",
+    "prompt": "If the angles of a triangle are in the ratio 2:3:4, what is the size of the largest angle?",
     "options": [
-      "25 m/s²",
-      "50 m/s²",
-      "12 m/s²",
-      "10 m/s²"
+      "80°",
+      "60°",
+      "90°",
+      "100°"
     ],
-    "answer": "25 m/s²",
-    "source": "Science Aptitude Bank"
+    "answer": "80°",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-26",
@@ -493,211 +493,211 @@
     "id": "aptitude-36",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q36: A retailer sells an item for N3600 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "A trader buys a bag of garri for N8,000 and sells it for N9,600. What is the profit percentage?",
     "options": [
-      "N2880",
-      "N2700",
-      "N3240",
-      "N3060"
+      "20%",
+      "16%",
+      "25%",
+      "12%"
     ],
-    "answer": "N2880",
-    "source": "Commercial Aptitude Bank"
+    "answer": "20%",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-37",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q37: A retailer sells an item for N3700 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "A shop offers a 15% discount on a shirt originally priced at N4,000. What is the discounted price?",
     "options": [
-      "N2960",
-      "N2775",
-      "N3330",
-      "N3145"
+      "N3,400",
+      "N3,600",
+      "N3,800",
+      "N3,200"
     ],
-    "answer": "N2960",
-    "source": "Commercial Aptitude Bank"
+    "answer": "N3,400",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-38",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q38: A retailer sells an item for N3800 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "If N200,000 is deposited in a bank at 8% simple interest per annum, how much interest is earned after 3 years?",
     "options": [
-      "N3040",
-      "N2850",
-      "N3420",
-      "N3230"
+      "N48,000",
+      "N16,000",
+      "N24,000",
+      "N56,000"
     ],
-    "answer": "N3040",
-    "source": "Commercial Aptitude Bank"
+    "answer": "N48,000",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-39",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q39: A retailer sells an item for N3900 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "A company's total revenue is N1,500,000 and total expenses are N950,000. What is the net profit?",
     "options": [
-      "N3120",
-      "N2925",
-      "N3510",
-      "N3315"
+      "N550,000",
+      "N450,000",
+      "N600,000",
+      "N500,000"
     ],
-    "answer": "N3120",
-    "source": "Commercial Aptitude Bank"
+    "answer": "N550,000",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-40",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q40: A retailer sells an item for N4000 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "If the exchange rate is N1,500 to $1, how much naira is needed to buy $250?",
     "options": [
-      "N3200",
-      "N3000",
-      "N3600",
-      "N3400"
+      "N375,000",
+      "N300,000",
+      "N425,000",
+      "N350,000"
     ],
-    "answer": "N3200",
-    "source": "Commercial Aptitude Bank"
+    "answer": "N375,000",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-41",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q41: A retailer sells an item for N4100 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "A wholesaler buys 100 cartons of drinks at N2,500 each and sells them at N3,000 each. What is the total profit?",
     "options": [
-      "N3280",
-      "N3075",
-      "N3690",
-      "N3485"
+      "N50,000",
+      "N25,000",
+      "N45,000",
+      "N60,000"
     ],
-    "answer": "N3280",
-    "source": "Commercial Aptitude Bank"
+    "answer": "N50,000",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-42",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q42: A retailer sells an item for N4200 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "If a business's stock value depreciates by 10% each year, what fraction of its original value remains after 2 years?",
     "options": [
-      "N3360",
-      "N3150",
-      "N3780",
-      "N3570"
+      "81%",
+      "80%",
+      "90%",
+      "72%"
     ],
-    "answer": "N3360",
-    "source": "Commercial Aptitude Bank"
+    "answer": "81%",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-43",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q43: A retailer sells an item for N4300 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "A supermarket marks up the cost price of rice by 30% to get the selling price. If the cost price is N25,000, what is the selling price?",
     "options": [
-      "N3440",
-      "N3225",
-      "N3870",
-      "N3655"
+      "N32,500",
+      "N30,000",
+      "N28,500",
+      "N35,000"
     ],
-    "answer": "N3440",
-    "source": "Commercial Aptitude Bank"
+    "answer": "N32,500",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-44",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q44: A retailer sells an item for N4400 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "What term describes the total amount a business owes to outside parties?",
     "options": [
-      "N3520",
-      "N3300",
-      "N3960",
-      "N3740"
+      "Liabilities",
+      "Assets",
+      "Equity",
+      "Revenue"
     ],
-    "answer": "N3520",
-    "source": "Commercial Aptitude Bank"
+    "answer": "Liabilities",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-45",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q45: A retailer sells an item for N4500 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "If a saver deposits N50,000 and it grows to N60,500 after 2 years under compound interest, what is the approximate annual rate?",
     "options": [
-      "N3600",
-      "N3375",
-      "N4050",
-      "N3825"
+      "10%",
+      "8%",
+      "12%",
+      "15%"
     ],
-    "answer": "N3600",
-    "source": "Commercial Aptitude Bank"
+    "answer": "10%",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-46",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q46: A retailer sells an item for N4600 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "A market woman sells tomatoes at N500 per basket. If she sells 40 baskets in a day, what is her total sales for the day?",
     "options": [
-      "N3680",
-      "N3450",
-      "N4140",
-      "N3910"
+      "N20,000",
+      "N18,000",
+      "N22,000",
+      "N15,000"
     ],
-    "answer": "N3680",
-    "source": "Commercial Aptitude Bank"
+    "answer": "N20,000",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-47",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q47: A retailer sells an item for N4700 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "If the price of fuel increases from N600 to N750 per litre, what is the percentage increase?",
     "options": [
-      "N3760",
-      "N3525",
-      "N4230",
-      "N3995"
+      "25%",
+      "20%",
+      "30%",
+      "15%"
     ],
-    "answer": "N3760",
-    "source": "Commercial Aptitude Bank"
+    "answer": "25%",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-48",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q48: A retailer sells an item for N4800 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "A company issues 10,000 shares at N50 each. What is the total value of the shares issued?",
     "options": [
-      "N3840",
-      "N3600",
-      "N4320",
-      "N4080"
+      "N500,000",
+      "N50,000",
+      "N5,000,000",
+      "N100,000"
     ],
-    "answer": "N3840",
-    "source": "Commercial Aptitude Bank"
+    "answer": "N500,000",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-49",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q49: A retailer sells an item for N4900 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "Which of these best describes 'opportunity cost' in economics?",
     "options": [
-      "N3920",
-      "N3675",
-      "N4410",
-      "N4165"
+      "The value of the next best alternative given up",
+      "The total cost of production",
+      "The profit earned from a sale",
+      "The tax paid on income"
     ],
-    "answer": "N3920",
-    "source": "Commercial Aptitude Bank"
+    "answer": "The value of the next best alternative given up",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-50",
     "category": "aptitude",
     "subject_category": "Commercial",
-    "prompt": "Commercial Aptitude Q50: A retailer sells an item for N5000 which includes a 25% markup on cost. What is the cost price?",
+    "prompt": "A trader buys an item for N7,000 and wants a 25% profit margin. At what price should it be sold?",
     "options": [
-      "N4000",
-      "N3750",
-      "N4500",
-      "N4250"
+      "N8,750",
+      "N9,000",
+      "N8,500",
+      "N7,750"
     ],
-    "answer": "N4000",
-    "source": "Commercial Aptitude Bank"
+    "answer": "N8,750",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-51",
@@ -843,228 +843,228 @@
     "id": "aptitude-61",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q61: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "Choose the word that means the same as 'Eloquent':",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "Fluent and persuasive in speech",
+      "Silent and withdrawn",
+      "Confused and unclear",
+      "Rude and abrupt"
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "Fluent and persuasive in speech",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-62",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q62: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "Complete the analogy: Pen is to Write as Brush is to ___",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "Paint",
+      "Wood",
+      "Canvas",
+      "Colour"
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "Paint",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-63",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q63: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "Choose the word that is most nearly opposite in meaning to 'Verbose':",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "Concise",
+      "Talkative",
+      "Detailed",
+      "Lengthy"
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "Concise",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-64",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q64: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "Which of the following words is correctly spelled?",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "Necessary",
+      "Neccessary",
+      "Necessery",
+      "Neccessery"
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "Necessary",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-65",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q65: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "Select the sentence with the correct use of punctuation:",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "\"Where are you going?\" she asked.",
+      "\"Where are you going\" she asked?",
+      "Where are you going, she asked.",
+      "\"Where are you going?, she asked\""
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "\"Where are you going?\" she asked.",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-66",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q66: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "If all poets are writers, and some writers are teachers, which of these statements must be true?",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "It cannot be concluded that any poet is a teacher",
+      "All poets are teachers",
+      "No poet is a teacher",
+      "All teachers are poets"
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "It cannot be concluded that any poet is a teacher",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-67",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q67: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "Choose the word most nearly opposite in meaning to 'Meticulous':",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "Careless",
+      "Precise",
+      "Thorough",
+      "Diligent"
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "Careless",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-68",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q68: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "Complete the proverb: 'Actions speak louder than ___.'",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "Words",
+      "Thoughts",
+      "Promises",
+      "Silence"
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "Words",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-69",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q69: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "Identify the odd one out: Sonnet, Haiku, Ballad, Sculpture",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "Sculpture",
+      "Sonnet",
+      "Haiku",
+      "Ballad"
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "Sculpture",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-70",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q70: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "Choose the word that means the same as 'Candid':",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "Honest and direct",
+      "Secretive",
+      "Formal",
+      "Hesitant"
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "Honest and direct",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-71",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q71: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "Which figure of speech compares two unlike things using 'like' or 'as'?",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "Simile",
+      "Metaphor",
+      "Personification",
+      "Hyperbole"
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "Simile",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-72",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q72: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "Complete the analogy: Author is to Novel as Sculptor is to ___",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "Statue",
+      "Chisel",
+      "Museum",
+      "Clay"
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "Statue",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-73",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q73: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "Choose the correct plural form of the word 'Criterion':",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "Criteria",
+      "Criterions",
+      "Criteries",
+      "Criterias"
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "Criteria",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-74",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q74: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "Select the word that best completes: 'The debate grew so ___ that the moderator had to intervene.'",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "Heated",
+      "Silent",
+      "Boring",
+      "Brief"
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "Heated",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "aptitude-75",
     "category": "aptitude",
     "subject_category": "Arts",
-    "prompt": "Arts Aptitude Q75: Select the word that best completes the sentence: 'His speech was so ___ that many in the audience wept.'",
+    "prompt": "Choose the word most nearly opposite in meaning to 'Ambiguous':",
     "options": [
-      "moving",
-      "boring",
-      "long",
-      "funny"
+      "Clear",
+      "Vague",
+      "Puzzling",
+      "Uncertain"
     ],
-    "answer": "moving",
-    "source": "Arts Aptitude Bank"
+    "answer": "Clear",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
+  },
+  {
+    "id": "cognitive-1",
+    "category": "cognitive",
+    "subject_category": "Science",
+    "prompt": "An experiment tracking a bacterial colony shows the population growing at a specific rate every hour: 2, 6, 14, 30, 62,... What will the population be at the next hour?",
+    "options": [
+      "92",
+      "124",
+      "126",
+      "130"
+    ],
+    "answer": "126",
+    "source": "Gemini-AI"
   },
   {
     "id": "cognitive-2",
-    "category": "cognitive",
-    "subject_category": "Science",
-    "prompt": "What comes next: 1, 3, 6, 10, __",
-    "options": [
-      "12",
-      "14",
-      "15",
-      "16"
-    ],
-    "answer": "15",
-    "source": "International cognitive assessment patterns"
-  },
-  {
-    "id": "cognitive-3",
     "category": "cognitive",
     "subject_category": "Science",
     "prompt": "If CAT is coded as 3120, what is DOG coded as?",
@@ -1078,7 +1078,7 @@
     "source": "International cognitive assessment patterns"
   },
   {
-    "id": "cognitive-4",
+    "id": "cognitive-3",
     "category": "cognitive",
     "subject_category": "Science",
     "prompt": "What is the missing letter in the sequence: B, D, F, __",
@@ -1092,7 +1092,7 @@
     "source": "Science Cognitive Bank"
   },
   {
-    "id": "cognitive-5",
+    "id": "cognitive-4",
     "category": "cognitive",
     "subject_category": "Science",
     "prompt": "Which shape has the most vertices?",
@@ -1106,7 +1106,7 @@
     "source": "Science Cognitive Bank"
   },
   {
-    "id": "cognitive-1",
+    "id": "cognitive-5",
     "category": "cognitive",
     "subject_category": "Science",
     "prompt": "If a circle has a radius of r, what shape is formed by wrapping it around a cylinder?",
@@ -1123,281 +1123,281 @@
     "id": "cognitive-6",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q6: What number completes the pattern: 6, 12, 24, ___?",
+    "prompt": "Five chemical elements (P, Q, R, S, T) are being tested for reactivity. P is more reactive than Q. R is less reactive than S. T is more reactive than Q but less reactive than R. Which element is the least reactive?",
     "options": [
-      "48",
-      "36",
-      "60",
-      "72"
+      "P",
+      "Q",
+      "R",
+      "S"
     ],
-    "answer": "48",
-    "source": "Science Cognitive Bank"
+    "answer": "Q",
+    "source": "Gemini-AI"
   },
   {
     "id": "cognitive-7",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q7: What number completes the pattern: 7, 14, 28, ___?",
+    "prompt": "If APPLE is coded as 1-16-16-12-5, what is the code for MANGO?",
     "options": [
-      "56",
-      "42",
-      "70",
-      "84"
+      "13-1-14-7-15",
+      "13-1-14-7-14",
+      "12-1-14-7-15",
+      "13-2-14-7-15"
     ],
-    "answer": "56",
-    "source": "Science Cognitive Bank"
+    "answer": "13-1-14-7-15",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-8",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q8: What number completes the pattern: 8, 16, 32, ___?",
+    "prompt": "A standard laboratory beaker filled with a liquid weighs 800 grams. When it is half-empty, it weighs 500 grams. What is the mass of the empty beaker itself?",
     "options": [
-      "64",
-      "48",
-      "80",
-      "96"
+      "100 grams",
+      "200 grams",
+      "250 grams",
+      "300 grams"
     ],
-    "answer": "64",
-    "source": "Science Cognitive Bank"
+    "answer": "200 grams",
+    "source": "Gemini-AI"
   },
   {
     "id": "cognitive-9",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q9: What number completes the pattern: 9, 18, 36, ___?",
+    "prompt": "Which solid shape has exactly 8 vertices and 6 faces?",
     "options": [
-      "72",
-      "54",
-      "90",
-      "108"
+      "Cube",
+      "Sphere",
+      "Cone",
+      "Cylinder"
     ],
-    "answer": "72",
-    "source": "Science Cognitive Bank"
+    "answer": "Cube",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-10",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q10: What number completes the pattern: 10, 20, 40, ___?",
+    "prompt": "If a triangle's angles are folded flat along a straight line, what do the three angles sum to?",
     "options": [
-      "80",
-      "60",
-      "100",
-      "120"
+      "180°",
+      "360°",
+      "90°",
+      "270°"
     ],
-    "answer": "80",
-    "source": "Science Cognitive Bank"
+    "answer": "180°",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-11",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q11: What number completes the pattern: 11, 22, 44, ___?",
+    "prompt": "In the sequence H, J, L, N, ___, what letter comes next?",
     "options": [
-      "88",
-      "66",
-      "110",
-      "132"
+      "P",
+      "O",
+      "Q",
+      "M"
     ],
-    "answer": "88",
-    "source": "Science Cognitive Bank"
+    "answer": "P",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-12",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q12: What number completes the pattern: 12, 24, 48, ___?",
+    "prompt": "If a chemical reaction produces a colour change from blue to colourless, and the setup involves adding an acid to an alkaline solution with an indicator, this best describes:",
     "options": [
-      "96",
-      "72",
-      "120",
-      "144"
+      "A neutralisation reaction",
+      "A combustion reaction",
+      "A precipitation reaction",
+      "A sublimation process"
     ],
-    "answer": "96",
-    "source": "Science Cognitive Bank"
+    "answer": "A neutralisation reaction",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-13",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q13: What number completes the pattern: 13, 26, 52, ___?",
+    "prompt": "Which of these is not like the others: Mitochondria, Nucleus, Ribosome, Photosynthesis?",
     "options": [
-      "104",
-      "78",
-      "130",
-      "156"
+      "Photosynthesis",
+      "Mitochondria",
+      "Nucleus",
+      "Ribosome"
     ],
-    "answer": "104",
-    "source": "Science Cognitive Bank"
+    "answer": "Photosynthesis",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-14",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q14: What number completes the pattern: 14, 28, 56, ___?",
+    "prompt": "If a set of numbers doubles each time starting from 1.5, what is the 5th term?",
     "options": [
-      "112",
-      "84",
-      "140",
-      "168"
+      "24",
+      "12",
+      "48",
+      "18"
     ],
-    "answer": "112",
-    "source": "Science Cognitive Bank"
+    "answer": "24",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-15",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q15: What number completes the pattern: 15, 30, 60, ___?",
+    "prompt": "Which term correctly completes the analogy: Thermometer is to Temperature as Barometer is to ___?",
     "options": [
-      "120",
-      "90",
-      "150",
-      "180"
+      "Atmospheric pressure",
+      "Humidity",
+      "Wind speed",
+      "Rainfall"
     ],
-    "answer": "120",
-    "source": "Science Cognitive Bank"
+    "answer": "Atmospheric pressure",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-16",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q16: What number completes the pattern: 16, 32, 64, ___?",
+    "prompt": "If a number is divisible by both 3 and 4, it must also be divisible by:",
     "options": [
-      "128",
-      "96",
-      "160",
-      "192"
+      "12",
+      "7",
+      "5",
+      "9"
     ],
-    "answer": "128",
-    "source": "Science Cognitive Bank"
+    "answer": "12",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-17",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q17: What number completes the pattern: 17, 34, 68, ___?",
+    "prompt": "Which shape results from a cross-section cut perpendicular to the base of a cone?",
     "options": [
-      "136",
-      "102",
-      "170",
-      "204"
+      "Triangle",
+      "Circle",
+      "Rectangle",
+      "Ellipse"
     ],
-    "answer": "136",
-    "source": "Science Cognitive Bank"
+    "answer": "Triangle",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-18",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q18: What number completes the pattern: 18, 36, 72, ___?",
+    "prompt": "In the code system where each letter shifts 2 places forward in the alphabet, what does 'CAT' become?",
     "options": [
-      "144",
-      "108",
-      "180",
-      "216"
+      "ECV",
+      "EBV",
+      "DBU",
+      "ECU"
     ],
-    "answer": "144",
-    "source": "Science Cognitive Bank"
+    "answer": "ECV",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-19",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q19: What number completes the pattern: 19, 38, 76, ___?",
+    "prompt": "Which of the following does not belong: Oxygen, Nitrogen, Carbon dioxide, Water?",
     "options": [
-      "152",
-      "114",
-      "190",
-      "228"
+      "Water",
+      "Oxygen",
+      "Nitrogen",
+      "Carbon dioxide"
     ],
-    "answer": "152",
-    "source": "Science Cognitive Bank"
+    "answer": "Water",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-20",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q20: What number completes the pattern: 20, 40, 80, ___?",
+    "prompt": "If a machine processes items twice as fast every hour it runs, and it processes 5 items in the first hour, how many will it process in the fourth hour?",
     "options": [
-      "160",
-      "120",
-      "200",
-      "240"
+      "40",
+      "20",
+      "35",
+      "45"
     ],
-    "answer": "160",
-    "source": "Science Cognitive Bank"
+    "answer": "40",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-21",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q21: What number completes the pattern: 21, 42, 84, ___?",
+    "prompt": "What is the next shape in a pattern that alternates between a square and a triangle, starting with a square?",
     "options": [
-      "168",
-      "126",
-      "210",
-      "252"
+      "Triangle",
+      "Square",
+      "Circle",
+      "Pentagon"
     ],
-    "answer": "168",
-    "source": "Science Cognitive Bank"
+    "answer": "Triangle",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-22",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q22: What number completes the pattern: 22, 44, 88, ___?",
+    "prompt": "Which number does not fit the pattern: 4, 9, 16, 26, 36 (based on perfect squares)?",
     "options": [
-      "176",
-      "132",
-      "220",
-      "264"
+      "26",
+      "9",
+      "16",
+      "36"
     ],
-    "answer": "176",
-    "source": "Science Cognitive Bank"
+    "answer": "26",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-23",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q23: What number completes the pattern: 23, 46, 92, ___?",
+    "prompt": "If plants convert carbon dioxide and water into glucose using sunlight, this process is called:",
     "options": [
-      "184",
-      "138",
-      "230",
-      "276"
+      "Photosynthesis",
+      "Respiration",
+      "Transpiration",
+      "Fermentation"
     ],
-    "answer": "184",
-    "source": "Science Cognitive Bank"
+    "answer": "Photosynthesis",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-24",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q24: What number completes the pattern: 24, 48, 96, ___?",
+    "prompt": "In a series where each term is the sum of the two before it (1, 1, 2, 3, 5, 8...), what is the next term after 8?",
     "options": [
-      "192",
-      "144",
-      "240",
-      "288"
+      "13",
+      "11",
+      "10",
+      "16"
     ],
-    "answer": "192",
-    "source": "Science Cognitive Bank"
+    "answer": "13",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-25",
     "category": "cognitive",
     "subject_category": "Science",
-    "prompt": "Science Cognitive Q25: What number completes the pattern: 25, 50, 100, ___?",
+    "prompt": "Which unit correctly measures electric current?",
     "options": [
-      "200",
-      "150",
-      "250",
-      "300"
+      "Ampere",
+      "Volt",
+      "Ohm",
+      "Watt"
     ],
-    "answer": "200",
-    "source": "Science Cognitive Bank"
+    "answer": "Ampere",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-26",
@@ -1473,284 +1473,284 @@
     "id": "cognitive-31",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q31: If index price rises by 31% and inflation is 15%, what is the real price change?",
+    "prompt": "A company's profit doubles every quarter. If profit in Q1 was N2 million, what is the profit in Q4?",
     "options": [
-      "16%",
-      "46%",
-      "31%",
-      "0%"
+      "N16 million",
+      "N8 million",
+      "N12 million",
+      "N20 million"
     ],
-    "answer": "16%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "N16 million",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-32",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q32: If index price rises by 32% and inflation is 16%, what is the real price change?",
+    "prompt": "Look at the series: N50, N100, N200, N400, ___. What comes next?",
     "options": [
-      "16%",
-      "48%",
-      "32%",
-      "0%"
+      "N800",
+      "N600",
+      "N500",
+      "N1,000"
     ],
-    "answer": "16%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "N800",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-33",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q33: If index price rises by 33% and inflation is 16%, what is the real price change?",
+    "prompt": "If revenue is R = P × Q (price times quantity), and price rises by 10% while quantity falls by 10%, revenue will:",
     "options": [
-      "17%",
-      "49%",
-      "33%",
-      "0%"
+      "Decrease slightly",
+      "Stay exactly the same",
+      "Increase significantly",
+      "Double"
     ],
-    "answer": "17%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "Decrease slightly",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-34",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q34: If index price rises by 34% and inflation is 17%, what is the real price change?",
+    "prompt": "If Company X's sales exceed Company Y's, and Company Y's sales exceed Company Z's, which statement is true?",
     "options": [
-      "17%",
-      "51%",
-      "34%",
-      "0%"
+      "Company X's sales exceed Company Z's",
+      "Company Z's sales exceed Company X's",
+      "All three companies have equal sales",
+      "No comparison can be made"
     ],
-    "answer": "17%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "Company X's sales exceed Company Z's",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-35",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q35: If index price rises by 35% and inflation is 17%, what is the real price change?",
+    "prompt": "An item priced at N2,000 is discounted by 20%, then the new price is increased by 10%. What is the final price?",
     "options": [
-      "18%",
-      "52%",
-      "35%",
-      "0%"
+      "N1,760",
+      "N1,800",
+      "N1,600",
+      "N2,000"
     ],
-    "answer": "18%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "N1,760",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-36",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q36: If index price rises by 36% and inflation is 18%, what is the real price change?",
+    "prompt": "If a warehouse restocks inventory every time stock falls below 100 units, and current stock is 85, what action should occur?",
     "options": [
-      "18%",
-      "54%",
-      "36%",
-      "0%"
+      "Restock immediately",
+      "Wait until stock reaches zero",
+      "Reduce prices",
+      "Increase stock threshold"
     ],
-    "answer": "18%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "Restock immediately",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-37",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q37: If index price rises by 37% and inflation is 18%, what is the real price change?",
+    "prompt": "A business's break-even point is where total revenue equals total cost. If fixed costs are N100,000 and each unit contributes N500 profit, how many units must be sold to break even?",
     "options": [
-      "19%",
-      "55%",
-      "37%",
-      "0%"
+      "200 units",
+      "150 units",
+      "250 units",
+      "100 units"
     ],
-    "answer": "19%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "200 units",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-38",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q38: If index price rises by 38% and inflation is 19%, what is the real price change?",
+    "prompt": "If Bank A offers 6% interest and Bank B offers 8% interest on the same deposit, which statement is correct?",
     "options": [
-      "19%",
-      "57%",
-      "38%",
-      "0%"
+      "Bank B pays more interest on the same deposit",
+      "Bank A pays more interest on the same deposit",
+      "Both pay identical interest",
+      "Neither pays interest"
     ],
-    "answer": "19%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "Bank B pays more interest on the same deposit",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-39",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q39: If index price rises by 39% and inflation is 19%, what is the real price change?",
+    "prompt": "A shop's customer traffic pattern shows: Monday 50, Tuesday 100, Wednesday 200. Following this pattern, what is expected on Thursday?",
     "options": [
-      "20%",
-      "58%",
-      "39%",
-      "0%"
+      "400",
+      "300",
+      "250",
+      "350"
     ],
-    "answer": "20%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "400",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-40",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q40: If index price rises by 40% and inflation is 20%, what is the real price change?",
+    "prompt": "If demand for an essential good is inelastic, a 20% price increase will most likely cause quantity demanded to:",
     "options": [
-      "20%",
-      "60%",
-      "40%",
-      "0%"
+      "Fall by less than 20%",
+      "Fall by exactly 20%",
+      "Fall by more than 20%",
+      "Rise sharply"
     ],
-    "answer": "20%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "Fall by less than 20%",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-41",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q41: If index price rises by 41% and inflation is 20%, what is the real price change?",
+    "prompt": "A retailer's monthly expenses follow the pattern N30,000, N33,000, N36,300. If the pattern is a fixed percentage increase, what is next month's approximate expense?",
     "options": [
-      "21%",
-      "61%",
-      "41%",
-      "0%"
+      "N39,930",
+      "N39,300",
+      "N40,000",
+      "N38,500"
     ],
-    "answer": "21%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "N39,930",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-42",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q42: If index price rises by 42% and inflation is 21%, what is the real price change?",
+    "prompt": "If Product A has a higher profit margin than Product B, but Product B sells in much larger volumes, which factor best determines overall profitability?",
     "options": [
-      "21%",
-      "63%",
-      "42%",
-      "0%"
+      "Total profit, which depends on both margin and volume",
+      "Margin alone",
+      "Volume alone",
+      "Neither margin nor volume matters"
     ],
-    "answer": "21%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "Total profit, which depends on both margin and volume",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-43",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q43: If index price rises by 43% and inflation is 21%, what is the real price change?",
+    "prompt": "A company's stock price rises by 5% on Monday and falls by 5% on Tuesday (based on Monday's closing price). Compared to the original price, the stock is now:",
     "options": [
-      "22%",
-      "64%",
-      "43%",
-      "0%"
+      "Slightly lower than the original price",
+      "Exactly the same as the original price",
+      "Slightly higher than the original price",
+      "Double the original price"
     ],
-    "answer": "22%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "Slightly lower than the original price",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-44",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q44: If index price rises by 44% and inflation is 22%, what is the real price change?",
+    "prompt": "If a business's cash inflow exceeds its cash outflow every month, its cash reserve will:",
     "options": [
-      "22%",
-      "66%",
-      "44%",
-      "0%"
+      "Grow over time",
+      "Shrink over time",
+      "Stay constant",
+      "Become negative"
     ],
-    "answer": "22%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "Grow over time",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-45",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q45: If index price rises by 45% and inflation is 22%, what is the real price change?",
+    "prompt": "In a supply chain, if a supplier's lead time increases from 2 days to 6 days, what is the most likely effect on inventory planning?",
     "options": [
-      "23%",
-      "67%",
-      "45%",
-      "0%"
+      "Businesses need to hold more safety stock",
+      "Businesses can reduce their stock levels",
+      "Lead time has no effect on inventory",
+      "Prices will automatically fall"
     ],
-    "answer": "23%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "Businesses need to hold more safety stock",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-46",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q46: If index price rises by 46% and inflation is 23%, what is the real price change?",
+    "prompt": "If a currency depreciates against the dollar, imported goods priced in dollars will become:",
     "options": [
-      "23%",
-      "69%",
-      "46%",
-      "0%"
+      "More expensive in local currency",
+      "Cheaper in local currency",
+      "Unaffected in price",
+      "Free of charge"
     ],
-    "answer": "23%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "More expensive in local currency",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-47",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q47: If index price rises by 47% and inflation is 23%, what is the real price change?",
+    "prompt": "A market survey shows 3 out of every 5 customers prefer Brand A. Out of 500 customers, how many are expected to prefer Brand A?",
     "options": [
-      "24%",
-      "70%",
-      "47%",
-      "0%"
+      "300",
+      "250",
+      "350",
+      "200"
     ],
-    "answer": "24%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "300",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-48",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q48: If index price rises by 48% and inflation is 24%, what is the real price change?",
+    "prompt": "If a firm's average cost per unit falls as output increases, this is best described as:",
     "options": [
-      "24%",
-      "72%",
-      "48%",
-      "0%"
+      "Economies of scale",
+      "Diseconomies of scale",
+      "Diminishing returns",
+      "Fixed cost effect"
     ],
-    "answer": "24%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "Economies of scale",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-49",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q49: If index price rises by 49% and inflation is 24%, what is the real price change?",
+    "prompt": "A savings plan requires depositing N1,000 in week 1, N2,000 in week 2, N4,000 in week 3. Following the pattern, how much is deposited in week 5?",
     "options": [
-      "25%",
-      "73%",
-      "49%",
-      "0%"
+      "N16,000",
+      "N8,000",
+      "N12,000",
+      "N10,000"
     ],
-    "answer": "25%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "N16,000",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-50",
     "category": "cognitive",
     "subject_category": "Commercial",
-    "prompt": "Commercial Cognitive Q50: If index price rises by 50% and inflation is 25%, what is the real price change?",
+    "prompt": "If two competing shops both cut prices in response to each other repeatedly, this pricing behaviour is best described as:",
     "options": [
-      "25%",
-      "75%",
-      "50%",
-      "0%"
+      "A price war",
+      "A monopoly",
+      "Price fixing",
+      "Price discrimination"
     ],
-    "answer": "25%",
-    "source": "Commercial Cognitive Bank"
+    "answer": "A price war",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
-    "id": "cognitive-1",
+    "id": "cognitive-51",
     "category": "cognitive",
     "subject_category": "Arts",
     "prompt": "Which word does not belong: teacher, doctor, school, nurse?",
@@ -1764,7 +1764,7 @@
     "source": "International cognitive assessment patterns"
   },
   {
-    "id": "cognitive-51",
+    "id": "cognitive-52",
     "category": "cognitive",
     "subject_category": "Arts",
     "prompt": "Find the odd one out in this literary list:",
@@ -1778,7 +1778,7 @@
     "source": "Arts Cognitive Bank"
   },
   {
-    "id": "cognitive-52",
+    "id": "cognitive-53",
     "category": "cognitive",
     "subject_category": "Arts",
     "prompt": "Rearrange the letters 'R-A-T' to make a word that means art. What is it?",
@@ -1792,7 +1792,7 @@
     "source": "Arts Cognitive Bank"
   },
   {
-    "id": "cognitive-53",
+    "id": "cognitive-54",
     "category": "cognitive",
     "subject_category": "Arts",
     "prompt": "Which word completes the pattern: Read is to Book as Listen is to ___?",
@@ -1806,7 +1806,7 @@
     "source": "Arts Cognitive Bank"
   },
   {
-    "id": "cognitive-54",
+    "id": "cognitive-55",
     "category": "cognitive",
     "subject_category": "Arts",
     "prompt": "If primary colors are Red, Yellow, Blue, which of these is a secondary color?",
@@ -1820,7 +1820,7 @@
     "source": "Arts Cognitive Bank"
   },
   {
-    "id": "cognitive-55",
+    "id": "cognitive-56",
     "category": "cognitive",
     "subject_category": "Arts",
     "prompt": "What is the next term in the word sequence: Page, Chapter, Book, ___?",
@@ -1834,7 +1834,7 @@
     "source": "Arts Cognitive Bank"
   },
   {
-    "id": "cognitive-56",
+    "id": "cognitive-57",
     "category": "cognitive",
     "subject_category": "Arts",
     "prompt": "Odd word out:",
@@ -1848,7 +1848,7 @@
     "source": "Arts Cognitive Bank"
   },
   {
-    "id": "cognitive-57",
+    "id": "cognitive-58",
     "category": "cognitive",
     "subject_category": "Arts",
     "prompt": "Unscramble 'L-I-S-T-E-N' to find a word meaning quiet:",
@@ -1862,7 +1862,7 @@
     "source": "Arts Cognitive Bank"
   },
   {
-    "id": "cognitive-58",
+    "id": "cognitive-59",
     "category": "cognitive",
     "subject_category": "Arts",
     "prompt": "Which word represents the collection of actors in a play?",
@@ -1876,7 +1876,7 @@
     "source": "Arts Cognitive Bank"
   },
   {
-    "id": "cognitive-59",
+    "id": "cognitive-60",
     "category": "cognitive",
     "subject_category": "Arts",
     "prompt": "What word is formed by adding one letter to 'HEAR' to mean a vital organ?",
@@ -1890,7 +1890,7 @@
     "source": "Arts Cognitive Bank"
   },
   {
-    "id": "cognitive-60",
+    "id": "cognitive-61",
     "category": "cognitive",
     "subject_category": "Arts",
     "prompt": "Complete the pattern: Paint is to Brush as Sculpt is to ___?",
@@ -1904,200 +1904,200 @@
     "source": "Arts Cognitive Bank"
   },
   {
-    "id": "cognitive-61",
-    "category": "cognitive",
-    "subject_category": "Arts",
-    "prompt": "Arts Cognitive Q61: Which word is a synonym for 'ephemeral'?",
-    "options": [
-      "Temporary",
-      "Permanent",
-      "Beautiful",
-      "Heavy"
-    ],
-    "answer": "Temporary",
-    "source": "Arts Cognitive Bank"
-  },
-  {
     "id": "cognitive-62",
     "category": "cognitive",
     "subject_category": "Arts",
-    "prompt": "Arts Cognitive Q62: Which word is a synonym for 'ephemeral'?",
+    "prompt": "Which word does not belong: violin, guitar, drum, canvas?",
     "options": [
-      "Temporary",
-      "Permanent",
-      "Beautiful",
-      "Heavy"
+      "Canvas",
+      "Violin",
+      "Guitar",
+      "Drum"
     ],
-    "answer": "Temporary",
-    "source": "Arts Cognitive Bank"
+    "answer": "Canvas",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-63",
     "category": "cognitive",
     "subject_category": "Arts",
-    "prompt": "Arts Cognitive Q63: Which word is a synonym for 'ephemeral'?",
+    "prompt": "Find the odd one out among these literary genres: Tragedy, Comedy, Epic, Portrait",
     "options": [
-      "Temporary",
-      "Permanent",
-      "Beautiful",
-      "Heavy"
+      "Portrait",
+      "Tragedy",
+      "Comedy",
+      "Epic"
     ],
-    "answer": "Temporary",
-    "source": "Arts Cognitive Bank"
+    "answer": "Portrait",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-64",
     "category": "cognitive",
     "subject_category": "Arts",
-    "prompt": "Arts Cognitive Q64: Which word is a synonym for 'ephemeral'?",
+    "prompt": "Rearrange the letters 'E-M-O-P' to make a word related to literature. What is it?",
     "options": [
-      "Temporary",
-      "Permanent",
-      "Beautiful",
-      "Heavy"
+      "Poem",
+      "Mope",
+      "Peom",
+      "Ompe"
     ],
-    "answer": "Temporary",
-    "source": "Arts Cognitive Bank"
+    "answer": "Poem",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-65",
     "category": "cognitive",
     "subject_category": "Arts",
-    "prompt": "Arts Cognitive Q65: Which word is a synonym for 'ephemeral'?",
+    "prompt": "Which word completes the pattern: Write is to Author as Direct is to ___?",
     "options": [
-      "Temporary",
-      "Permanent",
-      "Beautiful",
-      "Heavy"
+      "Director",
+      "Actor",
+      "Script",
+      "Stage"
     ],
-    "answer": "Temporary",
-    "source": "Arts Cognitive Bank"
+    "answer": "Director",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-66",
     "category": "cognitive",
     "subject_category": "Arts",
-    "prompt": "Arts Cognitive Q66: Which word is a synonym for 'ephemeral'?",
+    "prompt": "If secondary colours include Green, Orange, and Purple, which of these is a primary colour?",
     "options": [
-      "Temporary",
-      "Permanent",
-      "Beautiful",
-      "Heavy"
+      "Blue",
+      "Green",
+      "Orange",
+      "Purple"
     ],
-    "answer": "Temporary",
-    "source": "Arts Cognitive Bank"
+    "answer": "Blue",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-67",
     "category": "cognitive",
     "subject_category": "Arts",
-    "prompt": "Arts Cognitive Q67: Which word is a synonym for 'ephemeral'?",
+    "prompt": "What is the next term in the sequence: Stanza, Verse, Poem, ___?",
     "options": [
-      "Temporary",
-      "Permanent",
-      "Beautiful",
-      "Heavy"
+      "Anthology",
+      "Chapter",
+      "Novel",
+      "Essay"
     ],
-    "answer": "Temporary",
-    "source": "Arts Cognitive Bank"
+    "answer": "Anthology",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-68",
     "category": "cognitive",
     "subject_category": "Arts",
-    "prompt": "Arts Cognitive Q68: Which word is a synonym for 'ephemeral'?",
+    "prompt": "Odd word out: Playwright, Novelist, Poet, Carpenter",
     "options": [
-      "Temporary",
-      "Permanent",
-      "Beautiful",
-      "Heavy"
+      "Carpenter",
+      "Playwright",
+      "Novelist",
+      "Poet"
     ],
-    "answer": "Temporary",
-    "source": "Arts Cognitive Bank"
+    "answer": "Carpenter",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-69",
     "category": "cognitive",
     "subject_category": "Arts",
-    "prompt": "Arts Cognitive Q69: Which word is a synonym for 'ephemeral'?",
+    "prompt": "Unscramble 'C-I-T-E-R' to find a word meaning a formal reading of a poem or piece:",
     "options": [
-      "Temporary",
-      "Permanent",
-      "Beautiful",
-      "Heavy"
+      "Recite (anagram: citer)",
+      "Cider",
+      "Erict",
+      "Tiecr"
     ],
-    "answer": "Temporary",
-    "source": "Arts Cognitive Bank"
+    "answer": "Recite (anagram: citer)",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-70",
     "category": "cognitive",
     "subject_category": "Arts",
-    "prompt": "Arts Cognitive Q70: Which word is a synonym for 'ephemeral'?",
+    "prompt": "Which word represents a group of musicians performing together?",
     "options": [
-      "Temporary",
-      "Permanent",
-      "Beautiful",
-      "Heavy"
+      "Ensemble",
+      "Cast",
+      "Troupe",
+      "Chorus"
     ],
-    "answer": "Temporary",
-    "source": "Arts Cognitive Bank"
+    "answer": "Ensemble",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-71",
     "category": "cognitive",
     "subject_category": "Arts",
-    "prompt": "Arts Cognitive Q71: Which word is a synonym for 'ephemeral'?",
+    "prompt": "What word is formed by adding one letter to 'SONG' to mean a written work with chapters?",
     "options": [
-      "Temporary",
-      "Permanent",
-      "Beautiful",
-      "Heavy"
+      "Song has no such transformation; the correct word is 'Book'",
+      "Songs",
+      "Sung",
+      "Stone"
     ],
-    "answer": "Temporary",
-    "source": "Arts Cognitive Bank"
+    "answer": "Song has no such transformation; the correct word is 'Book'",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-72",
     "category": "cognitive",
     "subject_category": "Arts",
-    "prompt": "Arts Cognitive Q72: Which word is a synonym for 'ephemeral'?",
+    "prompt": "Complete the pattern: Compose is to Music as Choreograph is to ___?",
     "options": [
-      "Temporary",
-      "Permanent",
-      "Beautiful",
-      "Heavy"
+      "Dance",
+      "Painting",
+      "Sculpture",
+      "Drama"
     ],
-    "answer": "Temporary",
-    "source": "Arts Cognitive Bank"
+    "answer": "Dance",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-73",
     "category": "cognitive",
     "subject_category": "Arts",
-    "prompt": "Arts Cognitive Q73: Which word is a synonym for 'ephemeral'?",
+    "prompt": "Which of these words is spelled correctly?",
     "options": [
-      "Temporary",
-      "Permanent",
-      "Beautiful",
-      "Heavy"
+      "Rhythm",
+      "Rythm",
+      "Rhythem",
+      "Rhithm"
     ],
-    "answer": "Temporary",
-    "source": "Arts Cognitive Bank"
+    "answer": "Rhythm",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "cognitive-74",
     "category": "cognitive",
     "subject_category": "Arts",
-    "prompt": "Arts Cognitive Q74: Which word is a synonym for 'ephemeral'?",
+    "prompt": "If a story's climax comes before its resolution, which of these correctly orders a plot: Exposition, Climax, Resolution, Rising action?",
     "options": [
-      "Temporary",
-      "Permanent",
-      "Beautiful",
-      "Heavy"
+      "Exposition, Rising action, Climax, Resolution",
+      "Exposition, Climax, Rising action, Resolution",
+      "Climax, Exposition, Rising action, Resolution",
+      "Resolution, Climax, Rising action, Exposition"
     ],
-    "answer": "Temporary",
-    "source": "Arts Cognitive Bank"
+    "answer": "Exposition, Rising action, Climax, Resolution",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
+  },
+  {
+    "id": "cognitive-75",
+    "category": "cognitive",
+    "subject_category": "Arts",
+    "prompt": "Which term describes a story told from the 'I' perspective?",
+    "options": [
+      "First-person narrative",
+      "Third-person narrative",
+      "Omniscient narrative",
+      "Second-person narrative"
+    ],
+    "answer": "First-person narrative",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-1",
@@ -2110,10 +2110,11 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Psychometric RIASEC Inventory"
   },
   {
-    "id": "psychometric-3",
+    "id": "psychometric-2",
     "category": "psychometric",
     "subject_category": "Science",
     "prompt": "I am curious to learn how computer software and applications are built.",
@@ -2123,10 +2124,11 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Psychometric RIASEC Inventory"
   },
   {
-    "id": "psychometric-4",
+    "id": "psychometric-3",
     "category": "psychometric",
     "subject_category": "Science",
     "prompt": "I would like to conduct experiments in a chemistry or physics laboratory.",
@@ -2136,10 +2138,11 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Psychometric RIASEC Inventory"
   },
   {
-    "id": "psychometric-5",
+    "id": "psychometric-4",
     "category": "psychometric",
     "subject_category": "Science",
     "prompt": "I like studying human anatomy, plant biology, or veterinary sciences.",
@@ -2149,283 +2152,305 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Psychometric RIASEC Inventory"
+  },
+  {
+    "id": "psychometric-5",
+    "category": "psychometric",
+    "subject_category": "Science",
+    "prompt": "I would enjoy a career as a medical doctor or surgeon.",
+    "options": [
+      "Strongly disagree",
+      "Disagree",
+      "Agree",
+      "Strongly agree"
+    ],
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-6",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 6.",
+    "prompt": "I am interested in studying engineering, mechanical or electrical.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-7",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 7.",
+    "prompt": "I would like to work as a software developer or systems analyst.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-8",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 8.",
+    "prompt": "I am drawn to careers in pharmacy or drug research.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-9",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 9.",
+    "prompt": "I would enjoy working as an environmental scientist or ecologist.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-10",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 10.",
+    "prompt": "I am interested in astronomy or space science research.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-11",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 11.",
+    "prompt": "I would like to work as a data scientist or statistician.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-12",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 12.",
+    "prompt": "I enjoy the idea of a career in biomedical or genetic research.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-13",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 13.",
+    "prompt": "I would find satisfaction in a career as an architect or civil engineer.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-14",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 14.",
+    "prompt": "I am interested in agricultural science or food technology.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-15",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 15.",
+    "prompt": "I would enjoy working as a laboratory technologist.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-16",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 16.",
+    "prompt": "I am drawn to careers in artificial intelligence or robotics.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-17",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 17.",
+    "prompt": "I would like to explore a career in geology or mineral sciences.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-18",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 18.",
+    "prompt": "I am interested in nursing or public health practice.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-19",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 19.",
+    "prompt": "I would enjoy designing and building electronic devices.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-20",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 20.",
+    "prompt": "I am interested in marine biology or aquatic sciences.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-21",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 21.",
+    "prompt": "I would like to work in renewable energy or sustainability engineering.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-22",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 22.",
+    "prompt": "I enjoy the idea of researching cures for diseases.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-23",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 23.",
+    "prompt": "I am drawn to careers involving statistical modelling and forecasting.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-24",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 24.",
+    "prompt": "I would find satisfaction working as a veterinary doctor.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-25",
     "category": "psychometric",
     "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 25.",
+    "prompt": "I am interested in studying meteorology or climate science.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Science Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-26",
-    "category": "psychometric",
-    "subject_category": "Science",
-    "prompt": "I am interested in scientific research regarding renewable energy source 26.",
-    "options": [
-      "Strongly disagree",
-      "Disagree",
-      "Agree",
-      "Strongly agree"
-    ],
-    "source": "Science Psychometric Bank"
-  },
-  {
-    "id": "psychometric-2",
     "category": "psychometric",
     "subject_category": "Commercial",
     "prompt": "I prefer working in teams rather than alone.",
@@ -2435,10 +2460,11 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Psychometric RIASEC Inventory"
   },
   {
-    "id": "psychometric-26",
+    "id": "psychometric-27",
     "category": "psychometric",
     "subject_category": "Commercial",
     "prompt": "I am interested in managing budgets and financial spreadsheets.",
@@ -2448,10 +2474,11 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Commercial Psychometric Bank"
   },
   {
-    "id": "psychometric-27",
+    "id": "psychometric-28",
     "category": "psychometric",
     "subject_category": "Commercial",
     "prompt": "I enjoy selling products or pitching business ideas to others.",
@@ -2461,10 +2488,11 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Commercial Psychometric Bank"
   },
   {
-    "id": "psychometric-28",
+    "id": "psychometric-29",
     "category": "psychometric",
     "subject_category": "Commercial",
     "prompt": "I would like to run my own company or startup.",
@@ -2474,10 +2502,11 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Commercial Psychometric Bank"
   },
   {
-    "id": "psychometric-29",
+    "id": "psychometric-30",
     "category": "psychometric",
     "subject_category": "Commercial",
     "prompt": "I find analyzing stock market trends or retail pricing interesting.",
@@ -2487,10 +2516,11 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Commercial Psychometric Bank"
   },
   {
-    "id": "psychometric-30",
+    "id": "psychometric-31",
     "category": "psychometric",
     "subject_category": "Commercial",
     "prompt": "I like organizing logistics, schedules, and administrative resources.",
@@ -2500,10 +2530,11 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Commercial Psychometric Bank"
   },
   {
-    "id": "psychometric-31",
+    "id": "psychometric-32",
     "category": "psychometric",
     "subject_category": "Commercial",
     "prompt": "I would enjoy working as an accountant or investment banker.",
@@ -2513,10 +2544,11 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Commercial Psychometric Bank"
   },
   {
-    "id": "psychometric-32",
+    "id": "psychometric-33",
     "category": "psychometric",
     "subject_category": "Commercial",
     "prompt": "I enjoy coordinating marketing campaigns on social media.",
@@ -2526,10 +2558,11 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Commercial Psychometric Bank"
   },
   {
-    "id": "psychometric-33",
+    "id": "psychometric-34",
     "category": "psychometric",
     "subject_category": "Commercial",
     "prompt": "I like reading business columns or stock market news.",
@@ -2539,215 +2572,232 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Commercial Psychometric Bank"
   },
   {
     "id": "psychometric-35",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 35.",
+    "prompt": "I would enjoy a career in banking or financial consulting.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-36",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 36.",
+    "prompt": "I am interested in studying business administration or economics.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-37",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 37.",
+    "prompt": "I would like to start and manage my own retail business.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-38",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 38.",
+    "prompt": "I am drawn to careers in human resources management.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-39",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 39.",
+    "prompt": "I would enjoy working as a real estate agent or property manager.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-40",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 40.",
+    "prompt": "I am interested in insurance underwriting or risk assessment.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-41",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 41.",
+    "prompt": "I would like to work in international trade or import-export business.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-42",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 42.",
+    "prompt": "I enjoy the idea of a career in digital marketing or e-commerce.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-43",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 43.",
+    "prompt": "I would find satisfaction in a career as a procurement or supply officer.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-44",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 44.",
+    "prompt": "I am interested in taxation and financial auditing.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-45",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 45.",
+    "prompt": "I would enjoy working as a business development or sales executive.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-46",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 46.",
+    "prompt": "I am drawn to careers in event planning or hospitality management.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-47",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 47.",
+    "prompt": "I would like to explore a career in stockbroking or asset management.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-48",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 48.",
+    "prompt": "I am interested in entrepreneurship and small business consulting.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-49",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 49.",
+    "prompt": "I would enjoy managing inventory and warehouse operations.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-50",
     "category": "psychometric",
     "subject_category": "Commercial",
-    "prompt": "I would feel motivated to optimize supply chains and logistics in business project 50.",
+    "prompt": "I am interested in customer relationship management as a career.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Commercial Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-51",
@@ -2760,6 +2810,7 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Arts Psychometric Bank"
   },
   {
@@ -2773,6 +2824,7 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Arts Psychometric Bank"
   },
   {
@@ -2786,6 +2838,7 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Arts Psychometric Bank"
   },
   {
@@ -2799,6 +2852,7 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Arts Psychometric Bank"
   },
   {
@@ -2812,6 +2866,7 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Arts Psychometric Bank"
   },
   {
@@ -2825,6 +2880,7 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Arts Psychometric Bank"
   },
   {
@@ -2838,6 +2894,7 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Arts Psychometric Bank"
   },
   {
@@ -2851,6 +2908,7 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Arts Psychometric Bank"
   },
   {
@@ -2864,6 +2922,7 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Arts Psychometric Bank"
   },
   {
@@ -2877,205 +2936,221 @@
       "Agree",
       "Strongly agree"
     ],
+    "answer": "",
     "source": "Arts Psychometric Bank"
   },
   {
     "id": "psychometric-61",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 61.",
+    "prompt": "I would enjoy a career as a novelist, poet, or scriptwriter.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-62",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 62.",
+    "prompt": "I am interested in studying fine art, fashion design, or graphic design.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-63",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 63.",
+    "prompt": "I would like to work in broadcasting, journalism, or media production.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-64",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 64.",
+    "prompt": "I am drawn to careers in law, advocacy, or human rights.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-65",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 65.",
+    "prompt": "I would enjoy teaching literature, history, or languages.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-66",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 66.",
+    "prompt": "I am interested in archaeology or the study of ancient civilizations.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-67",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 67.",
+    "prompt": "I would like to work as a museum curator or art historian.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-68",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 68.",
+    "prompt": "I enjoy the idea of a career in diplomacy or international relations.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-69",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 69.",
+    "prompt": "I would find satisfaction in a career as a music composer or performer.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-70",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 70.",
+    "prompt": "I am interested in photography, filmmaking, or visual storytelling.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-71",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 71.",
+    "prompt": "I would enjoy working as a translator or interpreter.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-72",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 72.",
+    "prompt": "I am drawn to careers in public relations or advertising.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-73",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 73.",
+    "prompt": "I would like to explore a career in theatre direction or production.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-74",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 74.",
+    "prompt": "I am interested in social work or community development.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "psychometric-75",
     "category": "psychometric",
     "subject_category": "Arts",
-    "prompt": "I would like to work as an advisor on cultural heritage preservation project 75.",
+    "prompt": "I would enjoy studying religious studies or philosophy.",
     "options": [
       "Strongly disagree",
       "Disagree",
       "Agree",
       "Strongly agree"
     ],
-    "source": "Arts Psychometric Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
-    "id": "personality-3",
+    "id": "personality-1",
     "category": "personality",
     "subject_category": "Science",
     "prompt": "I prefer to work in a quiet, organized space.",
@@ -3085,10 +3160,11 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Big Five Personality Scale"
   },
   {
-    "id": "personality-26",
+    "id": "personality-2",
     "category": "personality",
     "subject_category": "Science",
     "prompt": "I approach hard problems logically rather than emotionally.",
@@ -3098,10 +3174,11 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Science Personality Bank"
   },
   {
-    "id": "personality-27",
+    "id": "personality-3",
     "category": "personality",
     "subject_category": "Science",
     "prompt": "I pay close attention to minute details in lab or code setups.",
@@ -3111,10 +3188,11 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Science Personality Bank"
   },
   {
-    "id": "personality-28",
+    "id": "personality-4",
     "category": "personality",
     "subject_category": "Science",
     "prompt": "I am curious about the scientific mechanism behind how things work.",
@@ -3124,10 +3202,11 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Science Personality Bank"
   },
   {
-    "id": "personality-29",
+    "id": "personality-5",
     "category": "personality",
     "subject_category": "Science",
     "prompt": "I prefer to analyze facts before drawing any major conclusions.",
@@ -3137,10 +3216,11 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Science Personality Bank"
   },
   {
-    "id": "personality-30",
+    "id": "personality-6",
     "category": "personality",
     "subject_category": "Science",
     "prompt": "I can focus on code debugging or data analysis for several hours.",
@@ -3150,10 +3230,11 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Science Personality Bank"
   },
   {
-    "id": "personality-31",
+    "id": "personality-7",
     "category": "personality",
     "subject_category": "Science",
     "prompt": "I enjoy building physical or digital models to test my hypotheses.",
@@ -3163,10 +3244,11 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Science Personality Bank"
   },
   {
-    "id": "personality-32",
+    "id": "personality-8",
     "category": "personality",
     "subject_category": "Science",
     "prompt": "I double-check calculations and lab procedures for safety.",
@@ -3176,231 +3258,249 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Science Personality Bank"
   },
   {
     "id": "personality-9",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 9.",
+    "prompt": "I enjoy breaking down complex problems into smaller steps.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-10",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 10.",
+    "prompt": "I like testing my ideas through experiments or trial and error.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-11",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 11.",
+    "prompt": "I feel comfortable working with numbers, formulas, or data.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-12",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 12.",
+    "prompt": "I am patient when a solution requires many attempts to get right.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-13",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 13.",
+    "prompt": "I enjoy reading about new scientific discoveries or technologies.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-14",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 14.",
+    "prompt": "I like organizing information into clear categories or systems.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-15",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 15.",
+    "prompt": "I prefer evidence-based explanations over assumptions.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-16",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 16.",
+    "prompt": "I feel comfortable troubleshooting when equipment or code doesn't work.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-17",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 17.",
+    "prompt": "I enjoy comparing different methods to find the most efficient one.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-18",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 18.",
+    "prompt": "I like documenting my steps carefully during an experiment or project.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-19",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 19.",
+    "prompt": "I am drawn to subjects that involve precise measurement and calculation.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-20",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 20.",
+    "prompt": "I enjoy collaborating with others to solve a technical challenge.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-21",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 21.",
+    "prompt": "I feel a sense of achievement when I figure out how something works.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-22",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 22.",
+    "prompt": "I like reviewing my work carefully before submitting it.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-23",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 23.",
+    "prompt": "I am curious about how new inventions or technologies are built.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-24",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 24.",
+    "prompt": "I enjoy applying mathematical concepts to real-world problems.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-25",
     "category": "personality",
     "subject_category": "Science",
-    "prompt": "I systematically structure my studies in math and science course 25.",
+    "prompt": "I prefer structured, step-by-step approaches to tasks.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Science Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
-    "id": "personality-1",
+    "id": "personality-26",
     "category": "personality",
     "subject_category": "Commercial",
     "prompt": "I feel comfortable leading group projects.",
@@ -3410,6 +3510,7 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Big Five Personality Scale"
   },
   {
@@ -3423,6 +3524,7 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Commercial Personality Bank"
   },
   {
@@ -3436,6 +3538,7 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Commercial Personality Bank"
   },
   {
@@ -3449,6 +3552,7 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Commercial Personality Bank"
   },
   {
@@ -3462,6 +3566,7 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Commercial Personality Bank"
   },
   {
@@ -3475,6 +3580,7 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Commercial Personality Bank"
   },
   {
@@ -3488,6 +3594,7 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Commercial Personality Bank"
   },
   {
@@ -3501,231 +3608,249 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Commercial Personality Bank"
+  },
+  {
+    "id": "personality-34",
+    "category": "personality",
+    "subject_category": "Commercial",
+    "prompt": "I enjoy spotting opportunities to make or save money.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-35",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 35.",
+    "prompt": "I feel confident pitching an idea to a group of people.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-36",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 36.",
+    "prompt": "I like tracking my progress towards financial or business goals.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-37",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 37.",
+    "prompt": "I stay organized when managing multiple tasks or deadlines.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-38",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 38.",
+    "prompt": "I am comfortable making decisions with limited information.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-39",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 39.",
+    "prompt": "I enjoy persuading others to see things from my point of view.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-40",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 40.",
+    "prompt": "I like analysing trends before making a decision.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-41",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 41.",
+    "prompt": "I feel motivated by competition and measurable targets.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-42",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 42.",
+    "prompt": "I am willing to take responsibility when a group project goes wrong.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-43",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 43.",
+    "prompt": "I enjoy planning events, budgets, or schedules for others.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-44",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 44.",
+    "prompt": "I adapt quickly when business plans need to change.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-45",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 45.",
+    "prompt": "I like researching companies, markets, or investment options.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-46",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 46.",
+    "prompt": "I am comfortable following up with people to close a deal.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-47",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 47.",
+    "prompt": "I enjoy identifying ways to make a process more efficient.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-48",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 48.",
+    "prompt": "I feel confident presenting numbers and reports to an audience.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-49",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 49.",
+    "prompt": "I like setting long-term financial goals for myself.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-50",
     "category": "personality",
     "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 50.",
+    "prompt": "I am persistent when working towards a sales or business target.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Commercial Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-51",
-    "category": "personality",
-    "subject_category": "Commercial",
-    "prompt": "I feel highly driven to lead business presentation 51.",
-    "options": [
-      "Never",
-      "Sometimes",
-      "Often",
-      "Always"
-    ],
-    "source": "Commercial Personality Bank"
-  },
-  {
-    "id": "personality-2",
     "category": "personality",
     "subject_category": "Arts",
     "prompt": "I try to understand other people's feelings.",
@@ -3735,6 +3860,7 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Big Five Personality Scale"
   },
   {
@@ -3748,6 +3874,7 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Arts Personality Bank"
   },
   {
@@ -3761,6 +3888,7 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Arts Personality Bank"
   },
   {
@@ -3774,6 +3902,7 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Arts Personality Bank"
   },
   {
@@ -3787,6 +3916,7 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Arts Personality Bank"
   },
   {
@@ -3800,6 +3930,7 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Arts Personality Bank"
   },
   {
@@ -3813,6 +3944,7 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Arts Personality Bank"
   },
   {
@@ -3826,227 +3958,245 @@
       "Often",
       "Always"
     ],
+    "answer": "",
     "source": "Arts Personality Bank"
+  },
+  {
+    "id": "personality-59",
+    "category": "personality",
+    "subject_category": "Arts",
+    "prompt": "I enjoy discussing the meaning behind poems, novels, or films.",
+    "options": [
+      "Never",
+      "Sometimes",
+      "Often",
+      "Always"
+    ],
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-60",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 60.",
+    "prompt": "I like to express my emotions through drawing, music, or writing.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-61",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 61.",
+    "prompt": "I notice small details in artwork, design, or fashion that others overlook.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-62",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 62.",
+    "prompt": "I feel energised after attending a cultural event, concert, or exhibition.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-63",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 63.",
+    "prompt": "I enjoy debating different viewpoints on social or historical issues.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-64",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 64.",
+    "prompt": "I find it easy to imagine new stories, characters, or worlds.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-65",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 65.",
+    "prompt": "I like helping others understand different cultures and traditions.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-66",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 66.",
+    "prompt": "I prefer tasks that allow room for personal interpretation and creativity.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-67",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 67.",
+    "prompt": "I enjoy public speaking or performing in front of an audience.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-68",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 68.",
+    "prompt": "I like to keep a journal or write down my thoughts regularly.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-69",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 69.",
+    "prompt": "I feel drawn to careers that involve storytelling or communication.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-70",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 70.",
+    "prompt": "I appreciate learning about the history behind a piece of art or literature.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-71",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 71.",
+    "prompt": "I enjoy collaborating with others on creative projects.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-72",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 72.",
+    "prompt": "I am comfortable expressing opinions that differ from popular views.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-73",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 73.",
+    "prompt": "I like to reimagine or redesign things in unconventional ways.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-74",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 74.",
+    "prompt": "I find satisfaction in mentoring younger students on creative subjects.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   },
   {
     "id": "personality-75",
     "category": "personality",
     "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 75.",
+    "prompt": "I enjoy exploring new languages, dialects, or forms of expression.",
     "options": [
       "Never",
       "Sometimes",
       "Often",
       "Always"
     ],
-    "source": "Arts Personality Bank"
-  },
-  {
-    "id": "personality-76",
-    "category": "personality",
-    "subject_category": "Arts",
-    "prompt": "I enjoy expressing my worldview in literature assignment 76.",
-    "options": [
-      "Never",
-      "Sometimes",
-      "Often",
-      "Always"
-    ],
-    "source": "Arts Personality Bank"
+    "answer": "",
+    "source": "Curated Nigerian Secondary School Question Bank (WAEC/JAMB-aligned)"
   }
 ]
