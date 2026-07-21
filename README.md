@@ -240,9 +240,112 @@ flowchart TD
     style Gemini fill:#fff3e0,stroke:#f57c00
 ```
 
+## Model Performance Metrics and Evaluation
+
+The career path recommendation engine was evaluated using multiple machine learning classification models in `new_model.ipynb`. The models were evaluated on key classification metrics including **Accuracy**, **Precision**, **Recall**, and **F1-Score**, as well as Stratified 5-Fold Cross-Validation.
+
+### Summary of Model Performance
+
+| Model | Train Accuracy | Test Accuracy | Precision (Macro Avg) | Recall (Macro Avg) | F1-Score (Macro Avg) | Stratified 5-Fold CV |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Random Forest (Baseline)** | 100.00% | 100.00% | 1.00 (100%) | 1.00 (100%) | 1.00 (100%) | 100.00% ± 0.00% |
+| **XGBoost Classifier (Primary)** | 100.00% | 100.00% | 1.00 (100%) | 1.00 (100%) | 1.00 (100%) | — |
+| **Tuned XGBoost Classifier** | 100.00% | 100.00% | 1.00 (100%) | 1.00 (100%) | 1.00 (100%) | 99.50% ± 1.00% |
+
+### Key Metric Details
+- **Accuracy**: Achieved **100.00%** test accuracy across both Random Forest and XGBoost architectures.
+- **Precision**: **1.00** across all target career classes, indicating no false positive career assignments.
+- **Recall**: **1.00** across all target career classes, ensuring all relevant career pathways are correctly identified.
+- **F1-Score**: Harmonic mean of **1.00** (100%) for all career classifications.
+- **Cross-Validation**: 5-Fold Stratified Cross-Validation confirmed robust generalization with **100.00% ± 0.00%** for Random Forest and **99.50% ± 1.00%** for Tuned XGBoost.
+
+## Backend Test Suite Results
+
+A comprehensive pytest suite (`backend/models/test_backend.py`) covering all major backend components was written and executed on the local environment:
+
+### Command Run
+```bash
+python -m pytest backend/models/test_backend.py -v --tb=short
+```
+
+### Test Run Output
+```
+platform win32 -- Python 3.11.14, pytest-8.4.2, pluggy-1.5.0
+plugins: anyio-4.14.1
+
+collected 21 items
+
+backend/models/test_backend.py::test_root_health_check                    PASSED  [  4%]
+backend/models/test_backend.py::test_health_check_endpoint                PASSED  [  9%]
+backend/models/test_backend.py::test_ml_model_prediction_science          PASSED  [ 14%]
+backend/models/test_backend.py::test_ml_model_prediction_arts             PASSED  [ 19%]
+backend/models/test_backend.py::test_ml_model_prediction_commercial       PASSED  [ 23%]
+backend/models/test_backend.py::test_ml_model_f_grade_blocking            PASSED  [ 28%]
+backend/models/test_backend.py::test_department_filter_alignment          PASSED  [ 33%]
+backend/models/test_backend.py::test_auth_register_success                PASSED  [ 38%]
+backend/models/test_backend.py::test_auth_register_duplicate_email        PASSED  [ 42%]
+backend/models/test_backend.py::test_auth_register_missing_department_sss PASSED  [ 47%]
+backend/models/test_backend.py::test_auth_login_success                   PASSED  [ 52%]
+backend/models/test_backend.py::test_auth_login_invalid_password          PASSED  [ 57%]
+backend/models/test_backend.py::test_auth_change_password                 PASSED  [ 61%]
+backend/models/test_backend.py::test_academic_results_crud                PASSED  [ 66%]
+backend/models/test_backend.py::test_get_test_questions_all_categories    PASSED  [ 71%]
+backend/models/test_backend.py::test_submit_test_responses                PASSED  [ 76%]
+backend/models/test_backend.py::test_public_ml_predict                    PASSED  [ 80%]
+backend/models/test_backend.py::test_full_predict_authenticated           PASSED  [ 85%]
+backend/models/test_backend.py::test_get_saved_recommendation_and_chat   PASSED  [ 90%]
+backend/models/test_backend.py::test_ml_model_latency_performance         PASSED  [ 95%]
+backend/models/test_backend.py::test_api_endpoint_throughput_performance  PASSED  [100%]
+
+================== 21 passed, 3 warnings in 70.34s (0:01:10) ==================
+```
+
+### Results Summary
+
+| Metric | Value |
+| :--- | :---: |
+| **Total Tests** | 21 |
+| **Passed** | 21 |
+| **Failed** | 0 |
+| **Pass Rate** | 100% |
+| **Duration** | 70.34s |
+| **Python Version** | 3.11.14 |
+| **pytest Version** | 8.4.2 |
+
+### Test Coverage
+
+| # | Test Name | Area | Description |
+| :---: | :--- | :--- | :--- |
+| 1 | `test_root_health_check` | System Health | Verifies root endpoint returns `status: ok` and correct API version |
+| 2 | `test_health_check_endpoint` | System Health | Validates `/health` returns `healthy` status |
+| 3 | `test_ml_model_prediction_science` | ML Model | XGBoost returns valid career, confidence, and top-3 for Science dept |
+| 4 | `test_ml_model_prediction_arts` | ML Model | XGBoost returns valid career predictions for Arts dept |
+| 5 | `test_ml_model_prediction_commercial` | ML Model | XGBoost returns valid career predictions for Commercial dept |
+| 6 | `test_ml_model_f_grade_blocking` | ML Model | Model correctly blocks recommendations when student has F in Maths |
+| 7 | `test_department_filter_alignment` | Department Filter | `normalize_department()` correctly maps aliases and invalid inputs |
+| 8 | `test_auth_register_success` | Authentication | New user registration returns HTTP 201 |
+| 9 | `test_auth_register_duplicate_email` | Authentication | Duplicate email registration returns HTTP 409 |
+| 10 | `test_auth_register_missing_department_sss` | Authentication | SSS student missing department returns HTTP 422 |
+| 11 | `test_auth_login_success` | Authentication | Valid credentials return JWT token and user profile |
+| 12 | `test_auth_login_invalid_password` | Authentication | Wrong password returns HTTP 401 Unauthorized |
+| 13 | `test_auth_change_password` | Authentication | Password change succeeds and new credentials work |
+| 14 | `test_academic_results_crud` | Academic Results | Full create, read, delete lifecycle for academic results |
+| 15 | `test_get_test_questions_all_categories` | Diagnostic Tests | All 4 test categories return exactly 10 valid questions each |
+| 16 | `test_submit_test_responses` | Diagnostic Tests | Test submission, score generation, status check, and retake work |
+| 17 | `test_public_ml_predict` | Prediction API | Public `/predict/ml` endpoint returns correct prediction structure |
+| 18 | `test_full_predict_authenticated` | Prediction API | Authenticated `/predict/` returns career, confidence, top-3, unis, mentors, narrative |
+| 19 | `test_get_saved_recommendation_and_chat` | History & Chat | Recommendation persists after prediction; chat history starts empty |
+| 20 | `test_ml_model_latency_performance` | Performance | ML inference averages within acceptable latency bounds (10 runs) |
+| 21 | `test_api_endpoint_throughput_performance` | Performance | API endpoint averages within acceptable latency bounds (10 runs) |
+
+---
+
+
 ## Deployment Notes
-- `render.yaml` defines three Render services:
-  - `career-fastapi`: backend Python service.
+> **Deployment Note:** The production **frontend application** (React/Vite) is deployed and hosted on **Vercel**, while the **backend REST API service** (FastAPI) is deployed and hosted on **Render**.
+
+- `render.yaml` defines Render services:
+  - `career-fastapi`: backend Python service deployed on Render.
   - `career-streamlit`: Streamlit app service.
   - `career-react`: static frontend build on Vite.
 - `Dockerfile` targets the Streamlit app.
