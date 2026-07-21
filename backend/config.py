@@ -5,7 +5,10 @@ from dotenv import load_dotenv
 
 # Load .env from project root (one level above backend/)
 ROOT_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(ROOT_DIR / ".env")
+ENV_PATH = ROOT_DIR / ".env"
+# override=True: force .env values to win over any stale env var already
+# exported in the shell/OS (otherwise load_dotenv silently loses to them).
+load_dotenv(ENV_PATH, override=True)
 
 # ── Paths ────────────────────────────────────────────────────────────────────
 MODEL_PATH         = ROOT_DIR / "backend" / "models" / "xgb_best_model.pkl"
@@ -15,6 +18,13 @@ DATABASE_PATH      = str(ROOT_DIR / "career_portal.db")
 # ── Gemini ───────────────────────────────────────────────────────────────────
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")
 GEMINI_MODEL   = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
+
+# TEMP DEBUG — remove once the key is confirmed loading correctly
+# print(f"[config.py] .env path: {ENV_PATH}")
+# print(f"[config.py] .env exists: {ENV_PATH.exists()}")
+# print(f"[config.py] GOOGLE_API_KEY length: {len(GOOGLE_API_KEY)}")
+# print(f"[config.py] GOOGLE_API_KEY prefix: {GOOGLE_API_KEY[:6]!r}")
+# print(f"[config.py] GEMINI_MODEL: {GEMINI_MODEL}")
 
 # ── JWT ──────────────────────────────────────────────────────────────────────
 SECRET_KEY        = os.getenv("SECRET_KEY", "smart-career-portal-secret-key-2025")
