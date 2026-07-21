@@ -6,21 +6,16 @@ POST /predict  → returns ML career, confidence, top-3, Gemini narrative,
 """
 import json
 from fastapi import APIRouter, HTTPException, Depends
-from google import genai
 from google.genai import types
 
 from backend.models.schemas import MLPredictResponse, PredictRequest, PredictResponse
 from backend.models.ml_model import run_xgboost
 from backend.auth import get_current_user
-from backend.config import GOOGLE_API_KEY, GEMINI_MODEL
+from backend.config import GEMINI_MODEL
+from backend.gemini_client import get_gemini_client
 from backend import database as db
 
 router = APIRouter(prefix="/predict", tags=["Prediction"])
-
-def _get_gemini():
-    if not GOOGLE_API_KEY:
-        return None
-    return genai.Client(api_key=GOOGLE_API_KEY)
 
 # ── University map (mirrors Streamlit app) ────────────────────────────────────
 UNIVERSITY_MAP = {
@@ -246,7 +241,7 @@ async def predict(
         "psychometric_avg_5": student.psychometric_avg_5,
         "sentiment_avg_5":    student.sentiment_avg_5,
     }
-    gemini = _get_gemini()
+    gemini = get_gemini_client()
     try:
         if gemini is None:
             raise RuntimeError("GOOGLE_API_KEY is not configured")
