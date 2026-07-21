@@ -32,7 +32,7 @@ def keep_alive():
 # ====================== GEMINI CONFIG ======================
 GEMINI_API_KEY = os.getenv("GOOGLE_API_KEY")
 gemini_client  = genai.Client(api_key=GEMINI_API_KEY)
-GEMINI_MODEL   = "gemini-2.5-flash"
+GEMINI_MODEL   = "gemini-3.1-flash-lite"
 FASTAPI_BASE_URL = os.getenv("FASTAPI_BASE_URL", "https://smart-career-app-4702.onrender.com").rstrip("/")
 QUESTIONS_PATH = Path(__file__).resolve().parent / "backend" / "questions_engine" / "assessment_questions.json"
 
