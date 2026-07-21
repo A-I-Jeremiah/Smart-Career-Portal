@@ -1,5 +1,6 @@
 # backend/routers/history_router.py
 """Recommendation history and AI chatbot routes."""
+import logging
 from fastapi import APIRouter, Depends, HTTPException
 from typing import List
 from google import genai
@@ -9,6 +10,8 @@ from ..models.schemas import RecommendationResponse, ChatMessageIn, ChatMessageO
 from ..auth import get_current_user
 from ..config import GOOGLE_API_KEY, GEMINI_MODEL
 from .. import database as db
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/history", tags=["History & Chat"])
 
@@ -113,10 +116,15 @@ Top 3 Careers: {rec['top3']}
             history=gemini_history[:-1] if len(gemini_history) > 1 else [],
         )
         resp = chat.send_message(msg.message)
-        reply = resp.text.strip()
+        reply = (resp.text or "").strip()
+        if not reply:
+            raise RuntimeError(f"Gemini returned an empty response: {resp}")
         if len(reply.split()) > 220:
             reply = " ".join(reply.split()[:220]) + "..."
-    except Exception:
+    except Exception as e:
+        # Log the FULL error so failures are visible in server logs instead
+        # of always showing the same generic message to the student.
+        logger.exception("Gemini chat call failed for user %s: %s", current_user["id"], e)
         reply = "Sorry, something went wrong. Please try again."
 
     db.save_chat_message(current_user["id"], "user", msg.message)
