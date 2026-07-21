@@ -7,7 +7,7 @@ from .config import GEMINI_MODEL, GOOGLE_API_KEY
 def get_gemini_client():
     if not GOOGLE_API_KEY:
         return None
-    return genai.Client(api_key=GOOGLE_API_KEY.strip())
+    return genai.Client(api_key=GOOGLE_API_KEY)
 
 
 def gemini_error_detail(exc: Exception) -> str:
@@ -16,9 +16,9 @@ def gemini_error_detail(exc: Exception) -> str:
     lowered = text.lower()
 
     if "api_key" in lowered or "api key" in lowered or "permission" in lowered or "403" in lowered:
-        return "Gemini rejected the server API key. Check GOOGLE_API_KEY on the FastAPI Render service."
+        return "Gemini rejected the server API key. Check GOOGLE_API_KEY on the FastAPI Render service, remove quotes/spaces, and ensure the key is not browser-referrer restricted."
     if "not found" in lowered or "404" in lowered or "model" in lowered:
-        return f"Gemini model '{GEMINI_MODEL}' is unavailable for this API key. Use gemini-2.5-flash."
+        return f"Gemini model '{GEMINI_MODEL}' is unavailable for this API key. Use gemini-3.1-flash-lite."
     if "quota" in lowered or "rate" in lowered or "429" in lowered:
         return "Gemini quota or rate limit was reached. Check the Google AI Studio quota/billing for this key."
     if "timeout" in lowered or "connection" in lowered or "network" in lowered:
