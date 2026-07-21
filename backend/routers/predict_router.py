@@ -133,28 +133,28 @@ def _fallback_narrative(name: str, career: str, confidence: float, top3: list) -
     return f"""## 🌟 Your Career Recommendation Summary
 Hi {name}! Based on your academic performance and assessments, your strongest career match is **{career}** with a confidence of **{confidence}%**.
 
-## 🎯 Recommended Career Path: {career}
+## Recommended Career Path: {career}
 This is one of the most in-demand fields in Nigeria today. Professionals work across private sector, federal agencies, and international organisations. Your assessment results show exactly the potential this field requires.
 
-## 💼 Five Nigerian Career Roles to Explore
+## Five Nigerian Career Roles to Explore
 - **Core Specialist** — practise your craft at a federal agency or major private company
 - **Consultant / Adviser** — work across multiple organisations solving problems
 - **Research & Analysis** — contribute to academia, think-tanks, or government policy
 - **Entrepreneurship** — start your own practice, firm, or business
 - **NGO / Development Sector** — tackle national challenges with international organisations
 
-## 📈 Your Competitive Strengths
+## Your Competitive Strengths
 - Strong assessment scores showing real aptitude for this career path
 - Academic performance aligns well with {career} requirements
 - Excellent foundation for WAEC and JAMB preparation
 
-## ⚠️ Areas to Strengthen
+## Areas to Strengthen
 Focus on building consistent performance across all subjects. Practice JAMB past questions daily and seek mentorship from professionals in your field of interest.
 
-## 🔄 Your Two Backup Career Options
+## Your Two Backup Career Options
 **{t2}** is your second-best match — great if your interests evolve. **{t3}** is also a strong fit.
 
-## 🚀 Action Steps for Right Now
+## Action Steps for Right Now
 1. Research what professionals in **{career}** do in Nigeria — YouTube and LinkedIn are great starting points
 2. Talk to your school counsellor about the right subjects for your SSS combination
 3. Start practising JAMB past questions in your core subjects
@@ -192,22 +192,22 @@ Write the report using EXACTLY these section headers:
 ## 🌟 Your Career Recommendation Summary
 2–3 sentences directly addressing {name}, referencing their strongest results.
 
-## 🎯 Recommended Career Path: {top3[0]['career']}
+## Recommended Career Path: {top3[0]['career']}
 Two paragraphs: (1) What this career involves in Nigeria — real sectors, agencies (NNPC, CBN, NAFDAC, NTA, MTN, etc.) (2) Exactly why this matches {name}'s data — mention actual scores.
 
-## 💼 Five Nigerian Career Roles to Explore
+## Five Nigerian Career Roles to Explore
 5 specific job roles in demand in Nigeria, one line each with a Nigerian employer or context.
 
-## 📈 Your Competitive Strengths
+## Your Competitive Strengths
 Three bullet points rooted in the actual data. Reference real scores.
 
-## ⚠️ Areas to Strengthen
+## Areas to Strengthen
 Two specific, encouraging, actionable suggestions.
 
-## 🔄 Your Two Backup Career Options
+## Your Two Backup Career Options
 Short paragraph each on {top3[1]['career'] if len(top3) > 1 else 'Alternative A'} and {top3[2]['career'] if len(top3) > 2 else 'Alternative B'}.
 
-## 🚀 Action Steps for Right Now
+## Action Steps for Right Now
 Four numbered, concrete steps {name} can take TODAY as a {class_level} student in Nigeria. Include JAMB subject choices, WAEC prep, and free resources.
 
 Tone: warm, direct, encouraging — like a trusted school counsellor talking to a Nigerian teenager.
