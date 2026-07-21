@@ -17,7 +17,9 @@ DATABASE_PATH      = str(ROOT_DIR / "career_portal.db")
 
 # ── Gemini ───────────────────────────────────────────────────────────────────
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")
-GEMINI_MODEL   = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
+RAW_GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash").strip()
+DEPRECATED_GEMINI_MODELS = {"gemini-3.1-flash-lite"}
+GEMINI_MODEL = "gemini-2.5-flash" if RAW_GEMINI_MODEL in DEPRECATED_GEMINI_MODELS else RAW_GEMINI_MODEL
 
 # TEMP DEBUG — remove once the key is confirmed loading correctly
 # print(f"[config.py] .env path: {ENV_PATH}")
