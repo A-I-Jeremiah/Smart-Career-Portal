@@ -14,7 +14,7 @@ DATABASE_PATH      = str(ROOT_DIR / "career_portal.db")
 
 # ── Gemini ───────────────────────────────────────────────────────────────────
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")
-GEMINI_MODEL   = "Gemini 3.1 Flash Lite"
+GEMINI_MODEL   = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
 
 # ── JWT ──────────────────────────────────────────────────────────────────────
 SECRET_KEY        = os.getenv("SECRET_KEY", "smart-career-portal-secret-key-2025")
