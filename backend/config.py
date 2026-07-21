@@ -16,10 +16,17 @@ LABEL_ENCODER_PATH = ROOT_DIR / "backend" / "models" / "label_encoder.pkl"
 DATABASE_PATH      = str(ROOT_DIR / "career_portal.db")
 
 # ── Gemini ───────────────────────────────────────────────────────────────────
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")
-RAW_GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash").strip()
-DEPRECATED_GEMINI_MODELS = {"gemini-3.1-flash-lite"}
-GEMINI_MODEL = "gemini-2.5-flash" if RAW_GEMINI_MODEL in DEPRECATED_GEMINI_MODELS else RAW_GEMINI_MODEL
+def _clean_env_value(value: str | None) -> str:
+    if not value:
+        return ""
+    cleaned = value.strip()
+    if len(cleaned) >= 2 and cleaned[0] == cleaned[-1] and cleaned[0] in {"'", '"'}:
+        cleaned = cleaned[1:-1].strip()
+    return cleaned
+
+
+GOOGLE_API_KEY = _clean_env_value(os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY"))
+GEMINI_MODEL   = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
 
 # TEMP DEBUG — remove once the key is confirmed loading correctly
 # print(f"[config.py] .env path: {ENV_PATH}")
