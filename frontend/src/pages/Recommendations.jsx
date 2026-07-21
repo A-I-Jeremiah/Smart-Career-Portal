@@ -88,8 +88,8 @@ const Recommendations = () => {
     fetchGuardData();
   }, []);
 
-  // Track whether initial chat messages from server have been loaded
-  const initialChatLoaded = React.useRef(false);
+  // Track how many messages existed when we first loaded from the server
+  const initialMsgCount = React.useRef(null);
 
   // Scroll to top immediately when component mounts using useLayoutEffect
   // This runs BEFORE the browser paints, ensuring top scroll happens first
@@ -103,19 +103,22 @@ const Recommendations = () => {
     }
   }, []);
 
-  // Auto-scroll to new chat messages, but only for NEW messages after the initial load
+  // Auto-scroll to new chat messages, but ONLY when user sends a new message
+  // (not on the initial server load which would scroll the page to the bottom)
   useEffect(() => {
-    // First time loading chat from server - don't scroll
-    if (!initialChatLoaded.current) {
-      initialChatLoaded.current = true;
+    // Record the initial count the first time chatMessages is populated from the server
+    if (initialMsgCount.current === null) {
+      initialMsgCount.current = chatMessages.length;
       return;
     }
 
-    // After initial load, scroll for new messages
-    try {
-      chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-    } catch (e) {
-      // ignore environments without DOM
+    // Only scroll if messages grew beyond the initial server-loaded count
+    if (chatMessages.length > initialMsgCount.current) {
+      try {
+        chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+      } catch (e) {
+        // ignore environments without DOM
+      }
     }
   }, [chatMessages]);
 
@@ -226,7 +229,7 @@ const Recommendations = () => {
     return (
       <div className="animate-fade-in">
         <div className="page-header">
-          <h2 className="page-title">📊 Career Recommendations</h2>
+          <h2 className="page-title">Career Recommendations</h2>
         </div>
         <div className="alert-banner alert-banner-warning">
           <AlertTriangle size={24} style={{ flexShrink: 0 }} />
@@ -246,7 +249,7 @@ const Recommendations = () => {
     return (
       <div className="animate-fade-in">
         <div className="page-header">
-          <h2 className="page-title">📊 Career Recommendations</h2>
+          <h2 className="page-title">Career Recommendations</h2>
         </div>
         <div className="alert-banner alert-banner-warning">
           <AlertTriangle size={24} style={{ flexShrink: 0 }} />
@@ -264,7 +267,7 @@ const Recommendations = () => {
   return (
     <div className="animate-fade-in">
       <div className="page-header">
-        <h2 className="page-title">📊 My Career Pathway Report</h2>
+        <h2 className="page-title">My Career Pathway Report</h2>
         <p className="page-subtitle">XGBoost Classifier + Gemini Generative Recommendations</p>
       </div>
 
@@ -298,9 +301,15 @@ const Recommendations = () => {
           <div className="rec-grid">
             {/* Top Matching List */}
             <div style={{ background: 'var(--glass-bg)', borderRadius: '24px', padding: '24px', border: '1px solid var(--glass-border)', boxShadow: 'var(--shadow-md)' }}>
-              <h3 className="rec-card-title">📈 Top Career Match Probabilities</h3>
+              <h3 className="rec-card-title">Top Career Match Probabilities</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {recommendation.top3?.map((match, idx) => {
+                {[...(recommendation.top3 || [])]
+                .sort((a, b) => {
+                  const confA = typeof a === 'string' ? 0 : (a.confidence_percent ?? a[1] ?? 0);
+                  const confB = typeof b === 'string' ? 0 : (b.confidence_percent ?? b[1] ?? 0);
+                  return confB - confA;
+                })
+                .map((match, idx) => {
                   const careerName = typeof match === 'string' ? match : (match.career || match[0]);
                   const careerConf = typeof match === 'string' ? (idx === 0 ? recommendation.confidence : 10) : (match.confidence_percent || match[1]);
                   const medals = ['🥇', '🥈', '🥉'];
@@ -369,7 +378,7 @@ const Recommendations = () => {
                   <div key={idx} style={{ background: 'rgba(255, 255, 255, 0.06)', padding: '14px', borderRadius: '12px', borderLeft: '3px solid var(--primary-500)', color: 'var(--text-light)' }}>
                     <div className="uni-name">{uni.name}</div>
                     <div className="uni-course">📚 {uni.course}</div>
-                    <div className="uni-meta">🎯 JAMB Cutoff: <strong>{uni.cutoff}</strong> | 📍 {uni.location}</div>
+                    <div className="uni-meta">JAMB Cutoff: <strong>{uni.cutoff}</strong> | 📍 {uni.location}</div>
                     <a href={uni.url} target="_blank" rel="noopener noreferrer" className="uni-link">
                       Visit Website ↗
                     </a>
