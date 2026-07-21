@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 # Load .env from project root (one level above backend/)
 ROOT_DIR = Path(__file__).resolve().parent.parent
 ENV_PATH = ROOT_DIR / ".env"
-# override=True: force .env values to win over any stale env var already
-# exported in the shell/OS (otherwise load_dotenv silently loses to them).
-load_dotenv(ENV_PATH, override=True)
+# Platform-provided environment variables must win in production. Locally,
+# .env still supplies values that are not already exported in the shell.
+load_dotenv(ENV_PATH, override=False)
 
 # ── Paths ────────────────────────────────────────────────────────────────────
 MODEL_PATH         = ROOT_DIR / "backend" / "models" / "xgb_best_model.pkl"
