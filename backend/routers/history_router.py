@@ -3,23 +3,17 @@
 import logging
 from fastapi import APIRouter, Depends, HTTPException
 from typing import List
-from google import genai
 from google.genai import types
 
 from ..models.schemas import RecommendationResponse, ChatMessageIn, ChatMessageOut
 from ..auth import get_current_user
-from ..config import GOOGLE_API_KEY, GEMINI_MODEL
+from ..config import GEMINI_MODEL
+from ..gemini_client import gemini_error_detail, get_gemini_client
 from .. import database as db
 
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/history", tags=["History & Chat"])
-
-def _get_gemini():
-    if not GOOGLE_API_KEY:
-        return None
-    return genai.Client(api_key=GOOGLE_API_KEY)
-
 
 @router.get("/recommendation", response_model=RecommendationResponse)
 def get_recommendation(current_user: dict = Depends(get_current_user)):
@@ -103,7 +97,7 @@ Top 3 Careers: {rec['top3']}
     ]
 
     try:
-        gemini = _get_gemini()
+        gemini = get_gemini_client()
         if gemini is None:
             raise HTTPException(
                 status_code=503,
@@ -130,7 +124,7 @@ Top 3 Careers: {rec['top3']}
         logger.exception("Gemini chat call failed for user %s: %s", current_user["id"], e)
         raise HTTPException(
             status_code=502,
-            detail="AI chat could not reach Gemini. Please try again shortly.",
+            detail=gemini_error_detail(e),
         ) from e
 
     db.save_chat_message(current_user["id"], "user", msg.message)
