@@ -44,7 +44,7 @@ const Auth = () => {
       setError('Please fill in all fields.');
       return;
     }
-    const isSSS = ['SSS 1', 'SSS 2', 'SSS 3', 'SS1', 'SS2', 'SS3'].includes(classLevel);
+    const isSSS = ['SSS 1', 'SSS 2', 'SSS 3'].includes(classLevel);
     const userData = {
       full_name: fullName,
       dob,
@@ -73,15 +73,14 @@ const Auth = () => {
     }
   };
 
-  const isSSSClass = ['SSS 1', 'SSS 2', 'SSS 3', 'SS1', 'SS2', 'SS3'].includes(classLevel);
+  const isSSSClass = ['SSS 1', 'SSS 2', 'SSS 3'].includes(classLevel);
 
   return (
     <div className="auth-container animate-fade-in">
       <div className="auth-card glass-panel">
         <div className="auth-header">
           <div className="sidebar-logo" style={{ justifyContent: 'center', marginBottom: '16px' }}>
-            <span style={{ fontSize: '2.5rem' }}>🎓</span>
-            <span className="sidebar-logo-text" style={{ fontSize: '1.75rem' }}>Smart Career Portal</span>
+            <span className="sidebar-logo-text" style={{ fontSize: '2.35rem', fontWeight: '1000' }}>Smart Career Portal</span>
           </div>
           <p className="auth-subtitle">AI-Powered Career Guidance for Nigerian Secondary Students</p>
         </div>
