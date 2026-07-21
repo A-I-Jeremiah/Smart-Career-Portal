@@ -7,7 +7,13 @@ so all preprocessing happens inside model.predict().
 import numpy as np
 import pandas as pd
 import joblib
-from backend.config import MODEL_PATH, LABEL_ENCODER_PATH
+from backend.config import DEPT_TOP_K, MODEL_PATH, LABEL_ENCODER_PATH
+from backend.models.department_filter import (
+    apply_department_alignment,
+    build_top_k,
+    filter_careers_for_department,
+    normalize_department,
+)
 
 # ── Lazy model loading ───────────────────────────────────────────────────────
 _model = None
@@ -82,18 +88,46 @@ NUMERICAL_COLS = [
 FEATURES = CATEGORICAL_COLS + NUMERICAL_COLS
 GRADE_MAP = {"A": 8, "B": 6, "C": 5, "D": 3, "E": 2, "F": 1, "UNKNOWN": 5}
 
+# Department-aware heuristic map (keys must match label_encoder.classes_)
+CAREER_SUBJECT_MAP = {
+    "Computer Science & IT": [
+        "computer_studies", "mathematics", "further_mathematics", "physics",
+    ],
+    "Engineering & Technology": [
+        "physics", "mathematics", "technical_drawing", "chemistry",
+    ],
+    "Medicine & Health Sciences": [
+        "biology", "chemistry", "english", "physics",
+    ],
+    "Agriculture & Environmental Sciences": [
+        "agricultural_science", "biology", "geography", "chemistry",
+    ],
+    "Business & Finance": [
+        "economics", "financial_accounting", "mathematics", "commerce",
+    ],
+    "Entrepreneurship & Management": [
+        "economics", "financial_accounting", "commerce", "marketing",
+    ],
+    "Creative Arts & Design": [
+        "creative_arts", "literature_in_english", "english", "marketing",
+    ],
+    "Law & Social Sciences": [
+        "government", "literature_in_english", "english", "economics",
+    ],
+    "Mass Communication & Media": [
+        "literature_in_english", "english", "creative_arts", "government",
+    ],
+    "Education & Humanities": [
+        "english", "literature_in_english", "government",
+        "christian_religious_studies/islamic_studies",
+    ],
+}
+
 
 def run_xgboost(input_data: dict) -> dict:
     """
-    Run XGBoost prediction with a small ensemble + heuristic fallback.
-
-    Improvements made:
-    - Normalise and fill missing features robustly.
-    - Ensemble the prediction by averaging probabilities with a version
-      where demographic fields (gender, school_type) are set to Unknown to
-      reduce potential demographic bias.
-    - If the model confidence is low, apply a simple subject-based heuristic
-      to pick a backup recommendation and raise confidence modestly.
+    Run XGBoost prediction with ensemble, department alignment, and
+    department-aware heuristic fallback.
 
     Returns: predicted_career, confidence_percent, top_3, optional warning
     """
@@ -102,12 +136,13 @@ def run_xgboost(input_data: dict) -> dict:
         df.columns.str.strip().str.lower().str.replace(" ", "_", regex=False)
     )
 
-    department = str(df.get("department", pd.Series(["Unknown"]))[0]).strip()
+    department = normalize_department(
+        str(df.get("department", pd.Series(["Unknown"]))[0]).strip()
+    )
     allowed = DEPARTMENT_SUBJECTS.get(department, ALL_SUBJECT_COLS)
 
-    # Defaults
     defaults = {
-        "gender": "Unknown", "school_type": "Unknown", "department": "Unknown",
+        "gender": "Unknown", "school_type": "Unknown", "department": department,
         "academic_strength": "Unknown", "best_subject_category": "Unknown",
         "confidence_level": "Unknown", "career_influence": "Unknown",
         "waec_credits": 5.0, "cgpa": 0.0, "course_alignment": 0,
@@ -197,53 +232,46 @@ def run_xgboost(input_data: dict) -> dict:
 
     # Average probabilities from both runs
     avg_proba = (proba_full + proba_no_demo) / 2.0
+    class_labels = list(_label_encoder.classes_)
 
-    # Determine predicted label from averaged probabilities
-    top_idx = int(np.argmax(avg_proba))
-    # label_encoder.classes_ holds class labels in index order — use it to avoid
-    # assumptions about the encoder implementation (safer than inverse_transform here).
-    career = _label_encoder.classes_[top_idx]
-    confidence = float(np.max(avg_proba))
+    # Department alignment post-processing
+    alignment = apply_department_alignment(avg_proba, class_labels, department)
+    final_proba = alignment.adjusted_proba
 
-    # Build top-3 list
-    top_indices = np.argsort(avg_proba)[::-1][:3]
-    top_three = [(_label_encoder.classes_[i], float(avg_proba[i])) for i in top_indices]
+    top_idx = int(np.argmax(final_proba))
+    career = class_labels[top_idx]
+    confidence = float(final_proba[top_idx])
+    top_three = build_top_k(final_proba, class_labels, k=DEPT_TOP_K)
 
-    # Heuristic fallback: simple subject-score based matching when confidence low
-    heuristic_warning = None
+    warnings: list[str] = []
+    if alignment.warning:
+        warnings.append(alignment.warning)
+
+    # Department-aware heuristic fallback when ML confidence is low
     if confidence < 0.40:
-        # Define small mapping of career keys to subject importance
-        CAREER_SUBJECT_MAP = {
-            'Computer Science & IT': ['computer_studies', 'mathematics', 'further_mathematics'],
-            'Engineering & Technology': ['physics', 'mathematics', 'technical_drawing'],
-            'Medicine & Health Sciences': ['biology', 'chemistry', 'english'],
-            'Business & Finance': ['economics', 'financial_accounting', 'mathematics'],
-            'Creative Arts & Design': ['creative_arts', 'literature_in_english', 'english'],
-            'Agriculture & Environmental Sciences': ['agricultural_science', 'biology', 'geography'],
-            'Law & Social Sciences': ['government', 'literature_in_english', 'english'],
-            'Mass Communication & Media': ['literature_in_english', 'english', 'creative_arts'],
-        }
-
-        # Score careers by average subject grades mapped from GRADE_MAP numeric values
         subject_scores = {col: float(df.at[0, col]) for col in ALL_SUBJECT_COLS}
+        allowed_careers = filter_careers_for_department(
+            CAREER_SUBJECT_MAP.keys(), department, include_secondary=True
+        )
+
         career_scores = []
-        for c, subs in CAREER_SUBJECT_MAP.items():
+        for c in allowed_careers:
+            subs = CAREER_SUBJECT_MAP[c]
             vals = [subject_scores.get(s, 5.0) for s in subs]
             career_scores.append((c, float(np.mean(vals))))
         career_scores.sort(key=lambda x: x[1], reverse=True)
-        heuristic_choice, heuristic_score = career_scores[0]
 
-        # If heuristic suggests a different career, boost it slightly as fallback
-        if heuristic_choice != career and heuristic_score >= 5.5:
-            career = heuristic_choice
-            confidence = max(confidence, min(0.6, 0.5 + (heuristic_score - 5) / 10))
-            heuristic_warning = 'Low ML confidence — using subject-based fallback.'
-
-        # Recompute top_three to include heuristic candidates
-        # Take top 3 from avg_proba but also include heuristic_choice if missing
-        top_three = [(_label_encoder.classes_[i], float(avg_proba[i])) for i in top_indices]
-        if heuristic_choice not in [t[0] for t in top_three]:
-            top_three[-1] = (heuristic_choice, confidence)
+        if career_scores:
+            heuristic_choice, heuristic_score = career_scores[0]
+            if heuristic_choice != career and heuristic_score >= 5.5:
+                career = heuristic_choice
+                confidence = max(confidence, min(0.6, 0.5 + (heuristic_score - 5) / 10))
+                warnings.append(
+                    "Low ML confidence — using department-aware subject fallback."
+                )
+                top_three = build_top_k(final_proba, class_labels, k=DEPT_TOP_K)
+                if heuristic_choice not in [t[0] for t in top_three]:
+                    top_three[-1] = (heuristic_choice, confidence)
 
     return {
         "predicted_career": str(career),
@@ -252,5 +280,5 @@ def run_xgboost(input_data: dict) -> dict:
             {"career": str(c), "confidence_percent": round(float(p) * 100, 1)}
             for c, p in top_three
         ],
-        **({"warning": heuristic_warning} if heuristic_warning else {}),
+        **({"warning": " ".join(warnings)} if warnings else {}),
     }
