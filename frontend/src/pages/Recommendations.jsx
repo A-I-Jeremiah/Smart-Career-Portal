@@ -156,9 +156,13 @@ const Recommendations = () => {
       setChatMessages((prev) => [...prev, response.data]);
     } catch (err) {
       console.error('Error sending message:', err);
+      const detail = err.response?.data?.detail;
+      const message = typeof detail === 'string'
+        ? detail
+        : 'Sorry, I encountered an issue replying. Please try again shortly.';
       setChatMessages((prev) => [
         ...prev,
-        { role: 'assistant', message: 'Sorry, I encountered an issue replying. Please verify your connection.' },
+        { role: 'assistant', message },
       ]);
     } finally {
       setSendingMsg(false);
