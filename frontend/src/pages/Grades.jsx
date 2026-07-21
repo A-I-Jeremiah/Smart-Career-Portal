@@ -206,7 +206,7 @@ const Grades = () => {
   return (
     <div className="animate-fade-in">
       <div className="page-header">
-        <h2 className="page-title">📤 Current Subject Grades</h2>
+        <h2 className="page-title">Current Subject Grades</h2>
         <p className="page-subtitle">
           Add or upload scores for {user.class_level} ({user.department || 'General'} department)
         </p>
@@ -291,7 +291,7 @@ const Grades = () => {
 
       {/* Excel / CSV File Uploader */}
       <div style={{ background: 'var(--glass-bg)', borderRadius: '24px', padding: '28px', border: '1px solid var(--glass-border)', boxShadow: 'var(--shadow-md)', marginBottom: '32px' }}>
-        <h3 className="rec-card-title">📊 Import Grades from Spreadsheet</h3>
+        <h3 className="rec-card-title">Import Grades from Spreadsheet</h3>
         <p style={{ fontSize: '0.88rem', color: 'var(--slate-400)', marginBottom: '20px' }}>
           Drop your school report Excel sheet or CSV file here to upload all grades instantly.
         </p>
@@ -334,7 +334,7 @@ const Grades = () => {
 
       {/* Manual Input Form */}
       <div style={{ background: 'var(--glass-bg)', borderRadius: '24px', padding: '28px', border: '1px solid var(--glass-border)', boxShadow: 'var(--shadow-md)' }}>
-        <h3 className="rec-card-title">✍️ Add Grade Manually</h3>
+        <h3 className="rec-card-title">Add Grade Manually</h3>
         
         {formError && (
           <div className="alert-banner alert-banner-warning" style={{ marginBottom: '16px' }}>
