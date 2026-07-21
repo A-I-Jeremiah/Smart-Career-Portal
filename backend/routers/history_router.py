@@ -105,7 +105,10 @@ Top 3 Careers: {rec['top3']}
     try:
         gemini = _get_gemini()
         if gemini is None:
-            raise RuntimeError("GOOGLE_API_KEY is not configured")
+            raise HTTPException(
+                status_code=503,
+                detail="AI chat is not configured on the server. Set GOOGLE_API_KEY for the FastAPI service.",
+            )
         chat = gemini.chats.create(
             model=GEMINI_MODEL,
             config=types.GenerateContentConfig(
@@ -121,11 +124,14 @@ Top 3 Careers: {rec['top3']}
             raise RuntimeError(f"Gemini returned an empty response: {resp}")
         if len(reply.split()) > 220:
             reply = " ".join(reply.split()[:220]) + "..."
+    except HTTPException:
+        raise
     except Exception as e:
-        # Log the FULL error so failures are visible in server logs instead
-        # of always showing the same generic message to the student.
         logger.exception("Gemini chat call failed for user %s: %s", current_user["id"], e)
-        reply = "Sorry, something went wrong. Please try again."
+        raise HTTPException(
+            status_code=502,
+            detail="AI chat could not reach Gemini. Please try again shortly.",
+        ) from e
 
     db.save_chat_message(current_user["id"], "user", msg.message)
     db.save_chat_message(current_user["id"], "assistant", reply)
