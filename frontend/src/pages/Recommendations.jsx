@@ -2,6 +2,7 @@ import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
 import { buildPredictPayload } from '../utils/subjectMapper';
+import GeminiFormattedText from '../utils/formatGeminiText';
 import { Award, Brain, Briefcase, GraduationCap, Users, MessageSquare, Send, Sparkles, AlertTriangle, BookOpen } from 'lucide-react';
 
 const TEST_META = [
@@ -169,56 +170,6 @@ const Recommendations = () => {
     }
   };
 
-  // Helper function to render backend markdown narrative as styled HTML safely
-  const renderNarrativeHTML = (text) => {
-    if (!text) return null;
-    const lines = text.split('\n');
-    return lines.map((line, idx) => {
-      const trimmed = line.trim();
-      
-      // Headers
-      if (trimmed.startsWith('## ')) {
-        return <h3 key={idx} style={{ fontFamily: 'var(--font-display)', fontWeight: 900, color: '#8897BD', fontSize: '1.7rem', marginTop: '24px', marginBottom: '12px', letterSpacing: '1px' }}>{trimmed.slice(3)}</h3>;
-      }
-      if (trimmed.startsWith('### ')) {
-        return <h4 key={idx} style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: '#C9FFE5', fontSize: '1.1rem', marginTop: '16px', marginBottom: '8px' }}>{trimmed.slice(4)}</h4>;
-      }
-      if (trimmed.startsWith('#### ')) {
-        return <h5 key={idx} style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: '#C9FFE5', fontSize: '0.95rem', marginTop: '12px', marginBottom: '6px' }}>{trimmed.slice(5)}</h5>;
-      }
-
-      // Bullet points
-      if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
-        return (
-          <li key={idx} style={{ marginLeft: '20px', color: '#C9FFE5', fontSize: '0.95rem', marginBottom: '6px' }}>
-            {trimmed.slice(2).replace(/\*\*(.*?)\*\*/g, '$1')}
-          </li>
-        );
-      }
-      
-      // Numbered items
-      if (/^\d+\.\s/.test(trimmed)) {
-        return (
-          <div key={idx} style={{ marginLeft: '12px', color: '#C9FFE5', fontSize: '0.95rem', marginBottom: '8px', display: 'flex', gap: '8px' }}>
-            <strong>{trimmed.match(/^\d+\./)[0]}</strong>
-            <span>{trimmed.replace(/^\d+\.\s/, '').replace(/\*\*(.*?)\*\*/g, '$1')}</span>
-          </div>
-        );
-      }
-
-      if (!trimmed) {
-        return <div key={idx} style={{ height: '10px' }} />;
-      }
-
-      // Regular paragraph
-      // Basic bold formatting replacement
-      const formatted = trimmed.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-      return (
-        <p key={idx} style={{ color: '#C9FFE5', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '12px' }} dangerouslySetInnerHTML={{ __html: formatted }} />
-      );
-    });
-  };
-
   if (loading) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '300px' }}>
@@ -363,7 +314,7 @@ const Recommendations = () => {
               <BookOpen size={22} style={{ color: 'var(--primary-500)' }} /> Personal Career Analysis Report
             </h3>
             <div style={{ textAlign: 'left' }}>
-              {renderNarrativeHTML(recommendation.narrative)}
+              <GeminiFormattedText text={recommendation.narrative} />
             </div>
           </div>
 
@@ -429,7 +380,7 @@ const Recommendations = () => {
               ) : (
                 chatMessages.map((msg, idx) => (
                   <div key={idx} className={`chat-bubble ${msg.role === 'user' ? 'chat-bubble-user' : 'chat-bubble-ai'}`}>
-                    {msg.message}
+                    {msg.role === 'user' ? msg.message : <GeminiFormattedText text={msg.message} compact />}
                   </div>
                 ))
               )}
