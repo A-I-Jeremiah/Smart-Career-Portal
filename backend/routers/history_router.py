@@ -65,6 +65,7 @@ You MUST:
 - Use the student's data (scores, strengths, career recommendation)
 - Mention Nigerian context (JAMB, WAEC, universities, companies)
 - Give actionable steps (bullet points)
+- Use clean plain text formatting. Do not include markdown symbols like ###, **, or code fences.
 
 Response Structure:
 1. Direct answer (1–2 sentences)
