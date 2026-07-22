@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import api from '../utils/api';
 import { useAuth } from '../context/AuthContext';
 import { Users, Key, BarChart, Bookmark, Wrench, ShieldCheck, Clock3, CheckCircle2, Star } from 'lucide-react';
+import GeminiFormattedText, { stripBlockMarkdownSyntax } from '../utils/formatGeminiText';
 
 const Profile = () => {
   const { user, logout } = useAuth();
@@ -92,7 +93,7 @@ const Profile = () => {
     for (let i = sectionStart >= 0 ? sectionStart + 1 : 0; i < lines.length; i += 1) {
       const line = lines[i];
       if (/^##\s*/.test(line)) break;
-      const cleaned = line.replace(/^[-*]\s*/, '').trim();
+      const cleaned = stripBlockMarkdownSyntax(line);
       if (cleaned) tips.push(cleaned);
       if (tips.length >= 5) break;
     }
@@ -103,7 +104,7 @@ const Profile = () => {
  
     return lines
       .filter((line) => /^[-*]\s+/.test(line))
-      .map((line) => line.replace(/^[-*]\s+/, ''))
+      .map((line) => stripBlockMarkdownSyntax(line))
       .slice(0, 5);
   };
  
@@ -244,7 +245,9 @@ const Profile = () => {
                   {improvementTips.length ? (
                     <ul style={{ paddingLeft: '18px', color: '#E3E4FA' }}>
                       {improvementTips.map((tip, idx) => (
-                        <li key={idx} style={{ marginBottom: '10px' }}>{tip}</li>
+                        <li key={idx} style={{ marginBottom: '10px' }}>
+                          <GeminiFormattedText text={tip} compact />
+                        </li>
                       ))}
                     </ul>
                   ) : (
