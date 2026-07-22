@@ -249,6 +249,79 @@ label {
   max-width: 80%;
 }
 
+.gemini-rich-text {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.gemini-rich-text-compact {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.gemini-rich-heading {
+  color: var(--color-cool-gray);
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 18px 0 8px;
+}
+
+.gemini-rich-subheading {
+  color: var(--color-cool-gray);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 16px 0 6px;
+}
+
+.gemini-rich-paragraph {
+  margin: 0 0 12px;
+}
+
+.gemini-rich-list-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: start;
+  margin: 8px 0;
+}
+
+.gemini-rich-marker {
+  width: 7px;
+  height: 7px;
+  margin-top: 0.62em;
+  border-radius: 999px;
+  background: var(--color-cool-gray);
+}
+
+.gemini-rich-number {
+  min-width: 22px;
+  height: 22px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(136, 151, 189, 0.16);
+  color: var(--color-lavender);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.gemini-rich-text strong {
+  color: var(--color-lavender);
+  font-weight: 800;
+}
+
+.gemini-rich-text-compact .gemini-rich-paragraph,
+.gemini-rich-text-compact .gemini-rich-list-item {
+  margin: 0;
+}
+
+.gemini-rich-text-compact .gemini-rich-heading,
+.gemini-rich-text-compact .gemini-rich-subheading {
+  font-size: 0.98rem;
+  margin: 8px 0 4px;
+}
+
 /* Badges & Tags */
 .badge,
 .tag {
