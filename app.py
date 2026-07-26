@@ -1152,7 +1152,6 @@ def score_to_grade(score):
 def build_fastapi_payload(results, profile, test_scores):
     payload = {
         "gender": "Unknown",
-        "age": 17,
         "school_type": "Unknown",
         "department": profile.get("department") or "Science",
         "academic_strength": "Unknown",
@@ -1163,10 +1162,6 @@ def build_fastapi_payload(results, profile, test_scores):
         "cognitive_score_10": round(float(test_scores.get("cognitive", 50.0)) / 10, 2),
         "psychometric_avg_5": round(float(test_scores.get("psychometric", 60.0)) / 20, 2),
         "sentiment_avg_5": round(float(test_scores.get("sentiment", 60.0)) / 20, 2),
-        "waec_credits": 5,
-        "cgpa": 0.0,
-        "course_alignment": 0,
-        "waec_year": datetime.date.today().year,
     }
     for key in set(SUBJECT_TO_API_KEY.values()):
         payload[key] = "UNKNOWN"
