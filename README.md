@@ -254,9 +254,9 @@ The career path recommendation engine was evaluated using multiple machine learn
 
 ### Key Metric Details
 - **Accuracy**: Achieved **86.59%** test for accuracy Random Forest and **85.37%** test accuracy for XGBoost (Tuned) architectures.
-- **Precision**: **0.85** across all target career classes, indicating no false positive career assignments.
-- **Recall**: **0.85** across all target career classes, ensuring all relevant career pathways are correctly identified.
-- **F1-Score**: Harmonic mean of **0.86** (86%) for all career classifications.
+- **Precision**: XGBoost (Tuned) achieved **0.85** in macro average across all target career classes.
+- **Recall**: XGBoost (Tuned) achieved **0.85** in macro average across all target career classes.
+- **F1-Score**: Macro average of **0.86** (86%) for all career classifications.
 - **Cross-Validation**: 5-Fold Stratified Cross-Validation confirmed robust generalization with **85.71% ± 1.90%** for Random Forest and **88.17% ± 3.30%** for Tuned XGBoost.
 
 ## Backend Test Suite Results
