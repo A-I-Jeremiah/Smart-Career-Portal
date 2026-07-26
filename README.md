@@ -248,16 +248,16 @@ The career path recommendation engine was evaluated using multiple machine learn
 
 | Model | Train Accuracy | Test Accuracy | Precision (Macro Avg) | Recall (Macro Avg) | F1-Score (Macro Avg) | Stratified 5-Fold CV |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Random Forest (Baseline)** | 100.00% | 100.00% | 1.00 (100%) | 1.00 (100%) | 1.00 (100%) | 100.00% ± 0.00% |
-| **XGBoost Classifier (Primary)** | 100.00% | 100.00% | 1.00 (100%) | 1.00 (100%) | 1.00 (100%) | — |
-| **Tuned XGBoost Classifier** | 100.00% | 100.00% | 1.00 (100%) | 1.00 (100%) | 1.00 (100%) | 99.50% ± 1.00% |
+| **Random Forest (Baseline)** | 99.07% | 86.59% | 0.9 (90%) | 0.87 (87%) | 0.88 (88%) | 85.71% ± 1.90% |
+| **XGBoost Classifier (Primary)** | 100.00% | 84.15% | 0.89 (89%) | 0.86 (86%) | 0.86 (86%) | — |
+| **Tuned XGBoost Classifier** | 98.46% | 85.37% | 0.9 (90%) | 0.85 (85%) | 0.87 (87%) | 88.17% ± 3.30% |
 
 ### Key Metric Details
-- **Accuracy**: Achieved **100.00%** test accuracy across both Random Forest and XGBoost architectures.
-- **Precision**: **1.00** across all target career classes, indicating no false positive career assignments.
-- **Recall**: **1.00** across all target career classes, ensuring all relevant career pathways are correctly identified.
-- **F1-Score**: Harmonic mean of **1.00** (100%) for all career classifications.
-- **Cross-Validation**: 5-Fold Stratified Cross-Validation confirmed robust generalization with **100.00% ± 0.00%** for Random Forest and **99.50% ± 1.00%** for Tuned XGBoost.
+- **Accuracy**: Achieved **86.59%** test for accuracy Random Forest and **85.37%** test accuracy for XGBoost (Tuned) architectures.
+- **Precision**: **0.85** across all target career classes, indicating no false positive career assignments.
+- **Recall**: **0.85** across all target career classes, ensuring all relevant career pathways are correctly identified.
+- **F1-Score**: Harmonic mean of **0.86** (86%) for all career classifications.
+- **Cross-Validation**: 5-Fold Stratified Cross-Validation confirmed robust generalization with **85.71% ± 1.90%** for Random Forest and **88.17% ± 3.30%** for Tuned XGBoost.
 
 ## Backend Test Suite Results
 
