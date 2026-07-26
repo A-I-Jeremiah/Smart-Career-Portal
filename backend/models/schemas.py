@@ -34,14 +34,13 @@ class CareerMatch(BaseModel):
 
 class PredictRequest(BaseModel):
     gender: Optional[str] = "Unknown"
-    age: Optional[int] = None
     school_type: Optional[str] = "Unknown"
     department: str
     academic_strength: Optional[str] = "Unknown"
     best_subject_category: Optional[str] = "Unknown"
     confidence_level: Optional[str] = "Unknown"
     career_influence: Optional[str] = "Unknown"
-    # Subject grades (A-F or UNKNOWN)
+    # Subject grades (A-F or UNKNOWN) — primary ML model features
     mathematics: Optional[str] = "UNKNOWN"
     english: Optional[str] = "UNKNOWN"
     civic_education: Optional[str] = "UNKNOWN"
@@ -64,16 +63,14 @@ class PredictRequest(BaseModel):
     commerce: Optional[str] = "UNKNOWN"
     government: Optional[str] = "UNKNOWN"
     marketing: Optional[str] = "UNKNOWN"
-    # Test scores (0–10 scale from frontend)
-    aptitude_score_10: Optional[float] = 5.0
-    cognitive_score_10: Optional[float] = 5.0
-    psychometric_avg_5: Optional[float] = 3.0
-    sentiment_avg_5: Optional[float] = 3.0
-    # WAEC / academic metadata
-    waec_credits: Optional[float] = 5.0
-    cgpa: Optional[float] = 0.0
-    course_alignment: Optional[int] = 0
-    waec_year: Optional[int] = 2023
+    # Supplementary diagnostic scores — NOT passed to the XGBoost model.
+    # Used for: (1) post-hoc probability adjustment, (2) Gemini narrative.
+    # Derived categoricals (confidence_level, career_influence) above ARE
+    # model features; they are computed from these scores on the frontend.
+    aptitude_score_10: Optional[float] = None
+    cognitive_score_10: Optional[float] = None
+    psychometric_avg_5: Optional[float] = None
+    sentiment_avg_5: Optional[float] = None
 
 
 class PredictResponse(BaseModel):
