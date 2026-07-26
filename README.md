@@ -72,6 +72,9 @@ graph TB
 - Key pages: `Dashboard`, `Grades`, `Tests`, `Recommendations`, `Profile`, `Auth`.
 - Uses shared utility mapping in `frontend/src/utils/subjectMapper.js` to translate grade rows into backend prediction payloads.
 
+## Dataset Generation & Augmentation
+The dataset used to train the career recommendation model was gathered via a Google Form survey distributed to university students. Due to class imbalances and a small number of initial records (219 rows), data augmentation techniques were applied to generate an additional 200 synthetic rows. The combined dataset used for model training contains 419 rows, ensuring a more balanced and robust training baseline for the ML classifier.
+
 ## Use Case Diagram
 
 ```mermaid
@@ -81,7 +84,7 @@ graph TB
 
   Student --> Register[Register Account]
   Student --> Login[Login]
-  Student --> UploadGrades[Upload Academic Grades]
+  Student --> InputGrades[Input Academic Subject Grades]
   Student --> CompleteTests[Complete Diagnostic Tests]
   Student --> GenerateRecommendation[Generate Career Recommendation]
   Student --> ViewReport[View Recommendation Report]
