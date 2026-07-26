@@ -223,7 +223,6 @@ const Recommendations = () => {
     <div className="animate-fade-in">
       <div className="page-header">
         <h2 className="page-title">My Career Pathway Report</h2>
-        <p className="page-subtitle">XGBoost Classifier + Gemini Generative Recommendations</p>
       </div>
 
       {generating && (
