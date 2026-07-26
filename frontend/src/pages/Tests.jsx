@@ -7,7 +7,7 @@ const TEST_META = [
   { key: 'cognitive', icon: '🧩', label: 'Cognitive Test', desc: 'Measures logical reasoning, sequence completion, and mathematical logic.' },
   { key: 'aptitude', icon: '🎯', label: 'Aptitude Test', desc: 'Identifies natural talents and suitability for different academic paths.' },
   { key: 'psychometric', icon: '🧠', label: 'Psychometric Test', desc: 'Analyzes personality traits, work preferences, and behavioral styles.' },
-  { key: 'sentiment', icon: '💬', label: 'Sentiment Analysis', desc: 'Evaluates your interest, academic motivations, and emotional readiness.' }
+  { key: 'sentiment', icon: '💬', label: 'Sentiment Test', desc: 'Evaluates your interest, academic motivations, and emotional readiness.' }
 ];
 
 const Tests = () => {

@@ -9,7 +9,7 @@ const TEST_META = [
   { key: 'cognitive', label: 'Cognitive Test' },
   { key: 'aptitude', label: 'Aptitude Test' },
   { key: 'psychometric', label: 'Psychometric Test' },
-  { key: 'sentiment', label: 'Sentiment Analysis' },
+  { key: 'sentiment', label: 'Sentiment Test' },
 ];
 
 const normalizeRecommendation = (data) => {

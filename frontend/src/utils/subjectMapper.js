@@ -130,21 +130,20 @@ const letterGradePoint = (grade) => {
 export const buildPredictPayload = (results, department, testScores) => {
   const payload = {
     gender: 'Unknown',
-    age: 17,
     school_type: 'Unknown',
     department: department || 'Science',
     academic_strength: 'Unknown',
     best_subject_category: 'Unknown',
     confidence_level: 'Unknown',
     career_influence: 'Unknown',
+    // Supplementary diagnostic scores — backend strips these before calling the
+    // XGBoost model. They are used for post-hoc probability adjustment and for
+    // the Gemini narrative. confidence_level and career_influence below ARE
+    // model features; they are derived here from these scores.
     aptitude_score_10: numericScore(testScores.aptitude),
     cognitive_score_10: numericScore(testScores.cognitive),
     psychometric_avg_5: numericScore(testScores.psychometric),
     sentiment_avg_5: numericScore(testScores.sentiment),
-    waec_credits: 5,
-    cgpa: 0.0,
-    course_alignment: 0,
-    waec_year: new Date().getFullYear(),
   };
 
   const categoryTotals = {
@@ -153,7 +152,6 @@ export const buildPredictPayload = (results, department, testScores) => {
     Commercial: { score: 0, count: 0 },
   };
   let totalScore = 0;
-  let totalGradePoints = 0;
   let gradeCount = 0;
 
   const uniqueKeys = new Set(Object.values(SUBJECT_TO_API_KEY));
@@ -172,7 +170,6 @@ export const buildPredictPayload = (results, department, testScores) => {
     const grade = scoreToGrade(score);
     payload[apiKey] = grade;
     totalScore += score;
-    totalGradePoints += letterGradePoint(grade);
     gradeCount += 1;
 
     Object.entries(subjectCategoryGroups).forEach(([group, keys]) => {
@@ -184,10 +181,6 @@ export const buildPredictPayload = (results, department, testScores) => {
   });
 
   const averageScore = gradeCount ? totalScore / gradeCount : 0;
-  const averageGradePoint = gradeCount ? totalGradePoints / gradeCount : 5;
-  payload.waec_credits = Math.min(9, Math.max(1, gradeCount));
-  payload.cgpa = parseFloat((averageGradePoint / 2).toFixed(2));
-  payload.course_alignment = Math.round(averageScore / 20);
 
   const categoryRanks = Object.entries(categoryTotals)
     .map(([category, data]) => ({

@@ -1,8 +1,13 @@
 # backend/routers/predict_router.py
 """
 Combined XGBoost + Gemini prediction endpoint.
-POST /predict  → returns ML career, confidence, top-3, Gemini narrative, 
+POST /predict  → returns ML career, confidence, top-3, Gemini narrative,
                  mentors and matched universities — all in one call.
+
+Test scores (aptitude, cognitive, psychometric, sentiment) are stripped from
+the ML feature input before calling run_xgboost(). They are passed separately
+as supplementary signals for post-hoc probability adjustment and for the Gemini
+narrative prompt. They are never seen by model.predict_proba().
 """
 import json
 from fastapi import APIRouter, HTTPException, Depends
@@ -17,7 +22,7 @@ from backend import database as db
 
 router = APIRouter(prefix="/predict", tags=["Prediction"])
 
-# ── University map (mirrors Streamlit app) ────────────────────────────────────
+# ── University map ────────────────────────────────────────────────────────────
 UNIVERSITY_MAP = {
     "Medicine & Health Sciences": [
         {"name": "University of Lagos (UNILAG)", "course": "Medicine & Surgery",
@@ -121,6 +126,15 @@ UNIVERSITY_MAP = {
     ],
 }
 
+# Keys that must be stripped from the ML input (never passed to predict_proba)
+_TEST_SCORE_KEYS = [
+    "aptitude_score_10", "cognitive_score_10",
+    "psychometric_avg_5", "sentiment_avg_5",
+]
+
+# Legacy/non-model fields that may arrive from older frontend builds
+_LEGACY_KEYS = ("waec_credits", "cgpa", "course_alignment", "waec_year", "jamb_score", "age")
+
 
 def _fallback_narrative(name: str, career: str, confidence: float, top3: list) -> str:
     t2 = top3[1]["career"] if len(top3) > 1 else "an alternative"
@@ -158,11 +172,30 @@ Focus on building consistent performance across all subjects. Practice JAMB past
 
 def _build_gemini_prompt(name: str, class_level: str, department: str,
                           top3: list, test_scores: dict) -> str:
-    apt  = test_scores.get("aptitude_score_10", 5) * 10
-    cog  = test_scores.get("cognitive_score_10", 5) * 10
-    psy  = test_scores.get("psychometric_avg_5", 3.0) / 5 * 100
-    sent = test_scores.get("sentiment_avg_5", 3.0) / 5 * 100
+    """Build the Gemini narrative prompt. Handles None test scores gracefully."""
+    apt_raw  = test_scores.get("aptitude_score_10")
+    cog_raw  = test_scores.get("cognitive_score_10")
+    psy_raw  = test_scores.get("psychometric_avg_5")
+    sent_raw = test_scores.get("sentiment_avg_5")
+
+    has_scores = any(v is not None for v in [apt_raw, cog_raw, psy_raw, sent_raw])
+
+    apt  = float(apt_raw  or 5.0) * 10
+    cog  = float(cog_raw  or 5.0) * 10
+    psy  = float(psy_raw  or 3.0) / 5 * 100
+    sent = float(sent_raw or 3.0) / 5 * 100
     dept_txt = f" ({department} dept.)" if department else ""
+
+    scores_block = (
+        f"""DIAGNOSTIC ASSESSMENT SCORES:
+- Cognitive (logic & reasoning): {cog:.0f}%
+- Aptitude (natural talents): {apt:.0f}%
+- Psychometric (personality): {psy:.0f}%
+- Sentiment (motivation & mindset): {sent:.0f}%
+"""
+        if has_scores
+        else "DIAGNOSTIC ASSESSMENT: Not available (scores used to enrich career narrative where possible).\n"
+    )
 
     return f"""You are a warm, expert career guidance counsellor at a top Nigerian secondary school.
 Write a personalised career recommendation report for a student.
@@ -171,12 +204,7 @@ STUDENT PROFILE:
 - Name: {name}
 - Class: {class_level}{dept_txt}
 
-4-TEST SCORES:
-- Cognitive (logic & reasoning): {cog:.0f}%
-- Aptitude (natural talents): {apt:.0f}%
-- Psychometric (personality): {psy:.0f}%
-- Sentiment (motivation & mindset): {sent:.0f}%
-
+{scores_block}
 ML MODEL OUTPUT:
 - Primary career: {top3[0]['career']} (confidence {top3[0]['confidence_percent']}%)
 - 2nd option: {top3[1]['career'] if len(top3) > 1 else 'N/A'} ({top3[1]['confidence_percent'] if len(top3) > 1 else 0}%)
@@ -219,6 +247,16 @@ async def predict(
     Saved to recommendations table for the logged-in user.
     """
     input_dict = student.model_dump()
+
+    # ── Strip fields that must NOT enter the ML model ─────────────────────────
+    # Test scores: supplementary diagnostics — used for post-hoc probability
+    # adjustment and Gemini narrative ONLY; never passed to predict_proba().
+    test_scores = {k: input_dict.pop(k, None) for k in _TEST_SCORE_KEYS}
+
+    # Strip legacy/non-model fields that may still arrive from older clients
+    for key in _LEGACY_KEYS:
+        input_dict.pop(key, None)
+
     # Rename CRS/IRS field to match training column name
     if "christian_religious_studies_islamic_studies" in input_dict:
         input_dict["christian_religious_studies/islamic_studies"] = input_dict.pop(
@@ -226,7 +264,7 @@ async def predict(
         )
 
     # ── 1. XGBoost prediction ─────────────────────────────────────────────────
-    ml_result = run_xgboost(input_dict)
+    ml_result = run_xgboost(input_dict, test_scores=test_scores)
     top3 = ml_result["top_3"]
     career = ml_result["predicted_career"]
     confidence = ml_result["confidence_percent"]
@@ -235,12 +273,6 @@ async def predict(
     universities = UNIVERSITY_MAP.get(career, [])
 
     # ── 3. Gemini narrative ───────────────────────────────────────────────────
-    test_scores = {
-        "aptitude_score_10":  student.aptitude_score_10,
-        "cognitive_score_10": student.cognitive_score_10,
-        "psychometric_avg_5": student.psychometric_avg_5,
-        "sentiment_avg_5":    student.sentiment_avg_5,
-    }
     gemini = get_gemini_client()
     try:
         if gemini is None:
@@ -316,12 +348,18 @@ async def predict(
 def predict_ml(student: PredictRequest):
     """Public ML-only endpoint used by Streamlit and quick integrations."""
     input_dict = student.model_dump()
+
+    # Strip non-model fields
+    test_scores = {k: input_dict.pop(k, None) for k in _TEST_SCORE_KEYS}
+    for key in _LEGACY_KEYS:
+        input_dict.pop(key, None)
+
     if "christian_religious_studies_islamic_studies" in input_dict:
         input_dict["christian_religious_studies/islamic_studies"] = input_dict.pop(
             "christian_religious_studies_islamic_studies"
         )
 
-    ml_result = run_xgboost(input_dict)
+    ml_result = run_xgboost(input_dict, test_scores=test_scores)
     career = ml_result["predicted_career"]
     return MLPredictResponse(
         predicted_career=career,

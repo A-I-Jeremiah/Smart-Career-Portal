@@ -28,12 +28,6 @@ def _clean_env_value(value: str | None) -> str:
 GOOGLE_API_KEY = _clean_env_value(os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY"))
 GEMINI_MODEL   = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
 
-# TEMP DEBUG — remove once the key is confirmed loading correctly
-# print(f"[config.py] .env path: {ENV_PATH}")
-# print(f"[config.py] .env exists: {ENV_PATH.exists()}")
-# print(f"[config.py] GOOGLE_API_KEY length: {len(GOOGLE_API_KEY)}")
-# print(f"[config.py] GOOGLE_API_KEY prefix: {GOOGLE_API_KEY[:6]!r}")
-# print(f"[config.py] GEMINI_MODEL: {GEMINI_MODEL}")
 
 # ── JWT ──────────────────────────────────────────────────────────────────────
 SECRET_KEY        = os.getenv("SECRET_KEY", "smart-career-portal-secret-key-2025")
